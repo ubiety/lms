@@ -32,7 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap'
 gem 'haml'
-gem 'devise'
+gem 'sorcery'
 gem 'pundit'
 gem 'carrierwave'
 gem 'carrierwave-video'
