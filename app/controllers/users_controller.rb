@@ -2,6 +2,12 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    authorize @users
+  end
+
+  def show
+    @user = User.find(param[:id])
+    authorize @user
   end
 
   def new
@@ -15,6 +21,29 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
+  def update
+    @user = User.find(params[:id])
+    authorize @user
+
+    @user.assign_attributes(user_params)
+
+    if @user.save!
+      redirect_to @user, flash: { success: 'User saved' }
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   private
