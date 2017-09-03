@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap'
 gem 'haml'
+gem 'jquery-rails'
 gem 'sorcery'
 gem 'pundit'
 gem 'carrierwave'

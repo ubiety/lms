@@ -12,4 +12,8 @@
  *
  */
 @import 'bootstrap';
-@import 'bootstrap-sprockets';
+
+.background {
+  background-image: url(asset-path('background'));
+  background-size: cover;
+}

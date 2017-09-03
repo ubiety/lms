@@ -2,8 +2,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  attr_accessible :name, :email, :role
-
   enum roles: %w[student instructor admin]
 
   validates :email, presence: true, uniqueness: true
