@@ -1,0 +1,16 @@
+.form-group
+  = f.text_field :first_name, placeholder: 'First name', class: 'form-control'
+.form-row
+  .col.form-group
+    = f.text_field :middle_name, placeholder: 'Middle name',
+                   class: 'form-control'
+  .col.form-group
+    = f.text_field :last_name, placeholder: 'Last name', class: 'form-control'
+.form-group
+  = f.email_field :email, placeholder: 'E-mail address', class: 'form-control'
+.form-row
+  .col.form-group
+    = f.password_field :password, placeholder: 'Password', class: 'form-control'
+  .col.form-group
+    = f.password_field :password_confirmation, class: 'form-control',
+                       placeholder: 'Password confirmation'

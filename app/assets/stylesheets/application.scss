@@ -17,3 +17,11 @@
   background-image: url(asset-path('background'));
   background-size: cover;
 }
+
+html, body {
+  height: 100%;
+}
+
+.full-height {
+  height: inherit;
+}

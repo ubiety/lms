@@ -1,0 +1,10 @@
+.row.align-items-center.full-height
+  .col-md-6.mx-auto
+    = form_for @user do |f|
+      .card
+        .card-header
+          %h3 Sign up
+        .card-body
+          = render 'users/form', f: f
+        .card-footer
+          = f.submit 'Sign up', class: 'btn btn-primary float-right'
