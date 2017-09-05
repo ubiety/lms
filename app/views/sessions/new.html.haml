@@ -5,6 +5,7 @@
         .card-header
           %h3 Login
         .card-body
+          = flash_messages
           .form-group
             = email_field_tag :email, nil, class: 'form-control',
                               placeholder: 'E-mail'

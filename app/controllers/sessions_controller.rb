@@ -1,6 +1,9 @@
 # Sessions controller
 # used to sign a user in and out
 class SessionsController < ApplicationController
+  skip_before_action :require_login, except: %w[destroy]
+  layout 'application'
+
   def new
     @user = User.new
   end
@@ -9,7 +12,7 @@ class SessionsController < ApplicationController
     if (@user = login(params[:email], params[:password], params[:remember_me]))
       redirect_back_or_to(:users, success: 'Logged in successfully')
     else
-      Flash.now[:error] = 'Login failed'
+      flash.now[:error] = 'Login failed'
       render action: :new
     end
   end
