@@ -15,7 +15,7 @@
         - @users.each do |u|
           %tr
             %td= user_avatar u, size: '50x50'
-            %td= u.first_name
+            %td= u.full_name
             %td= u.email
             %td= u.role.capitalize
             %td.d-flex.justify-content-end
