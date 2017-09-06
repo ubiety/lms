@@ -30,15 +30,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'avatar_magick'
 gem 'bootstrap'
+gem 'dragonfly'
 gem 'font-awesome-sass'
 gem 'haml'
 gem 'jquery-rails'
 gem 'sorcery'
 gem 'pundit'
-gem 'carrierwave'
-gem 'carrierwave-video'
-gem 'carrierwave-video-thumbnailer'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

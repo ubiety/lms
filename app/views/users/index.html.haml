@@ -6,7 +6,7 @@
     %table.table.table-striped
       %thead
         %tr
-          %th.w-10
+          %th
           %th Name
           %th Email
           %th Role
@@ -14,7 +14,7 @@
       %tbody
         - @users.each do |u|
           %tr
-            %td= avatar(u)
+            %td= image_tag u.avatar_url, size: '50x50'
             %td= u.first_name
             %td= u.email
             %td= u.role.capitalize

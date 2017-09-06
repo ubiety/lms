@@ -1,5 +1,6 @@
 # User model
 class User < ApplicationRecord
+  include Avatarable
   authenticates_with_sorcery!
 
   enum role: %w[student instructor admin]
@@ -11,11 +12,15 @@ class User < ApplicationRecord
   validates :password_confirmation, on: :create, presence: true
   validates :password, confirmation: true, on: :create, presence: true
 
-  def initials
+  def full_name
     if last_name.present?
-      "#{first_name[0]}#{last_name[0]}"
+      "#{first_name} #{last_name}"
     else
-      first_name[0]
+      first_name
     end
+  end
+
+  def avatar_text
+    full_name
   end
 end
