@@ -1,0 +1,15 @@
+.row.full-height.aligh-items-center
+  .col-md-6
+    = form_for @user, password_reset_path(@token), html: { method: :put } do |f|
+      .card
+        .card-header
+          %h3 Reset Password
+        .card-body
+          .form-group
+            = f.input :email, class: 'form-control-plaintext', readonly: true
+          .form-group
+            = f.input :password, class: 'form-control'
+          .form-group
+            = f.input :password_confirmation, class: 'form-control'
+        .card-footer
+          = f.submit 'Reset', class: 'btn btn-primary float-right'

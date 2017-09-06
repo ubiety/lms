@@ -1,11 +1,15 @@
 # User policy
-class UsersPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   def index?
-    user.role?(:admin) || user.role?(:instructor)
+    user.admin? || user.instructor?
+  end
+
+  def new?
+    user.admin?
   end
 
   def show?
-    true
+    user.admin? || user.instructor?
   end
 
   def edit?

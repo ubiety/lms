@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title LMS
+    %title LMS - Admin
     = csrf_meta_tags
 
     = stylesheet_link_tag 'application', media: 'all',
@@ -10,4 +10,10 @@
 
   %body.background
     .container-fluid.full-height
-      = yield
+      %nav.navbar.navbar-dark.admin-navbar-color
+        = link_to 'Brand', root_path, class: 'navbar-brand'
+      .row.mt-3
+        .col-md-2
+          = render 'shared/admin/sidebar_nav'
+        .col-md-10
+          = yield

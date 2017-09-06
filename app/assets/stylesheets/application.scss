@@ -12,4 +12,28 @@
  *
  */
 @import 'bootstrap';
-@import 'bootstrap-sprockets';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+$color-one: #593481;
+$color-two: #D08D87;
+$color-three: #160D41;
+$color-four: #8388BE;
+$color-five: #5557A4;
+
+.background {
+  background-image: url(asset-path('background'));
+  background-size: cover;
+}
+
+html, body {
+  height: 100%;
+}
+
+.full-height {
+  height: inherit;
+}
+
+.admin-navbar-color {
+  background-color: $color-three;
+}
