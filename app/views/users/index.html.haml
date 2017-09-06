@@ -3,7 +3,7 @@
     = link_to 'New User', new_user_path, class: 'btn btn-primary float-right'
     %h4 Users
   .card-body
-    %table.table
+    %table.table.table-striped
       %thead
         %tr
           %th Name
@@ -16,7 +16,8 @@
             %td= u.first_name
             %td= u.email
             %td= u.role.capitalize
-            %td
-              = link_to 'Edit', edit_user_path(u)
+            %td.d-flex.justify-content-end
+              = link_to 'Edit', edit_user_path(u),
+                        class: 'btn btn-outline-primary mr-2'
               = link_to 'Delete', user_path(u), class: 'btn btn-outline-danger',
                         method: 'delete'

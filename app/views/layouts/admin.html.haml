@@ -13,7 +13,7 @@
       %nav.navbar.navbar-dark.admin-navbar-color
         = link_to 'Brand', root_path, class: 'navbar-brand'
       .row.mt-3
-        .col-md-3
-          Admin Sidebar
-        .col-md-9
+        .col-md-2
+          = render 'shared/admin/sidebar_nav'
+        .col-md-10
           = yield
