@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if user.save!
+    if @user.save!
       redirect_to @user, flash: { success: 'User signed up successfully' }
     else
       render :new
@@ -50,8 +50,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    require(:user).permit(:email, :name, :role, :password,
-                          :password_confirmation, :first_name, :middle_name,
-                          :last_name)
+    params.require(:user).permit(:email, :name, :role, :first_name,
+                                 :middle_name, :last_name, :password,
+                                 :password_confirmation)
   end
 end
