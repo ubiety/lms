@@ -14,3 +14,7 @@
   .col.form-group
     = f.password_field :password_confirmation, class: 'form-control',
                        placeholder: 'Password confirmation'
+.form-row
+  .col.form-group
+    = f.select :role, User.roles.keys.map { |k| [k.titleize, k] }, {},
+               class: 'custom-select'

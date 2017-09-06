@@ -4,8 +4,12 @@ class UserPolicy < ApplicationPolicy
     user.admin? || user.instructor?
   end
 
+  def new?
+    user.admin?
+  end
+
   def show?
-    true
+    user.admin? || user.instructor?
   end
 
   def edit?

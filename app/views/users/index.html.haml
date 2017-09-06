@@ -1,7 +1,22 @@
 .card
   .card-header
+    = link_to 'New User', new_user_path, class: 'btn btn-primary float-right'
     %h4 Users
   .card-body
-    - @users.each do |u|
-      = u.first_name
-      = u.email
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th Email
+          %th Role
+          %th Actions
+      %tbody
+        - @users.each do |u|
+          %tr
+            %td= u.first_name
+            %td= u.email
+            %td= u.role.capitalize
+            %td
+              = link_to 'Edit', edit_user_path(u)
+              = link_to 'Delete', user_path(u), class: 'btn btn-outline-danger',
+                        method: 'delete'
