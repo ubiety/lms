@@ -6,6 +6,7 @@
     %table.table.table-striped
       %thead
         %tr
+          %th.w-10
           %th Name
           %th Email
           %th Role
@@ -13,6 +14,7 @@
       %tbody
         - @users.each do |u|
           %tr
+            %td= avatar(u)
             %td= u.first_name
             %td= u.email
             %td= u.role.capitalize

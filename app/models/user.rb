@@ -10,4 +10,12 @@ class User < ApplicationRecord
   validates :password, on: :create, presence: true
   validates :password_confirmation, on: :create, presence: true
   validates :password, confirmation: true, on: :create, presence: true
+
+  def initials
+    if last_name.present?
+      "#{first_name[0]}#{last_name[0]}"
+    else
+      first_name[0]
+    end
+  end
 end

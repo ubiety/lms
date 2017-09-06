@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
@@ -21,6 +22,8 @@ $color-three: #160D41;
 $color-four: #8388BE;
 $color-five: #5557A4;
 
+@import 'avatar';
+
 .background {
   background-image: url(asset-path('background'));
   background-size: cover;
@@ -28,10 +31,6 @@ $color-five: #5557A4;
 
 html, body {
   height: 100%;
-}
-
-.full-height {
-  height: inherit;
 }
 
 .admin-navbar-color {

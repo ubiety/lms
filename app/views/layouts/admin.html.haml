@@ -9,9 +9,20 @@
     = javascript_include_tag 'application', data: { turbolinks_track: 'reload' }
 
   %body.background
-    .container-fluid.full-height
-      %nav.navbar.navbar-dark.admin-navbar-color
+    .container-fluid.h-100
+      %nav.navbar.navbar-dark.admin-navbar-color.navbar-expand-md
         = link_to 'Brand', root_path, class: 'navbar-brand'
+        .collapse.navbar-collapse
+          %ul.navbar-nav.ml-auto
+            %li.nav-item.dropdown
+              = link_to current_user.first_name, '#', id: 'userMenu',
+                        class: 'nav-link dropdown-toggle',
+                        data: { toggle: 'dropdown' },
+                        aria: { haspopup: 'true', expanded: 'false' }
+              .dropdown-menu.dropdown-menu-right{ aria: { labelledby: 'userMenu' } }
+                = link_to logout_path, class: 'dropdown-item' do
+                  = icon('power-off')
+                  Logout
       .row.mt-3
         .col-md-2
           = render 'shared/admin/sidebar_nav'
