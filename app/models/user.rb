@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   enum role: %w[student instructor admin]
 
+  dragonfly_accessor :avatar
+
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :role, presence: true

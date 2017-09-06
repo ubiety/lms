@@ -9,7 +9,7 @@ module Avatarable
     delegate :url_helpers, to: 'Rails.application.routes'
   end
 
-  def avatar_url
+  def default_avatar_url
     url_helpers.send(:avatar_path, avatar_size, avatar_color, avatar_text)
   end
 

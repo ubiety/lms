@@ -14,7 +14,7 @@
       %tbody
         - @users.each do |u|
           %tr
-            %td= image_tag u.avatar_url, size: '50x50'
+            %td= user_avatar u, size: '50x50'
             %td= u.first_name
             %td= u.email
             %td= u.role.capitalize
