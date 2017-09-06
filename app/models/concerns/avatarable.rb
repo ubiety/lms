@@ -10,10 +10,11 @@ module Avatarable
   end
 
   def default_avatar_url
-    url_helpers.send(:avatar_path, avatar_size, avatar_color, avatar_text)
+    url_helpers.send(:avatar_path, default_avatar_size, avatar_color,
+                     avatar_text)
   end
 
-  def avatar_size
+  def default_avatar_size
     150
   end
 
