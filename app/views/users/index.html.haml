@@ -1,0 +1,7 @@
+.card
+  .card-header
+    %h4 Users
+  .card-body
+    - @users.each do |u|
+      = u.first_name
+      = u.email

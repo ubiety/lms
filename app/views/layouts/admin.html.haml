@@ -1,0 +1,19 @@
+!!! 5
+%html
+  %head
+    %title LMS - Admin
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: 'all',
+                          data: { turbolinks_track: 'reload' }
+    = javascript_include_tag 'application', data: { turbolinks_track: 'reload' }
+
+  %body.background
+    .container-fluid.full-height
+      %nav.navbar.navbar-dark.admin-navbar-color
+        = link_to 'Brand', root_path, class: 'navbar-brand'
+      .row.mt-3
+        .col-md-3
+          Admin Sidebar
+        .col-md-6
+          = yield

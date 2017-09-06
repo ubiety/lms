@@ -13,13 +13,14 @@ class ApplicationController < ActionController::Base
   private
 
   def layout_for_role
-    case current_user.role
-    when User.roles[:student]
-      'student'
-    when User.roles[:instructor]
-      'instructor'
-    when User.roles[:admin]
+    if current_user.admin?
       'admin'
+    elsif current_user.instructor?
+      'instructor'
+    elsif current_user.student?
+      'student'
+    else
+      'application'
     end
   end
 end
