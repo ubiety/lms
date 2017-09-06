@@ -1,6 +1,8 @@
 # User model
 class User < ApplicationRecord
+  extend Dragonfly::Model
   include Avatarable
+
   authenticates_with_sorcery!
 
   enum role: %w[student instructor admin]
