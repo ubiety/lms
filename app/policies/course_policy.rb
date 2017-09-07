@@ -16,13 +16,17 @@ class CoursePolicy < ApplicationPolicy
     true
   end
 
+  def delete?
+    user.admin?
+  end
+
   # Policy scope
   class Scope < Scope
     def resolve
       if user.admin?
         scope.all
       elsif user.instructor?
-        scope { where instructors.include? user }
+        scope.joins(:enrolments).where('user_id = :user_id', user_id: user.id)
       else
         scope
       end
