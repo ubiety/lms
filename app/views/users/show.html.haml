@@ -1,0 +1,12 @@
+.card
+  .card-header
+    = link_to edit_user_path(@user), class: 'btn btn-primary float-right' do
+      = icon 'edit'
+      Edit
+    %h3= @user.full_name
+  .card-body
+    .row
+      .col-md-3
+        = user_avatar @user, class: 'rounded-circle'
+      .col
+        = @user.role.titleize

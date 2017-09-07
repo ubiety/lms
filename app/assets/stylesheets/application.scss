@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
@@ -30,10 +31,14 @@ html, body {
   height: 100%;
 }
 
-.full-height {
-  height: inherit;
-}
-
 .admin-navbar-color {
   background-color: $color-three;
+}
+
+.student-navbar-color {
+  background-color: $color-four;
+}
+
+.instructor-navbar-color {
+  background-color: $color-two;
 }

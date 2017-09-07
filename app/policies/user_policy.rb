@@ -9,21 +9,25 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? || user.instructor?
+    true
   end
 
   def edit?
-    user.role?(:admin) || user.role?(:instructor)
+    true
+  end
+
+  def update?
+    true
   end
 
   def destroy?
-    user.role?(:admin)
+    user.admin?
   end
 
   # Scope
   class Scope < Scope
     def resolve
-      if user.role?(:admin)
+      if user.admin?
         scope.all
       else
         scope.where(id: user.id)

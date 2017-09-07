@@ -18,3 +18,7 @@
   .col.form-group
     = f.select :role, User.roles.keys.map { |k| [k.titleize, k] },
                {}, class: 'custom-select'
+  .col.form-group
+    %label.custom-file
+      = f.file_field :avatar, class: 'custom-file-input'
+      %span.custom-file-control

@@ -1,0 +1,8 @@
+= form_for @course do |f|
+  .card
+    .card-header
+      %h4 New Course
+    .card-body
+      = render 'courses/form', f: f
+    .card-footer
+      = f.submit class: 'btn btn-primary float-right'

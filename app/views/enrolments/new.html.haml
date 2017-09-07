@@ -1,0 +1,10 @@
+= form_for [@course, @enrolment] do |f|
+  .card
+    .card-header
+      %h3
+        Enroll Student in
+        = @course.name
+    .card-body
+      = render 'enrolments/form', f: f, students: @students
+    .card-footer
+      = f.submit class: 'btn btn-primary float-right'

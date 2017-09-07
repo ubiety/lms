@@ -1,0 +1,39 @@
+.card
+  .card-header
+    - if policy(Course).new?
+      = link_to new_course_path, class: 'btn btn-primary float-right' do
+        = icon 'university'
+        New Course
+    %h3 Courses
+  .card-body
+    %table.table-striped.table
+      %thead
+        %tr
+          %th.w-50 Name
+          %th.w-25 Instructors
+          %th.text-center Actions
+      %tbody
+        - @courses.each do |c|
+          %tr
+            %td= link_to c.name, course_path(c), class: 'btn btn-link'
+            %td
+              - c.instructors.each do |i|
+                = user_avatar i, size: '50x50', class: 'rounded-circle'
+                = i.full_name
+            %td.d-flex.justify-content-end
+              - if policy(Enrolment).new?
+                = link_to new_course_enrolment_path(c),
+                          class: 'btn btn-outline-success mr-2' do
+                  = icon 'user-plus'
+                  Enroll
+              - if policy(c).edit?
+                = link_to edit_course_path(c),
+                          class: 'btn btn-outline-primary mr-2' do
+                  = icon 'edit'
+                  Edit
+              - if policy(c).delete?
+                = link_to course_path(c), class: 'btn btn-outline-danger',
+                          method: :delete,
+                          data: { confirm: "Delete course #{c.name}?" } do
+                  = icon 'trash'
+                  Delete

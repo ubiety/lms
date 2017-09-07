@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(param[:id])
+    @user = User.find(params[:id])
     authorize @user
   end
 
@@ -52,6 +52,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :name, :role, :first_name,
                                  :middle_name, :last_name, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :avatar)
   end
 end
