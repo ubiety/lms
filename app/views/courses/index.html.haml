@@ -1,4 +1,23 @@
 .card
   .card-header
-    = link_to 'New Course', new_course_path, class: 'btn btn-primary float-right'
+    = link_to 'New Course', new_course_path,
+              class: 'btn btn-primary float-right'
     %h3 Courses
+  .card-body
+    %table.table-striped.table
+      %thead
+        %tr
+          %th.w-75 Name
+          %th Actions
+      %tbody
+        - @courses.each do |c|
+          %tr
+            %td= c.name
+            %td.d-flex.justify-contents-end
+              = link_to edit_course_path(c), class: 'btn btn-outline-primary' do
+                = icon 'edit'
+                Edit
+              = link_to course_path(c), class: 'btn btn-outline-danger',
+                        method: :delete do
+                = icon 'trash'
+                Delete

@@ -4,6 +4,18 @@ class CoursePolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    user.admin?
+  end
+
+  def create?
+    user.admin?
+  end
+
+  def show?
+    true
+  end
+
   # Policy scope
   class Scope < Scope
     def resolve
