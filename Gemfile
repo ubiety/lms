@@ -28,8 +28,9 @@ gem 'sorcery'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'coveralls'
-  gem 'cucumber-rails'
+  gem 'coveralls', require: false
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-byebug'
