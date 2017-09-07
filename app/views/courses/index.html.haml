@@ -22,7 +22,7 @@
                 = i.full_name
             %td.d-flex.justify-content-end
               - if policy(Enrolment).new?
-                = link_to new_enrolment_path,
+                = link_to new_course_enrolment_path(c),
                           class: 'btn btn-outline-success mr-2' do
                   = icon 'user-plus'
                   Enrol

@@ -1,3 +1,25 @@
-.card
-  .card-header
-    %h3= @course.name
+.row
+  .col
+    .card
+      .card-header
+        %span.float-right
+          Instructor:
+          - @course.instructors.each do |i|
+            = user_avatar i, size: '50x50', class: 'rounded-circle'
+            = i.full_name
+        %h3= @course.name
+      .card-body
+        %p.card-text Course Description
+
+.row.mt-3
+  .col
+    .card-columns
+      - @course.students.each do |s|
+        .card
+          .card-header
+            = user_avatar s, size: '50x50', class: 'rounded-circle'
+            = s.full_name
+          .card-body
+            %span
+              E-Mail:
+              = s.email
