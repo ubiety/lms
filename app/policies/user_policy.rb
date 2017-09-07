@@ -9,15 +9,15 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? || user.instructor?
+    true
   end
 
   def edit?
-    user.admin? || user.instructor?
+    true
   end
 
   def update?
-    user.admin? || user.instructor?
+    true
   end
 
   def destroy?

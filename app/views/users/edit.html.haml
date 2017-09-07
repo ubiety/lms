@@ -5,5 +5,5 @@
     .card-body
       = render 'users/form', f: f
     .card-footer
-      = link_to 'Cancel', users_path, class: 'btn btn-link'
+      = link_to 'Cancel', user_path(@user), class: 'btn btn-link'
       = f.submit class: 'btn btn-primary float-right'
