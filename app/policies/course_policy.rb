@@ -9,7 +9,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    new?
   end
 
   def show?
@@ -21,7 +21,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def edit?
-    user.admin?
+    new?
   end
 
   # Policy scope

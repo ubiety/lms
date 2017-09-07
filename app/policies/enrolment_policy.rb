@@ -4,6 +4,10 @@ class EnrolmentPolicy < ApplicationPolicy
     user.admin? || user.instructor?
   end
 
+  def create?
+    new?
+  end
+
   # policy scope
   class Scope < Scope
     def resolve

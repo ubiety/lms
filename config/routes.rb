@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :courses do
-    resources :enrolments
+    resources :enrolments, only: %w[new create destroy]
   end
   resources :sessions, only: %w[create]
   resources :password_resets, only: %w[edit create update]

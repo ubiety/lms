@@ -3,6 +3,8 @@ class User < ApplicationRecord
   extend Dragonfly::Model
   include Avatarable
 
+  html_schema_type :Person
+
   has_many :enrolments
   has_many :courses, through: :enrolments
 
