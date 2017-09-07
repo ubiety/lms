@@ -14,4 +14,14 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:enrolments) }
     it { is_expected.to have_many(:courses).through(:enrolments) }
   end
+
+  context 'methods' do
+    let(:user) { FactoryGirl.create :user }
+
+    subject { user.full_name }
+    it { is_expected.to match('John Doe') }
+
+    subject { user.avatar_text }
+    it { is_expected.to match('John Doe') }
+  end
 end
