@@ -20,6 +20,10 @@ class CoursePolicy < ApplicationPolicy
     user.admin?
   end
 
+  def edit?
+    user.admin?
+  end
+
   # Policy scope
   class Scope < Scope
     def resolve

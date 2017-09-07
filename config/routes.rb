@@ -5,7 +5,7 @@ Rails.application.routes.draw do
                  size: params[:size], background_color: params[:background])
   }, as: :avatar
 
-  resources :users, :courses
+  resources :users, :courses, :enrolments
   resources :sessions, only: %w[create]
   resources :password_resets, only: %w[edit create update]
 

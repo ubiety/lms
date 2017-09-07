@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'avatar_magick'
 gem 'bootstrap'
+gem 'data-confirm-modal'
 gem 'dragonfly'
 gem 'font-awesome-sass'
 gem 'haml'
