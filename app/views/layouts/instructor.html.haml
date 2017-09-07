@@ -1,7 +1,7 @@
 !!! 5
 %html{ lang: 'en' }
   %head
-    %title LMS - Admin
+    %title LMS - Instructor
     = csrf_meta_tags
 
     = stylesheet_link_tag 'application', media: 'all',
@@ -10,7 +10,7 @@
 
   %body.background
     .container-fluid.h-100
-      %nav.navbar.navbar-dark.admin-navbar-color.navbar-expand-md
+      %nav.navbar.navbar-dark.navbar-expand-md.instructor-navbar-color
         = link_to 'Brand', root_path, class: 'navbar-brand'
         .collapse.navbar-collapse
           %ul.navbar-nav.ml-auto
@@ -30,6 +30,6 @@
           = flash_messages
       .row.mt-3
         .col-md-2
-          = render 'shared/admin/sidebar_nav'
+          = render 'shared/instructor/sidebar_nav'
         .col-md-10
           = yield

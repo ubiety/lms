@@ -1,7 +1,7 @@
 # Course controller
 class CoursesController < ApplicationController
   def index
-    @courses = Course.all
+    @courses = policy_scope(Course)
     authorize @courses
   end
 

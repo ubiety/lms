@@ -19,8 +19,10 @@ class CoursePolicy < ApplicationPolicy
   # Policy scope
   class Scope < Scope
     def resolve
-      if user.admin? || user.instructor?
+      if user.admin?
         scope.all
+      elsif user.instructor?
+        scope { where instructors.include? user }
       else
         scope
       end
