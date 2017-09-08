@@ -24,6 +24,14 @@ class CoursePolicy < ApplicationPolicy
     new?
   end
 
+  def update?
+    edit?
+  end
+
+  def destroy?
+    user.admin?
+  end
+
   # Policy scope
   class Scope < Scope
     def resolve
