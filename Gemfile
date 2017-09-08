@@ -5,26 +5,25 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bcrypt', '~> 3.1.7'
-gem 'coffee-rails', '~> 4.2'
-gem 'jbuilder', '~> 2.5'
-gem 'pg'
-gem 'puma', '~> 3.7'
-gem 'rails', '~> 5.1.3'
-gem 'sass-rails', '~> 5.0'
-gem 'turbolinks', '~> 5'
-gem 'uglifier', '>= 1.3.0'
-
 gem 'avatar_magick'
+gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap'
+gem 'coffee-rails', '~> 4.2'
 gem 'data-confirm-modal'
 gem 'dragonfly'
 gem 'font-awesome-sass'
 gem 'green_monkey'
 gem 'haml'
+gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'pg'
+gem 'puma', '~> 3.7'
 gem 'pundit'
+gem 'rails', '~> 5.1.3'
+gem 'sass-rails', '~> 5.0'
 gem 'sorcery'
+gem 'turbolinks', '~> 5'
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -32,8 +31,10 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'pundit-matchers'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
