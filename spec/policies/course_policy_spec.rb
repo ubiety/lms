@@ -1,7 +1,7 @@
 RSpec.describe CoursePolicy do
   subject { described_class.new(user, record) }
 
-  let(:record) { FactoryGirl.create :course }
+  let(:record) { Course.new }
 
   context 'student' do
     let(:user) { FactoryGirl.create :user }
