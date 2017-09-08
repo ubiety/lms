@@ -34,6 +34,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'pundit-matchers'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
