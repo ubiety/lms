@@ -1,7 +1,7 @@
 RSpec.describe UserPolicy do
   subject { described_class.new(user, record) }
 
-  let(:record) { FactoryGirl.create :user }
+  let(:record) { User.new }
 
   context 'student' do
     let(:user) { FactoryGirl.create :user }
