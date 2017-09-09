@@ -1,5 +1,4 @@
 Feature: Login
-
 As a guest
 I want to be greeted by the login page
 
