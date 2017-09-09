@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/coder2000/lms/tree/HEAD)
-
-[Full Changelog](https://github.com/coder2000/lms/compare/0.0.1...HEAD)
+## [0.0.5](https://github.com/coder2000/lms/tree/0.0.5) (2017-09-09)
+[Full Changelog](https://github.com/coder2000/lms/compare/0.0.1...0.0.5)
 
 **Merged pull requests:**
 
