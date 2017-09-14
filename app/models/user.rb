@@ -1,5 +1,8 @@
 # User model
 class User < ApplicationRecord
+  has_merit
+  has_paper_trail
+
   extend Dragonfly::Model
   include Avatarable
 

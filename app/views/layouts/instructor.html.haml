@@ -16,9 +16,10 @@
               = link_to logout_path, class: 'dropdown-item' do
                 = icon('power-off')
                 Logout
-    .row.mt-3
-      .col
-        = flash_messages
+    - unless flash.empty?
+      .row.mt-3
+        .col
+          = flash_messages
     .row.mt-3
       .col-md-2
         = render 'shared/instructor/sidebar_nav'

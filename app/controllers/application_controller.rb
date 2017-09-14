@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
   before_action :require_login
+  before_action :set_paper_trail_whodunnit
   layout :layout_for_role
 
   def not_authenticated

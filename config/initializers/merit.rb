@@ -31,3 +31,18 @@ end
 # }].each do |attrs|
 #   Merit::Badge.create! attrs
 # end
+
+[
+  {
+    id: 0,
+    name: 'new-student',
+    description: 'New Student'
+  },
+  {
+    id: 1,
+    name: 'joined-class',
+    description: 'Enrolled in a class'
+  }
+].each do |attrs|
+  Merit::Badge.create! attrs
+end
