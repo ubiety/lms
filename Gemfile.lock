@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/ActsAsParanoid/acts_as_paranoid.git
+  revision: 6fabadbb31e89f9be206c141387a8977b7ce7781
+  specs:
+    acts_as_paranoid (1.0.0.beta)
+      activerecord (>= 4.2, < 6.0)
+      activesupport (>= 4.2, < 6.0)
+
+GIT
   remote: https://github.com/jnettome/merit.git
   revision: e017f9ddb2cd7ced72d99ebf4fd962b71b6958d9
   specs:
@@ -354,6 +362,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to
+  acts_as_paranoid!
   avatar_magick
   baby_squeel
   bcrypt (~> 3.1.7)

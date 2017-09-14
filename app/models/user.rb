@@ -2,6 +2,7 @@
 class User < ApplicationRecord
   has_merit
   has_paper_trail
+  acts_as_paranoid
 
   extend Dragonfly::Model
   include Avatarable
