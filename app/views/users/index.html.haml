@@ -1,17 +1,20 @@
 .card
   .card-header
-    = link_to new_user_path, class: 'btn btn-primary float-right' do
-      = icon 'user'
-      New User
-    %h4 Users
-  .card-body
-    .row.justify-content-center
+    .row
+      .col-md-3
+        %h4 Users
       .col-md-6
-        = search_form_for @q, class: 'form-inline' do |f|
-          .form-group
-            = f.search_field :full_name_cont, class: 'form-control mb-2 mr-2',
-                             placeholder: true
-          = f.submit class: 'btn btn-success'
+        %span.mx-auto
+          = search_form_for @q, class: 'form-inline' do |f|
+            .form-group
+              = f.search_field :full_name_cont, class: 'form-control mb-2 mr-2',
+                               placeholder: true
+            = f.submit class: 'btn btn-success'
+      .col-md-3
+        = link_to new_user_path, class: 'btn btn-primary float-right' do
+          = icon 'user'
+          New User
+  .card-body
     .row
       .col
       %table.table.table-striped
