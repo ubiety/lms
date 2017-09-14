@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'active_link_to'
+gem 'acts_as_paranoid', github: 'ActsAsParanoid/acts_as_paranoid'
 gem 'avatar_magick'
 gem 'baby_squeel'
 gem 'bcrypt', '~> 3.1.7'
@@ -25,6 +26,7 @@ gem 'pg'
 gem 'puma', '~> 3.7'
 gem 'pundit'
 gem 'rails', '~> 5.1.3'
+gem 'ransack'
 gem 'sass-rails', '~> 5.0'
 gem 'skylight'
 gem 'sorcery'

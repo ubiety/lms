@@ -1,7 +1,8 @@
 # Users controller
 class UsersController < ApplicationController
   def index
-    @users = User.all.page params[:page]
+    @q = User.ransack(params[:q])
+    @users = @q.result.order(:last_name).page params[:page]
     authorize @users
   end
 
@@ -46,6 +47,11 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     authorize @user
+    if @user.destroy!
+      redirect_to users_path, flash: { success: 'User deleted' }
+    else
+      redirect_to @user
+    end
   end
 
   private
