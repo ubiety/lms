@@ -24,6 +24,8 @@ class User < ApplicationRecord
   validates :password_confirmation, on: :create, presence: true
   validates :password, confirmation: true, on: :create, presence: true
 
+  paginates_per 5
+
   def full_name
     if last_name.present?
       "#{first_name} #{last_name}"
