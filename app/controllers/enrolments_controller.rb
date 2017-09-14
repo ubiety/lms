@@ -3,7 +3,7 @@ class EnrolmentsController < ApplicationController
   def new
     @course = Course.find(params[:course_id])
     @enrolment = @course.enrolments.new
-    @students = User.where role: User.roles[:student]
+    @students = User.joins(:courses).where.has { role == User.roles[:student] }
     authorize @enrolment
   end
 

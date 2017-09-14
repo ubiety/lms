@@ -1,7 +1,7 @@
 # Users controller
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.page params[:page]
     authorize @users
   end
 
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    authorize @user
     if @user.save!
       redirect_to @user, flash: { success: 'User signed up successfully' }
     else

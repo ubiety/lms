@@ -1,5 +1,8 @@
 # User model
 class User < ApplicationRecord
+  has_merit
+  has_paper_trail
+
   extend Dragonfly::Model
   include Avatarable
 
@@ -20,6 +23,8 @@ class User < ApplicationRecord
   validates :password, on: :create, presence: true
   validates :password_confirmation, on: :create, presence: true
   validates :password, confirmation: true, on: :create, presence: true
+
+  paginates_per 5
 
   def full_name
     if last_name.present?
