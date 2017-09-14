@@ -2,8 +2,9 @@
 %html{ lang: 'en' }
   %head
     %title
-      LMS -
-      = title
+      LMS
+      - unless title.empty?
+        = "- #{title}"
     %meta{ charset: 'UTF-8' }
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all',
