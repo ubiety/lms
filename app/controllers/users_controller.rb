@@ -1,7 +1,8 @@
 # Users controller
 class UsersController < ApplicationController
   def index
-    @users = User.all.page params[:page]
+    @q = User.ransack(params[:q])
+    @users = @q.result.order(:last_name).page params[:page]
     authorize @users
   end
 

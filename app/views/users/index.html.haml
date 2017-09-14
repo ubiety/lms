@@ -5,6 +5,13 @@
       New User
     %h4 Users
   .card-body
+    .row.justify-content-center
+      .col-md-6
+        = search_form_for @q, class: 'form-inline' do |f|
+          .form-group
+            = f.search_field :full_name_cont, class: 'form-control mb-2 mr-2',
+                             placeholder: true
+          = f.submit class: 'btn btn-success'
     .row
       .col
       %table.table.table-striped
