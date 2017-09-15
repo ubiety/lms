@@ -17,9 +17,10 @@
           %tr
             %td= link_to c.name, course_path(c), class: 'btn btn-link'
             %td
-              - c.instructors.each do |i|
-                = user_avatar i, size: '50x50', class: 'rounded-circle'
-                = i.full_name
+              - if c.instructor
+                = user_avatar c.instructor, size: '50x50',
+                              class: 'rounded-circle'
+                = c.instructor.full_name
             %td.d-flex.justify-content-end
               - if policy(Enrolment).new?
                 = link_to new_course_enrolment_path(c),

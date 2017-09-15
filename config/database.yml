@@ -29,7 +29,7 @@ test: &test
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: lms_pro
 
 cucumber:
   <<: *test

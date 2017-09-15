@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_many :enrolments
   has_many :courses, through: :enrolments
+  has_many :taught_courses, class_name: 'Course', foreign_key: :instructor_id
 
   authenticates_with_sorcery!
 

@@ -4,9 +4,9 @@
       .card-header
         %span.float-right
           Instructor:
-          - @course.instructors.each do |i|
-            = user_avatar i, size: '50x50', class: 'rounded-circle'
-            = i.full_name
+          = user_avatar @course.instructor, size: '50x50',
+                        class: 'rounded-circle'
+          = @course.instructor.full_name
         %h3= @course.name
       .card-body
         %p.card-text Course Description

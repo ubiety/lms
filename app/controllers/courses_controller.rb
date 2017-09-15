@@ -7,7 +7,25 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @instructors = User.where('role = ?', User.roles[:instructor])
     authorize @course
+  end
+
+  def edit
+    @course = Course.find(params[:id])
+    @instructors = User.where('role = ?', User.roles[:instructor])
+    authorize @course
+  end
+
+  def update
+    @course = Course.find(params[:id])
+    authorize @course
+    @course.update_attributes(course_params)
+    if @course.save!
+      redirect_to course_path(@course), flash: { success: 'Course updated' }
+    else
+      render action: :edit
+    end
   end
 
   def create
@@ -28,6 +46,6 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name)
+    params.require(:course).permit(:name, :instructor_id)
   end
 end
