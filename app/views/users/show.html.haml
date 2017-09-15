@@ -1,18 +1,29 @@
-.card
-  .card-header
-    = link_to edit_user_path(@user), class: 'btn btn-primary float-right' do
-      = icon 'edit'
-      Edit
-    %h3= @user.full_name
-  .card-body
-    .row
-      .col-md-3
-        = user_avatar @user, class: 'rounded-circle'
-      .col
+.row
+  .col
+    .card
+      .card-header
+        = link_to edit_user_path(@user), class: 'btn btn-primary float-right' do
+          = icon 'edit'
+          Edit
+        %h3= @user.full_name
+      .card-body
         .row
-          .col= @user.role.titleize
-        .row
+          .col-md-3
+            = user_avatar @user, class: 'rounded-circle'
           .col
-            - @user.badges.each do |badge|
-              %span.badge.badge-primary
-                = badge.description
+            .row
+              .col= @user.role.titleize
+            .row
+              .col
+                - @user.badges.each do |badge|
+                  %span.badge.badge-primary
+                    = badge.description
+.row.mt-3
+  .col
+    .card-columns
+      - @user.courses.each do |course|
+        .card
+          .card-header= link_to course.name, course_path(course),
+                                class: 'btn btn-link'
+          .card-body
+            %p Course Description
