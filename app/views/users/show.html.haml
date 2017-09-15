@@ -21,7 +21,7 @@
 .row.mt-3
   .col
     .card-columns
-      - @user.courses.each do |course|
+      - @user.taught_courses.each do |course|
         .card
           .card-header= link_to course.name, course_path(course),
                                 class: 'btn btn-link'
