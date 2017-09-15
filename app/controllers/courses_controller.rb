@@ -7,13 +7,13 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
-    @instructors = User.where('role = ?', User.roles[:instructor])
+    @instructors = User.where.has { |u| u.role = User.roles[:instructor] }
     authorize @course
   end
 
   def edit
     @course = Course.find(params[:id])
-    @instructors = User.where('role = ?', User.roles[:instructor])
+    @instructors = User.where.has { |u| u.role = User.roles[:instructor] }
     authorize @course
   end
 

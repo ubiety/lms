@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   html_schema_type :Person
 
-  has_many :enrolments
+  has_many :enrolments, dependent: :destroy
   has_many :courses, through: :enrolments
   has_many :taught_courses, class_name: 'Course', foreign_key: :instructor_id
 
