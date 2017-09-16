@@ -38,7 +38,8 @@
                   = icon('edit')
                   Edit
                 = link_to user_path(u), class: 'btn btn-outline-danger',
-                          method: 'delete' do
+                          method: 'delete',
+                          data: { confirm: "Delete #{u.full_name}?" } do
                   = icon('trash')
                   Delete
     .row

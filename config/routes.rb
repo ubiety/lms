@@ -9,10 +9,15 @@ Rails.application.routes.draw do
                  size: params[:size], background_color: params[:background])
   }, as: :avatar
 
-  resources :users, concerns: :paginatable
+  resources :users, concerns: :paginatable do
+    resources :assignments
+  end
+
   resources :courses do
     resources :enrolments, only: %w[new create destroy]
+    resources :assignments
   end
+
   resources :sessions, only: %w[create]
   resources :password_resets, only: %w[edit create update]
 
