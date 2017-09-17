@@ -1,6 +1,6 @@
 # Users controller
 class UsersController < ApplicationController
-  before_filter :find_user, except: %w[index new create]
+  before_action :find_user, except: %w[index new create]
 
   def index
     @q = User.ransack(params[:q])
@@ -33,9 +33,7 @@ class UsersController < ApplicationController
 
   def update
     authorize @user
-
     @user.assign_attributes(user_params)
-
     if @user.save!
       redirect_to @user, flash: { success: 'User saved' }
     else

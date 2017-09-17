@@ -1,7 +1,7 @@
 # Course controller
 class CoursesController < ApplicationController
-  before_filter :find_course, except: %w[index new create]
-  before_filter :find_instructors, only: %w[new edit]
+  before_action :find_course, except: %w[index new create]
+  before_action :find_instructors, only: %w[new edit]
 
   def index
     @courses = policy_scope(Course)
@@ -19,7 +19,7 @@ class CoursesController < ApplicationController
 
   def update
     authorize @course
-    @course.update_attributes(course_params)
+    @course.assign_attributes(course_params)
     if @course.save!
       redirect_to course_path(@course), flash: { success: 'Course updated' }
     else
@@ -50,7 +50,7 @@ class CoursesController < ApplicationController
   end
 
   def find_instructors
-    @instructors = User.where.has { |u| u.role = User.roles[:instructor] }
+    @instructors = User.where.has { |u| u.role == User.roles[:instructor] }
   end
 
   def course_params

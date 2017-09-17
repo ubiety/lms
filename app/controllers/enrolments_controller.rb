@@ -13,7 +13,6 @@ class EnrolmentsController < ApplicationController
   def create
     @enrolment = @course.enrolments.create(enrolment_params)
     authorize @enrolment
-
     if @enrolment.save!
       redirect_to @course, flash: { success: 'Enrolled student' }
     else
