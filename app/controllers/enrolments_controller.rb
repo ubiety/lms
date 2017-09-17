@@ -1,7 +1,8 @@
 # Enrolment controller
 class EnrolmentsController < ApplicationController
+  before_filter :find_course
+
   def new
-    @course = Course.find(params[:course_id])
     @enrolment = @course.enrolments.new
     @students = User.joining { enrolments.outer }.where.has do |u|
       (u.role == User.roles[:student]) & ((u.enrolments.course_id == nil) | (u.enrolments.course_id != @course.id))
@@ -10,7 +11,6 @@ class EnrolmentsController < ApplicationController
   end
 
   def create
-    @course = Course.find(params[:course_id])
     @enrolment = @course.enrolments.create(enrolment_params)
     authorize @enrolment
 
@@ -19,11 +19,15 @@ class EnrolmentsController < ApplicationController
     else
       @students = User.where role: User.roles[:student]
       flash.now[:error] = 'Error enrolling student'
-      render action: :new
+      render :new
     end
   end
 
   private
+
+  def find_course
+    @course = Course.friendly.find(params[:course_id])
+  end
 
   def enrolment_params
     params.require(:enrolment).permit(:user_id)

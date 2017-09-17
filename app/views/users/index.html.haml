@@ -33,15 +33,17 @@
               %td= u.email
               %td= u.role.capitalize
               %td.d-flex.justify-content-end
-                = link_to edit_user_path(u),
-                          class: 'btn btn-outline-primary mr-2' do
-                  = icon('edit')
-                  Edit
-                = link_to user_path(u), class: 'btn btn-outline-danger',
-                          method: 'delete',
-                          data: { confirm: "Delete #{u.full_name}?" } do
-                  = icon('trash')
-                  Delete
+                - if policy(u).edit?
+                  = link_to edit_user_path(u),
+                            class: 'btn btn-outline-primary mr-2' do
+                    = icon('edit')
+                    Edit
+                - if policy(u).destroy?
+                  = link_to user_path(u), class: 'btn btn-outline-danger',
+                            method: 'delete',
+                            data: { confirm: "Delete #{u.full_name}?" } do
+                    = icon('trash')
+                    Delete
     .row
       .col.justify-contents-center
         = paginate @users

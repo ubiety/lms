@@ -10,12 +10,12 @@ Rails.application.routes.draw do
   }, as: :avatar
 
   resources :users, concerns: :paginatable do
-    resources :assignments
+    resources :assignments, only: %w[show]
   end
 
   resources :courses do
-    resources :enrolments, only: %w[new create destroy]
-    resources :assignments
+    resources :enrolments, only: %w[new create]
+    resources :assignments, except: %w[index]
   end
 
   resources :sessions, only: %w[create]

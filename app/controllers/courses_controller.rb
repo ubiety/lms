@@ -1,5 +1,8 @@
 # Course controller
 class CoursesController < ApplicationController
+  before_filter :find_course, except: %w[index new create]
+  before_filter :find_instructors, only: %w[new edit]
+
   def index
     @courses = policy_scope(Course)
     authorize @courses
@@ -7,24 +10,20 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
-    @instructors = User.where.has { |u| u.role = User.roles[:instructor] }
     authorize @course
   end
 
   def edit
-    @course = Course.find(params[:id])
-    @instructors = User.where.has { |u| u.role = User.roles[:instructor] }
     authorize @course
   end
 
   def update
-    @course = Course.find(params[:id])
     authorize @course
     @course.update_attributes(course_params)
     if @course.save!
       redirect_to course_path(@course), flash: { success: 'Course updated' }
     else
-      render action: :edit
+      render :edit
     end
   end
 
@@ -34,16 +33,25 @@ class CoursesController < ApplicationController
     if @course.save!
       redirect_to course_path(@course), flash: { success: 'Course created' }
     else
-      render action: :new
+      render :new
     end
   end
 
   def show
-    @course = Course.find(params[:id])
     authorize @course
   end
 
+  def destroy; end
+
   private
+
+  def find_course
+    @course = Course.friendly.find(params[:id])
+  end
+
+  def find_instructors
+    @instructors = User.where.has { |u| u.role = User.roles[:instructor] }
+  end
 
   def course_params
     params.require(:course).permit(:name, :instructor_id)

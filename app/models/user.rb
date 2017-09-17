@@ -5,7 +5,10 @@ class User < ApplicationRecord
   acts_as_paranoid
 
   extend Dragonfly::Model
+  extend FriendlyId
   include Avatarable
+
+  friendly_id :full_name, use: :slugged
 
   html_schema_type :Person
 

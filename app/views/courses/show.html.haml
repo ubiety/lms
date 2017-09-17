@@ -11,7 +11,7 @@
       .card-body
         %p.card-text Course Description
 
-.row.mt-3
+.row.mt-2
   .col
     .card-columns
       - @course.students.each do |s|
@@ -23,3 +23,22 @@
             %span
               E-Mail:
               = s.email
+.row.mt-2
+  .col
+    .card
+      .card-header
+        - if policy(Assignment).new?
+          = link_to new_course_assignment_path(@course),
+                    class: 'btn btn-success float-right' do
+            = icon('file-o')
+            New Assignment
+        %h5 Assignments
+      .card-body
+        %table.table.table-striped
+          %thead
+            %tr
+              %th Date
+              %th Name
+              %th Due Date
+              %th Submissions
+              %th Actions

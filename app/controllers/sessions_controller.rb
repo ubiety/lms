@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_back_or_to root_path, success: 'Logged in successfully'
     else
       flash.now[:error] = 'Login failed'
-      render action: :new
+      render :new
     end
   end
 
