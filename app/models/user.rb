@@ -5,11 +5,14 @@ class User < ApplicationRecord
   acts_as_paranoid
 
   extend Dragonfly::Model
+  extend FriendlyId
   include Avatarable
+
+  friendly_id :full_name, use: :slugged
 
   html_schema_type :Person
 
-  has_many :enrolments
+  has_many :enrolments, dependent: :destroy
   has_many :courses, through: :enrolments
   has_many :taught_courses, class_name: 'Course', foreign_key: :instructor_id
 

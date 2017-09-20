@@ -1,27 +1,32 @@
 # Enrolment controller
 class EnrolmentsController < ApplicationController
+  before_filter :find_course
+
   def new
-    @course = Course.find(params[:course_id])
     @enrolment = @course.enrolments.new
-    @students = User.joins(:courses).where.has { role == User.roles[:student] }
+    @students = User.joining { enrolments.outer }.where.has do |u|
+      (u.role == User.roles[:student]) & ((u.enrolments.course_id == nil) | (u.enrolments.course_id != @course.id))
+    end
     authorize @enrolment
   end
 
   def create
-    @course = Course.find(params[:course_id])
     @enrolment = @course.enrolments.create(enrolment_params)
     authorize @enrolment
-
     if @enrolment.save!
       redirect_to @course, flash: { success: 'Enrolled student' }
     else
       @students = User.where role: User.roles[:student]
       flash.now[:error] = 'Error enrolling student'
-      render action: :new
+      render :new
     end
   end
 
   private
+
+  def find_course
+    @course = Course.friendly.find(params[:course_id])
+  end
 
   def enrolment_params
     params.require(:enrolment).permit(:user_id)
