@@ -3,3 +3,5 @@
     .card
       .card-header
         %h4 New Assignment
+      .card-body
+        = form_for [@course, @assignment] do |f|
