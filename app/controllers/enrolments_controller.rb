@@ -1,6 +1,6 @@
 # Enrolment controller
 class EnrolmentsController < ApplicationController
-  before_filter :find_course
+  before_action :find_course
 
   def new
     @enrolment = @course.enrolments.new
