@@ -19,6 +19,10 @@ class AssignmentPolicy < ApplicationPolicy
     edit?
   end
 
+  def destroy?
+    user.admin? || user.instructor?
+  end
+
   class Scope < Scope
     def resolve
       scope

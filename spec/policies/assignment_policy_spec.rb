@@ -1,28 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe AssignmentPolicy do
+  subject { described_class.new(user, record) }
 
-  let(:user) { User.new }
+  let(:record) { Assignment.new }
 
-  subject { described_class }
+  context 'student' do
+    let(:user) { FactoryGirl.create :user }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_action(:show) }
+    it { is_expected.to forbid_edit_and_update_actions }
+    it { is_expected.to forbid_new_and_create_actions }
+    it { is_expected.to forbid_action(:destroy) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'instructor' do
+    let(:user) { FactoryGirl.create :user, role: 1 }
+
+    it { is_expected.to permit_actions(%w[show destroy]) }
+    it { is_expected.to permit_edit_and_update_actions }
+    it { is_expected.to permit_new_and_create_actions }
   end
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'admin' do
+    let(:user) { FactoryGirl.create :user, role: 2 }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_new_and_create_actions }
+    it { is_expected.to permit_edit_and_update_actions }
+    it { is_expected.to permit_actions(%w[destroy show]) }
   end
 end
