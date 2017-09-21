@@ -17,4 +17,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require data-confirm-modal
+//= require bootstrap_md_editor
 //= require_tree .
