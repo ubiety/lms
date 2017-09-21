@@ -1,13 +1,10 @@
 .row
   .col
-    = bootstrap_form_for [@course, @assignment] do |f|
+    = form_for [@course, @assignment] do |f|
       .card
         .card-header
           %h4 New Assignment
         .card-body
-          = f.text_field :name, hide_label: true, placeholder: 'Name'
-          = f.date_field :due_date
-          = f.file_field :document, label_class: 'custom-file',
-                         control_class: 'custom-file-input'
+          = render 'assignments/form', f: f
         .card-footer
-          = f.primary class: 'float-right'
+          = f.submit class: 'float-right btn btn-primary'
