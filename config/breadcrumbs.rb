@@ -22,6 +22,11 @@ crumb :course do |c|
   parent :courses
 end
 
+crumb :assignment do |a|
+  link a.name, course_assignment_path(a.course, a)
+  parent :course, a.course
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
