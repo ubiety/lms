@@ -23,7 +23,7 @@
             %span
               E-Mail:
               = s.email
-.row.mt-2
+.row.mb-2
   .col
     .card
       .card-header
@@ -42,3 +42,15 @@
               %th Due Date
               %th Submissions
               %th Actions
+          %tbody
+            - @course.assignments.each do |a|
+              %tr
+                %td= time_tag a.created_at
+                %td= link_to a.name, [@course, a]
+                %td{ class: "#{due_date_style(a.due_date)}"}= distance_of_time_in_words(Date.today, a.due_date)
+                %td
+                %td
+                  - if policy(a).edit?
+                    = link_to edit_course_assignment_path(@course, a), class: 'btn btn-outline-success' do
+                      = icon('edit')
+                      Edit
