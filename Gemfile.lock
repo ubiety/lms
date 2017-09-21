@@ -8,11 +8,12 @@ GIT
 
 GIT
   remote: https://github.com/coder2000/bootstrap_md_editor.git
-  revision: ec1b4d9ca999e89572e7f6ff905e1578cbab31f6
+  revision: 479255d021b29f9de96aea1f7fc20231a9de8d4d
   branch: master
   specs:
-    bootstrap_md_editor (0.1.0)
-      rails (~> 5.1.4)
+    bootstrap_md_editor (0.1.2)
+      rails (~> 5.1, >= 5.1.4)
+      redcarpet (~> 3.4, >= 3.4.0)
 
 GIT
   remote: https://github.com/jnettome/merit.git
