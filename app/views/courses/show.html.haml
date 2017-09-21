@@ -42,16 +42,24 @@
               %th Name
               %th Due Date
               %th Submissions
-              %th Actions
+              %th.text-center Actions
           %tbody
             - @course.assignments.each do |a|
               %tr
                 %td= time_tag a.created_at
                 %td= link_to a.name, [@course, a]
-                %td{ class: "#{due_date_style(a.due_date)}"}= distance_of_time_in_words(Date.today, a.due_date)
+                %td{ class: "#{due_date_style(a.due_date)}"}
+                  = distance_of_time_in_words(Date.today, a.due_date)
                 %td
-                %td
+                %td.d-flex.justify-content-end
                   - if policy(a).edit?
-                    = link_to edit_course_assignment_path(@course, a), class: 'btn btn-outline-success' do
+                    = link_to edit_course_assignment_path(@course, a),
+                              class: 'btn btn-outline-success mr-2' do
                       = icon('edit')
                       Edit
+                  - if policy(a).destroy?
+                    = link_to course_assignment_path(@course, a),
+                              class: 'btn btn-outline-danger',
+                              method: :delete, data: { confirm: "Delete #{a.name}?" } do
+                      = icon('trash')
+                      Delete

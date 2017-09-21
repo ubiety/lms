@@ -37,7 +37,7 @@ class CoursePolicy < ApplicationPolicy
     def resolve
       if user.admin?
         scope.all
-      elsif user.instructor?
+      elsif user.instructor? || user.student?
         scope.joins(:enrolments).where('user_id = :user_id', user_id: user.id)
       else
         scope
