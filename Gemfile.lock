@@ -168,6 +168,8 @@ GEM
       chronic_duration
       haml (>= 3.1.0)
       mida_vocabulary (>= 0.2.2)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     haml (5.0.3)
       temple (>= 0.8.0)
       tilt
@@ -397,6 +399,7 @@ DEPENDENCIES
   font-awesome-sass
   friendly_id
   green_monkey
+  gretel
   haml
   jbuilder (~> 2.5)
   jquery-rails
