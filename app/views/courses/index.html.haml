@@ -12,6 +12,7 @@
         %tr
           %th.w-50 Name
           %th.w-25 Instructors
+          %th Start Time
           %th.text-center Actions
       %tbody
         - @courses.each do |c|
@@ -22,6 +23,7 @@
                 = user_avatar c.instructor, size: '50x50',
                               class: 'rounded-circle'
                 = c.instructor.full_name
+            %td= c.start_time
             %td.d-flex.justify-content-end
               - if policy(Enrolment).new?
                 = link_to new_course_enrolment_path(c),
