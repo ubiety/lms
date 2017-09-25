@@ -4,8 +4,7 @@
       = f.text_field :name, placeholder: 'Name', class: 'form-control'
   .col
     .form-group
-      = f.select :instructor_id, (i.map { |u| [u.full_name, u.id] }), {},
-                 class: 'custom-select'
+      = f.select :instructor_id, (i.map { |u| [u.full_name, u.id] }), {}, class: 'custom-select'
 .row
   .col
     .form-group

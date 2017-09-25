@@ -20,24 +20,20 @@
             %td= link_to c.name, course_path(c), class: 'btn btn-link'
             %td
               - if c.instructor
-                = user_avatar c.instructor, size: '50x50',
-                              class: 'rounded-circle'
+                = user_avatar c.instructor, size: '50x50', class: 'rounded-circle'
                 = c.instructor.full_name
             %td= c.start_time
             %td.d-flex.justify-content-end
               - if policy(Enrolment).new?
-                = link_to new_course_enrolment_path(c),
-                          class: 'btn btn-outline-success mr-2' do
+                = link_to new_course_enrolment_path(c), class: 'btn btn-outline-success mr-2' do
                   = icon 'user-plus'
                   Enroll
               - if policy(c).edit?
-                = link_to edit_course_path(c),
-                          class: 'btn btn-outline-primary mr-2' do
+                = link_to edit_course_path(c), class: 'btn btn-outline-primary mr-2' do
                   = icon 'edit'
                   Edit
               - if policy(c).delete?
-                = link_to course_path(c), class: 'btn btn-outline-danger',
-                          method: :delete,
+                = link_to course_path(c), class: 'btn btn-outline-danger', method: :delete,
                           data: { confirm: "Delete course #{c.name}?" } do
                   = icon 'trash'
                   Delete

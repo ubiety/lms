@@ -5,8 +5,7 @@
       .card-header
         %span.float-right
           Instructor:
-          = user_avatar @course.instructor, size: '50x50',
-                        class: 'rounded-circle'
+          = user_avatar @course.instructor, size: '50x50', class: 'rounded-circle'
           = @course.instructor.full_name
         %h3= @course.name
       .card-body
@@ -29,8 +28,7 @@
     .card
       .card-header
         - if policy(Assignment).new?
-          = link_to new_course_assignment_path(@course),
-                    class: 'btn btn-success float-right' do
+          = link_to new_course_assignment_path(@course), class: 'btn btn-success float-right' do
             = icon('file-o')
             New Assignment
         %h5 Assignments
@@ -48,7 +46,7 @@
               %tr
                 %td= time_tag a.created_at
                 %td= link_to a.name, [@course, a]
-                %td{ class: "#{due_date_style(a.due_date)}"}
+                %td{ class: due_date_style(a.due_date) }
                   = distance_of_time_in_words(Date.today, a.due_date)
                 %td
                 %td.d-flex.justify-content-end
@@ -58,8 +56,7 @@
                       = icon('edit')
                       Edit
                   - if policy(a).destroy?
-                    = link_to course_assignment_path(@course, a),
-                              class: 'btn btn-outline-danger',
+                    = link_to course_assignment_path(@course, a), class: 'btn btn-outline-danger',
                               method: :delete, data: { confirm: "Delete #{a.name}?" } do
                       = icon('trash')
                       Delete

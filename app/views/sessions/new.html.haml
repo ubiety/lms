@@ -7,11 +7,9 @@
         .card-body
           = flash_messages
           .form-group
-            = email_field_tag :email, nil, class: 'form-control',
-                              placeholder: 'E-mail'
+            = email_field_tag :email, nil, class: 'form-control', placeholder: 'E-mail'
           .form-group
-            = password_field_tag :password, nil, class: 'form-control',
-                                 placeholder: 'Password'
+            = password_field_tag :password, nil, class: 'form-control', placeholder: 'Password'
           .form-check
             %label.form-check-label
               = check_box_tag :remember_me, 1, false, class: 'form-check-input'

@@ -33,8 +33,8 @@
                 - if b.any?
                   %ol.breadcrumb
                     - b.each do |l|
-                      %li{ class: "breadcrumb-item #{'active' if l.current?}"}
-                        - unless l.current?
+                      %li{ class: "breadcrumb-item #{'active' if l.current?}" }
+                        - if !l.current?
                           = link_to l.text, l.url
                         - else
                           = l.text

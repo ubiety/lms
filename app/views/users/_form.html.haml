@@ -2,8 +2,7 @@
   = f.text_field :first_name, placeholder: 'First name', class: 'form-control'
 .form-row
   .col.form-group
-    = f.text_field :middle_name, placeholder: 'Middle name',
-                   class: 'form-control'
+    = f.text_field :middle_name, placeholder: 'Middle name', class: 'form-control'
   .col.form-group
     = f.text_field :last_name, placeholder: 'Last name', class: 'form-control'
 .form-group
@@ -16,8 +15,7 @@
                        placeholder: 'Password confirmation'
 .form-row
   .col.form-group
-    = f.select :role, User.roles.keys.map { |k| [k.titleize, k] },
-               {}, class: 'custom-select'
+    = f.select :role, User.roles.keys.map { |k| [k.titleize, k] }, {}, class: 'custom-select'
   .col.form-group
     %label.custom-file
       = f.file_field :avatar, class: 'custom-file-input'
