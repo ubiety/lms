@@ -4,8 +4,6 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-require 'task_helpers/cucumber_helper'
-
 unless ARGV.any? { |a| a =~ /^gems/ } # Don't load anything when running the gems:* tasks
 
 vendored_cucumber_bin = Dir["#{Rails.root}/vendor/{gems,plugins}/cucumber*/bin/cucumber"].first
@@ -13,20 +11,21 @@ $LOAD_PATH.unshift(File.dirname(vendored_cucumber_bin) + '/../lib') unless vendo
 
 begin
   require 'cucumber/rake/task'
+  require 'task_helpers/cucumber_helper'
 
   namespace :cucumber do
     Cucumber::Rake::Task.new({ ok: 'test:prepare' }, 'Run features that should pass') do |t|
-      setup_task(t) # You may get faster startup if you set this to false
+      CucumberHelper.setup_task(t, vendored_cucumber_bin) # You may get faster startup if you set this to false
       t.profile = 'default'
     end
 
     Cucumber::Rake::Task.new({ wip: 'test:prepare' }, 'Run features that are being worked on') do |t|
-      setup_task(t) # You may get faster startup if you set this to false
+      CucumberHelper.setup_task(t, vendored_cucumber_bin) # You may get faster startup if you set this to false
       t.profile = 'wip'
     end
 
     Cucumber::Rake::Task.new({ rerun: 'test:prepare' }, 'Record failing features and run only them if any exist') do |t|
-      setup_task(t) # You may get faster startup if you set this to false
+      CucumberHelper.setup_task(t, vendored_cucumber_bin) # You may get faster startup if you set this to false
       t.profile = 'rerun'
     end
 
