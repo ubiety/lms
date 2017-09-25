@@ -14,3 +14,7 @@ notifications:
 branches:
   only:
     - master
+addons:
+  sauce_connect:
+    username: coder2000
+    password: fd98fd90-4714-4118-bb3d-aa07891ec61c
