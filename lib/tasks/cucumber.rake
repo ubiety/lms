@@ -4,7 +4,7 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-require 'task_helpers/cucumber_helper.rb'
+require 'task_helpers/cucumber_helper'
 
 unless ARGV.any? { |a| a =~ /^gems/ } # Don't load anything when running the gems:* tasks
 
