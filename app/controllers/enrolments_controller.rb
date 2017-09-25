@@ -4,8 +4,8 @@ class EnrolmentsController < ApplicationController
 
   def new
     @enrolment = @course.enrolments.new
-    @students = User.joining { enrolments.outer }.where.has do |u|
-      (u.role == User.roles[:student]) & ((u.enrolments.course_id == nil) | (u.enrolments.course_id != @course.id))
+    @students = User.joining { enrolments.outer }.where.has do |user|
+      (user.role == User.roles[:student]) & ((user.enrolments.course_id == nil) | (user.enrolments.course_id != @course.id))
     end
     authorize @enrolment
   end
