@@ -1,3 +1,4 @@
+# Assignment model
 class Assignment < ApplicationRecord
   extend Dragonfly::Model
 

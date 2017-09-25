@@ -1,3 +1,4 @@
+# Course helper methods
 module CoursesHelper
   def due_date_style(due_date)
     diff = due_date - Time.now

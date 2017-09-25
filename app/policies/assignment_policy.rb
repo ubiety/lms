@@ -1,3 +1,4 @@
+# Assignment policy
 class AssignmentPolicy < ApplicationPolicy
   def new?
     user.admin? || user.instructor?
@@ -23,6 +24,7 @@ class AssignmentPolicy < ApplicationPolicy
     user.admin? || user.instructor?
   end
 
+  # Assignment scope
   class Scope < Scope
     def resolve
       scope

@@ -16,7 +16,8 @@ class AssignmentsController < ApplicationController
     authorize @assignment
     @assignment = @course.assignments.create(assignment_params)
     if @assignment.save!
-      redirect_to [@course, @assignment], flash: { success: 'Assignment created' }
+      redirect_to [@course, @assignment],
+                  flash: { success: 'Assignment created' }
     else
       render :new
     end
@@ -30,7 +31,8 @@ class AssignmentsController < ApplicationController
     authorize @assignment
     @assignment.assign_attributes(assignment_params)
     if @assignment.save!
-      redirect_to [@course, @assignment], flash: { success: 'Assignment updated' }
+      redirect_to [@course, @assignment],
+                  flash: { success: 'Assignment updated' }
     else
       render :edit
     end
