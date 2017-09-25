@@ -99,7 +99,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    childprocess (0.7.1)
+    childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     chronic_duration (0.10.6)
       numerizer (~> 0.1.1)
@@ -138,6 +138,8 @@ GEM
     data-confirm-modal (1.4.0)
       railties (>= 3.0)
     database_cleaner (1.6.1)
+    ddtrace (0.8.2)
+      msgpack
     diff-lcs (1.3)
     docile (1.1.5)
     dragonfly (1.1.3)
@@ -216,11 +218,11 @@ GEM
     mini_mime (0.1.4)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
+    msgpack (1.1.0)
     multi_json (1.12.2)
     multi_test (0.1.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    newrelic_rpm (4.4.0.336)
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -397,6 +399,7 @@ DEPENDENCIES
   cucumber-rails
   data-confirm-modal
   database_cleaner
+  ddtrace
   dragonfly
   factory_girl_rails
   faker
@@ -412,7 +415,6 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   merit!
   meta_request
-  newrelic_rpm
   paper_trail
   pg
   pry

@@ -12,6 +12,6 @@ class Course < ApplicationRecord
 
   friendly_id :name, use: :slugged
 
-  serialize :start_time, Tod::TimeOfDay
-  serialize :end_time, Tod::TimeOfDay
+  serialize :start_time, ::Tod::TimeOfDay
+  serialize :end_time, ::Tod::TimeOfDay
 end
