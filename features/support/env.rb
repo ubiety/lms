@@ -6,8 +6,19 @@
 
 require 'coveralls'
 require 'cucumber/rails'
+require 'capybara/cucumber'
 
 Coveralls.wear_merged!('rails')
+
+caps = Selenium::WebDriver::Remote::Capabilities.firefox({
+  'tunnel-identifier' => ENV['TRAVIS_JOB_NUMBER']
+})
+driver = Selenium::WebDriver.for(:remote, {
+  url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com/wd/hub",
+  desired_capabilities: caps
+})
+
+# Capybara.default_driver = :selenium
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
 # selectors in your step definitions to use the XPath syntax.

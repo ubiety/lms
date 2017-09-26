@@ -1,3 +1,4 @@
+# User helper methods
 module UsersHelper
   def user_avatar(user, options = {})
     if user.avatar.nil?

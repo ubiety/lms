@@ -20,6 +20,7 @@
                           class: 'dropdown-item' do
                   = icon 'edit'
                   Edit Profile
+                .dropdown-divider
                 = link_to logout_path, class: 'dropdown-item' do
                   = icon('power-off')
                   Logout
@@ -27,4 +28,17 @@
         .col-md-2
           = render 'shared/student/sidebar_nav'
         .col-md-10
-          = yield
+          .row
+            .col
+              - breadcrumbs.tap do |b|
+                - if b.any?
+                  %ol.breadcrumb
+                    - b.each do |l|
+                      %li{ class: "breadcrumb-item #{'active' if l.current?}" }
+                        - if !l.current?
+                          = link_to l.text, l.url
+                        - else
+                          = l.text
+          .row
+            .col
+              = yield

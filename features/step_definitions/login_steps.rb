@@ -1,4 +1,4 @@
-When(/^I visit a page as a guest$/) do
+When(/^I go to (.+)$/) do |page|
   visit root_path
 end
 

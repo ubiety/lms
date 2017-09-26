@@ -50,10 +50,11 @@ class CoursesController < ApplicationController
   end
 
   def find_instructors
-    @instructors = User.where.has { |u| u.role == User.roles[:instructor] }
+    @instructors = User.where.has { |user| user.role == User.roles[:instructor] }
   end
 
   def course_params
-    params.require(:course).permit(:name, :instructor_id)
+    params.require(:course).permit(:name, :instructor_id, :start_time,
+                                   :end_time)
   end
 end

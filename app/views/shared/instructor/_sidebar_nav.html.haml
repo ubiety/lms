@@ -2,6 +2,6 @@
   .card-header
     Menu
   .card-body
-    %nav.nav.flex-column
-      = active_link_to 'Dashboard', root_path, class: 'nav-link'
+    %nav.nav.nav-pills.flex-column
+      = active_link_to 'Dashboard', root_path, class: 'nav-link', active: :exclusive
       = active_link_to 'Courses', courses_path, class: 'nav-link'

@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   before_action :find_user, except: %w[index new create]
 
   def index
-    @q = User.ransack(params[:q])
-    @users = @q.result.order(:last_name).page params[:page]
+    @query = User.ransack(params[:q])
+    @users = @query.result.order(:last_name).page params[:page]
     authorize @users
   end
 
