@@ -7,6 +7,11 @@ crumb :users do
   parent :root
 end
 
+crumb :new_user do
+  link 'New User', new_user_path
+  parent :users
+end
+
 crumb :user do |u|
   link u.full_name, u
   parent :users
