@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def index
     @query = User.ransack(params[:q])
     @users = @query.result.order(:last_name).page params[:page]
+    @user = User.new
     authorize @users
   end
 
@@ -21,7 +22,10 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     authorize @user
     if @user.save!
-      redirect_to @user, flash: { success: 'User signed up successfully' }
+      respond_to do |format|
+        format.html { redirect_to @user, flash: { success: 'User created successfully' } }
+        format.js
+      end
     else
       render :new
     end

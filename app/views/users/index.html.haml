@@ -5,19 +5,21 @@
       .col-md-2
         %h4 Users
       .col-md-8
-        = search_form_for @q, class: 'form-inline' do |f|
+        = search_form_for @query, class: 'form-inline' do |f|
           .input-group.mx-auto
             = f.search_field :full_name_cont, class: 'form-control', placeholder: true
             %span.input-group-btn
               = f.submit class: 'btn btn-success'
       .col-md-2
-        = link_to new_user_path, class: 'btn btn-primary float-right' do
-          = icon 'user'
-          New User
+        - if policy(User).new?
+          = link_to new_user_path, class: 'btn btn-primary float-right',
+                    data: { toggle: 'modal', target: '#new-user-modal' } do
+            = icon 'user'
+            New User
   .card-body
     .row
       .col
-      %table.table.table-striped
+      %table.table.table-striped.table-responsive#user-table
         %thead
           %tr
             %th
@@ -26,22 +28,10 @@
             %th Role
             %th.text-center Actions
         %tbody
-          - @users.each do |u|
-            %tr
-              %td= user_avatar u, size: '50x50'
-              %td= link_to u.full_name, user_path(u), class: 'btn btn-link'
-              %td= u.email
-              %td= u.role.capitalize
-              %td.d-flex.justify-content-end
-                - if policy(u).edit?
-                  = link_to edit_user_path(u), class: 'btn btn-outline-primary mr-2' do
-                    = icon('edit')
-                    Edit
-                - if policy(u).destroy?
-                  = link_to user_path(u), class: 'btn btn-outline-danger', method: 'delete',
-                            data: { confirm: "Delete #{u.full_name}?" } do
-                    = icon('trash')
-                    Delete
+          - @users.each do |user|
+            = render 'users/user_row', u: user
     .row
       .col.justify-contents-center
         = paginate @users
+
+= render 'users/modal'
