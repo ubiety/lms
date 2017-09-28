@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   def index
     @query = User.ransack(params[:q])
     @users = @query.result.order(:last_name).page params[:page]
-    @user = User.new
     authorize @users
   end
 

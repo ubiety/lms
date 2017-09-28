@@ -1,17 +1,17 @@
-%tr{ id: "user-#{u.id}" }
-  %td= user_avatar u, size: '50x50'
-  %td= link_to u.full_name, user_path(u), class: 'btn btn-link'
+%tr{ id: "user-#{user.id}" }
+  %td= user_avatar user, size: '50x50'
+  %td= link_to u.full_name, user_path(user), class: 'btn btn-link'
   %td= u.email
   %td= u.role.capitalize
   %td.d-flex.justify-content-end
-    - if policy(u).edit?
-      = link_to edit_user_path(u), class: 'btn btn-outline-primary mr-2',
-                data: { toggle: 'modal', target: "#user-#{u.id}-modal" } do
+    - if policy(user).edit?
+      = link_to edit_user_path(user), class: 'btn btn-outline-primary mr-2',
+                data: { toggle: 'modal', target: "#user-#{user.id}-modal" } do
         = icon('edit')
         Edit
-    - if policy(u).destroy?
-      = link_to user_path(u), class: 'btn btn-outline-danger', method: 'delete',
-                data: { confirm: "Delete #{u.full_name}?" } do
+    - if policy(user).destroy?
+      = link_to user_path(user), class: 'btn btn-outline-danger', method: 'delete',
+                data: { confirm: "Delete #{user.full_name}?" } do
         = icon('trash')
         Delete
-= render 'users/modal', user: u
+= render 'users/modal', user: user

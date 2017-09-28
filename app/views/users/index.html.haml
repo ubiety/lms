@@ -25,13 +25,13 @@
               %th
               %th Name
               %th Email
-              %th  Role
+              %th Role
               %th.text-center Actions
           %tbody
             - @users.each do |user|
-              = render 'users/user_row', u: user
+              = render 'users/user_row', user: user
     .row
       .col.justify-contents-center
         = paginate @users
 
-= render 'users/modal', user: @user
+= render 'users/modal', user: User.new
