@@ -17,6 +17,10 @@
                               class: 'rounded-circle'
                 = current_user.first_name
               .dropdown-menu.dropdown-menu-right{ aria: { labelledby: 'userMenu' } }
+                = link_to settings_path, class: 'dropdown-item' do
+                  = icon('cog')
+                  Settings
+                .dropdown-divider
                 = link_to logout_path, class: 'dropdown-item' do
                   = icon('power-off')
                   Logout
