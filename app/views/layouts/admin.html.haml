@@ -5,7 +5,8 @@
   %body.background
     .container-fluid.h-100
       %nav.navbar.navbar-dark.admin-navbar-color.navbar-expand-md
-        = link_to 'Brand', root_path, class: 'navbar-brand'
+        = link_to root_path, class: 'navbar-brand' do
+          = Setting.brand
         .collapse.navbar-collapse
           %ul.navbar-nav.ml-auto
             %li.nav-item.dropdown
