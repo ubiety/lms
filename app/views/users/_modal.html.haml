@@ -1,9 +1,11 @@
-.modal.fade#new-user-modal{ role: 'dialog', aria: { labelledby: 'new-user-label', hidden: 'true' } }
+- id = user.id ? user.id : 'new'
+.modal.fade{ role: 'dialog', aria: { labelledby: "user-#{id}-label", hidden: 'true' },
+             id: "user-#{id}-modal" }
   .modal-dialog{ role: 'document' }
     .modal-content
-      = form_with model: @user, id: 'new-user-form' do |f|
+      = form_with model: user, id: "user-#{id}-form" do |f|
         .modal-header
-          %h4{ id: 'new-user-label' } New User
+          %h4{ id: "user-#{id}-label" } New User
           %button.close{ data: { dismiss: 'modal' }, aria: { label: 'Close' } }
             %span{ aria: { hidden: 'true' } } &times;
         .modal-body
