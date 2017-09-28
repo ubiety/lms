@@ -9,10 +9,9 @@
                 data: { toggle: 'modal', target: "#user-#{u.id}-modal" } do
         = icon('edit')
         Edit
-
-      = render 'users/modal', user: u
     - if policy(u).destroy?
       = link_to user_path(u), class: 'btn btn-outline-danger', method: 'delete',
                 data: { confirm: "Delete #{u.full_name}?" } do
         = icon('trash')
         Delete
+= render 'users/modal', user: u
