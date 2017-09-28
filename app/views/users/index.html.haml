@@ -19,17 +19,17 @@
   .card-body
     .row
       .col
-      %table.table.table-striped.table-responsive#user-table
-        %thead
-          %tr
-            %th
-            %th Name
-            %th Email
-            %th Role
-            %th.text-center Actions
-        %tbody
-          - @users.each do |user|
-            = render 'users/user_row', u: user
+        %table.table.table-striped.table-responsive#user-table
+          %thead
+            %tr
+              %th
+              %th Name
+              %th Email
+              %th  Role
+              %th.text-center Actions
+          %tbody
+            - @users.each do |user|
+              = render 'users/user_row', u: user
     .row
       .col.justify-contents-center
         = paginate @users
