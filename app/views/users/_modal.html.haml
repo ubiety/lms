@@ -5,7 +5,8 @@
     .modal-content
       = form_with model: user, id: "user-#{id}-form" do |f|
         .modal-header
-          %h4{ id: "user-#{id}-label" } New User
+          %h4{ id: "user-#{id}-label" }
+            = user.full_name ? "Edit #{user.full_name}" : 'New User'
           %button.close{ data: { dismiss: 'modal' }, aria: { label: 'Close' } }
             %span{ aria: { hidden: 'true' } } &times;
         .modal-body

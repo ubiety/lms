@@ -5,9 +5,12 @@
   %td= u.role.capitalize
   %td.d-flex.justify-content-end
     - if policy(u).edit?
-      = link_to edit_user_path(u), class: 'btn btn-outline-primary mr-2' do
+      = link_to edit_user_path(u), class: 'btn btn-outline-primary mr-2',
+                data: { toggle: 'modal', target: "#user-#{u.id}-modal" } do
         = icon('edit')
         Edit
+
+      = render 'users/modal', user: u
     - if policy(u).destroy?
       = link_to user_path(u), class: 'btn btn-outline-danger', method: 'delete',
                 data: { confirm: "Delete #{u.full_name}?" } do

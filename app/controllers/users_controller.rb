@@ -39,7 +39,10 @@ class UsersController < ApplicationController
     authorize @user
     @user.assign_attributes(user_params)
     if @user.save!
-      redirect_to @user, flash: { success: 'User saved' }
+      respond_to do |format|
+        format.html { redirect_to @user, flash: { success: 'User saved' } }
+        format.js
+      end
     else
       render :edit
     end
