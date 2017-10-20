@@ -14,7 +14,7 @@ class AssignmentsController < ApplicationController
 
   def create
     authorize @assignment
-    @assignment = @course.assignments.create(assignment_params)
+    @assignment = @course.assignments.new(assignment_params)
     if @assignment.save!
       redirect_to [@course, @assignment],
                   flash: { success: 'Assignment created' }

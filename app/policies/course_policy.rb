@@ -5,7 +5,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin?
+    user.admin? && (User.instructors.count > 0)
   end
 
   def create?

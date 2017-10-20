@@ -4,14 +4,12 @@ class EnrolmentsController < ApplicationController
 
   def new
     @enrolment = @course.enrolments.new
-    @students = User.joining { enrolments.outer }.where.has do |user|
-      (user.role == User.roles[:student]) & ((user.enrolments.course_id == nil) | (user.enrolments.course_id != @course.id))
-    end
+    @students = User.unenrolled(@course)
     authorize @enrolment
   end
 
   def create
-    @enrolment = @course.enrolments.create(enrolment_params)
+    @enrolment = @course.enrolments.new(enrolment_params)
     authorize @enrolment
     if @enrolment.save!
       redirect_to @course, flash: { success: 'Enrolled student' }

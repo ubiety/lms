@@ -2,11 +2,15 @@
 .row
   .col
     .card
-      .card-header
+      .card-header.align-middle
         %span.float-right
           Instructor:
           = user_avatar @course.instructor, size: '50x50', class: 'rounded-circle'
           = @course.instructor.full_name
+        - if policy(Enrolment).new?
+          = link_to new_course_enrolment_path(@course), class: 'btn btn-outline-success float-right mr-2' do
+            = icon('user-plus')
+            Enroll
         %h3= @course.name
       .card-body
         %p.card-text Course Description

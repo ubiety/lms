@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :courses do
-    resources :enrolments, only: %w[new create]
+    resources :enrolments, except: %w[index show update edit]
     resources :assignments, except: %w[index]
   end
 

@@ -11,7 +11,4 @@ class Course < ApplicationRecord
   has_many :assignments
 
   friendly_id :name, use: :slugged
-
-  serialize :start_time, ::Tod::TimeOfDay
-  serialize :end_time, ::Tod::TimeOfDay
 end

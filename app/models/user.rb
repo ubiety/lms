@@ -33,6 +33,14 @@ class User < ApplicationRecord
 
   ransack_alias :full_name, :first_name_or_last_name
 
+  scope :instructors, -> { where.has { |user| user.role == User.roles[:instructor] } }
+
+  def self.unenrolled(course)
+    joining { enrolments.outer }.where.has do |user|
+      (user.role == User.roles[:student]) & ((user.enrolments.course_id == nil) | (user.enrolments.course_id != course.id))
+    end
+  end
+
   def full_name
     if last_name.present?
       "#{first_name} #{last_name}"

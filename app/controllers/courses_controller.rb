@@ -28,7 +28,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.create(course_params)
+    @course = Course.new(course_params)
     authorize @course
     if @course.save!
       redirect_to course_path(@course), flash: { success: 'Course created' }
@@ -50,7 +50,7 @@ class CoursesController < ApplicationController
   end
 
   def find_instructors
-    @instructors = User.where.has { |user| user.role == User.roles[:instructor] }
+    @instructors = User.instructors
   end
 
   def course_params
