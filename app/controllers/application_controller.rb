@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :set_paper_trail_whodunnit
   layout :layout_for_role
 
+  responders :flash
+
   def not_authenticated
     redirect_to login_path
   end
