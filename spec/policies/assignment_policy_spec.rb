@@ -6,7 +6,7 @@ RSpec.describe AssignmentPolicy do
   let(:record) { Assignment.new }
 
   context 'student' do
-    let(:user) { FactoryGirl.create :user }
+    let(:user) { FactoryBot.create :user }
 
     it { is_expected.to permit_action(:show) }
     it { is_expected.to forbid_edit_and_update_actions }
@@ -15,7 +15,7 @@ RSpec.describe AssignmentPolicy do
   end
 
   context 'instructor' do
-    let(:user) { FactoryGirl.create :user, role: 1 }
+    let(:user) { FactoryBot.create :user, role: 1 }
 
     it { is_expected.to permit_actions(%w[show destroy]) }
     it { is_expected.to permit_edit_and_update_actions }
@@ -23,7 +23,7 @@ RSpec.describe AssignmentPolicy do
   end
 
   context 'admin' do
-    let(:user) { FactoryGirl.create :user, role: 2 }
+    let(:user) { FactoryBot.create :user, role: 2 }
 
     it { is_expected.to permit_new_and_create_actions }
     it { is_expected.to permit_edit_and_update_actions }

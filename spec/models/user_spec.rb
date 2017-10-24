@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   context 'validations' do
-    before { FactoryGirl.build(:user) }
+    before { FactoryBot.build(:user) }
 
     it { is_expected.to validate_presence_of(:first_name) }
     it { is_expected.to validate_presence_of(:email) }
@@ -16,8 +16,8 @@ RSpec.describe User, type: :model do
   end
 
   context 'methods' do
-    let(:user_full) { FactoryGirl.create :user, last_name: 'Doe' }
-    let(:user_first) { FactoryGirl.create :user }
+    let(:user_full) { FactoryBot.create :user, last_name: 'Doe' }
+    let(:user_first) { FactoryBot.create :user }
 
     subject { user_full.full_name }
     it { is_expected.to match('John Doe') }
