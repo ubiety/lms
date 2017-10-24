@@ -37,7 +37,8 @@ class User < ApplicationRecord
 
   def self.unenrolled(course)
     joining { enrolments.outer }.where.has do |user|
-      user.role == roles[:student] & ((user.enrolments.course_id.nil?) | (user.enrolments.course_id != course.id))
+      (user.role == roles[:student]) & (user.enrolments.course_id.nil? |
+          (user.enrolments.course_id != course.id))
     end
   end
 
