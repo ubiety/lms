@@ -1,10 +1,11 @@
 # User helper methods
 module UsersHelper
-  def user_avatar(user, options = {})
-    if user.avatar.nil?
-      image_tag user.default_avatar_url, options
+  def user_avatar_tag(user, options = {})
+    avatar = user.avatar
+    if avatar
+      image_tag avatar.thumb('150x150#').url, options
     else
-      image_tag user.avatar.thumb('150x150#').url, options
+      image_tag user.default_avatar_url, options
     end
   end
 end

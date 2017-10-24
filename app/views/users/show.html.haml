@@ -10,7 +10,7 @@
       .card-body
         .row
           .col-md-3
-            = user_avatar @user, class: 'rounded-circle'
+            = user_avatar_tag @user, class: 'rounded-circle'
           .col
             .row
               .col= @user.role.titleize

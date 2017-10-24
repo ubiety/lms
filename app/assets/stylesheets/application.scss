@@ -27,6 +27,7 @@ $color-five: #5557A4;
 .background {
   background-image: url(asset-path('background'));
   background-size: cover;
+  background-attachment: fixed;
 }
 
 html, body {

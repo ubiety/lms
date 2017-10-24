@@ -11,7 +11,7 @@
       %thead
         %tr
           %th.w-50 Name
-          %th.w-25 Instructors
+          %th.w-25 Instructor
           %th Start Time
           %th.text-center Actions
       %tbody
@@ -20,20 +20,23 @@
             %td= link_to c.name, course_path(c), class: 'btn btn-link'
             %td
               - if c.instructor
-                = user_avatar c.instructor, size: '50x50', class: 'rounded-circle'
+                = user_avatar_tag c.instructor, size: '50x50', class: 'rounded-circle'
                 = c.instructor.full_name
             %td= c.start_time
-            %td.d-flex.justify-content-end
+            %td.d-flex
               - if policy(Enrolment).new?
-                = link_to new_course_enrolment_path(c), class: 'btn btn-outline-success mr-2' do
+                = link_to new_course_enrolment_path(c), class: 'btn btn-sm btn-outline-success mr-2',
+                          data: { toggle: 'tooltip', placement: 'top', container: 'body' }, title: 'Enroll' do
                   = icon 'user-plus'
-                  Enroll
+                  %span.sr-only Enroll
               - if policy(c).edit?
-                = link_to edit_course_path(c), class: 'btn btn-outline-primary mr-2' do
+                = link_to edit_course_path(c), class: 'btn btn-sm btn-outline-primary mr-2',
+                          data: { toggle: 'tooltip', placement: 'top' }, title: 'Edit' do
                   = icon 'edit'
-                  Edit
+                  %span.sr-only Edit
               - if policy(c).delete?
-                = link_to course_path(c), class: 'btn btn-outline-danger', method: :delete,
-                          data: { confirm: "Delete course #{c.name}?" } do
+                = link_to course_path(c), class: 'btn btn-sm btn-outline-danger', method: :delete,
+                          data: { confirm: "Delete course #{c.name}?", toggle: 'tooltip', placement: 'top' },
+                          title: 'Delete' do
                   = icon 'trash'
-                  Delete
+                  %span.sr-only Delete

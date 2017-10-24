@@ -4,5 +4,9 @@
       .card-header Menu
       .card-body
         %nav.nav.nav-pills.flex-column
-          = active_link_to 'Dashboard', root_path, class: 'nav-link', active: :exclusive
-          = active_link_to 'Courses', courses_path, class: 'nav-link'
+          = active_link_to root_path, class: 'nav-link', active: :exclusive do
+            = icon 'dashboard'
+            Dashboard
+          = active_link_to courses_path, class: 'nav-link' do
+            = icon 'university'
+            Courses
