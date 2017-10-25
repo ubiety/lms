@@ -8,10 +8,10 @@
       = link_to edit_user_path(user), class: 'btn btn-sm btn-outline-primary mr-2',
                 data: { toggle: 'modal', target: "#user-#{user.id}-modal" } do
         = icon('edit')
-        Edit
+        %span.sr-only Edit
     - if policy(user).destroy?
       = link_to user_path(user), class: 'btn btn-sm btn-outline-danger', method: 'delete',
                 data: { confirm: "Delete #{user.full_name}?" } do
         = icon('trash')
-        Delete
+        %span.sr-only Delete
 = render 'users/modal', user: user
