@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
   before_action :require_login, :set_locale, :set_paper_trail_whodunnit
-  # layout :layout_for_role
 
   responders :flash
 
@@ -20,17 +19,5 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale]
-  end
-
-  def layout_for_role
-    if current_user.admin?
-      'admin'
-    elsif current_user.instructor?
-      'instructor'
-    elsif current_user.student?
-      'student'
-    else
-      'application'
-    end
   end
 end

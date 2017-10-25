@@ -1,5 +1,5 @@
 When(/^I go to (.+)$/) do |page|
-  visit root_path
+  visit root_path, locale: 'en'
 end
 
 Then(/^I should see the login page$/) do
