@@ -17,6 +17,7 @@
 # forever).
 
 module Merit
+  # Badge rules class
   class BadgeRules
     include Merit::BadgeRulesMethods
 

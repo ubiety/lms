@@ -9,6 +9,7 @@
 # (recieves the object as parameter)
 
 module Merit
+  # Point rules class
   class PointRules
     include Merit::PointRulesMethods
 

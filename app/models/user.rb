@@ -38,11 +38,11 @@ class User < ApplicationRecord
   def self.unenrolled(course)
     enrol_table = Arel::Table.new(:enrolments)
     user_table = Arel::Table.new(:users)
+    course_id = enrol_table[:course_id]
 
     joins(user_table.join(enrol_table, Arel::Nodes::FullOuterJoin)
             .on(user_table[:id].eq(enrol_table[:user_id])).join_sources)
-      .where(enrol_table[:course_id].eq(nil)
-               .or(enrol_table[:course_id].not_eq(course.id)))
+      .where(course_id.eq(nil).or(course_id.not_eq(course.id)))
       .where(user_table[:role].eq(roles[:student]))
   end
 
