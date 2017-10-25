@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  filter :locale
+
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection
   end
@@ -9,24 +11,22 @@ Rails.application.routes.draw do
                  size: params[:size], background_color: params[:background])
   }, as: :avatar
 
-  scope '/:locale', locale: /en|fr/ do
-    resources :settings
+  resources :settings
 
-    resources :users, concerns: :paginatable do
-      resources :assignments, only: %w[show]
-    end
-
-    resources :courses do
-      resources :enrolments, except: %w[index show update edit]
-      resources :assignments, except: %w[index]
-    end
-
-    resources :sessions, only: %w[create]
-    resources :password_resets, only: %w[edit create update]
-
-    get '/login', to: 'sessions#new', as: :login
-    get '/logout', to: 'sessions#destroy', as: :logout
-
-    root to: 'pages#dashboard'
+  resources :users, concerns: :paginatable do
+    resources :assignments, only: %w[show]
   end
+
+  resources :courses do
+    resources :enrolments, except: %w[index show update edit]
+    resources :assignments, except: %w[index]
+  end
+
+  resources :sessions, only: %w[create]
+  resources :password_resets, only: %w[edit create update]
+
+  get '/login', to: 'sessions#new', as: :login
+  get '/logout', to: 'sessions#destroy', as: :logout
+
+  root to: 'pages#dashboard'
 end
