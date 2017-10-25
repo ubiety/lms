@@ -1,0 +1,9 @@
+fr:
+  pages:
+    dashboard:
+      welcome: 'Bienvenue à LMS'
+  shared:
+    sidebar_nav:
+      dashboard: 'Tableau de bord'
+      users: 'Utilisateurs'
+      courses: 'Cours'

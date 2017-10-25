@@ -2,7 +2,7 @@
 # used to sign a user in and out
 class SessionsController < ApplicationController
   skip_before_action :require_login, except: %w[destroy]
-  layout 'application'
+  layout false
 
   def new
     @user = User.new

@@ -5,10 +5,10 @@
     %nav.nav.nav-pills.flex-column
       = active_link_to root_path, class: 'nav-link', active: :exclusive do
         = icon 'dashboard'
-        Dashboard
+        = t '.dashboard'
       = active_link_to users_path, class: 'nav-link' do
         = icon 'users'
-        Users
+        = t '.users'
       = active_link_to courses_path, class: 'nav-link' do
         = icon 'university'
-        Courses
+        = t '.courses'
