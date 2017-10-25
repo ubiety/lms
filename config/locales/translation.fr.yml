@@ -274,23 +274,3 @@ fr:
     granted_badge: 
     granted_points: 
     removed_badge: 
-  layouts:
-    application:
-      settings: Paramètres
-      logout: Connectez-Out
-  pages:
-    dashboard:
-      welcome: Bienvenue à LMS
-  shared:
-    sidebar_nav:
-      dashboard: Tableau de bord
-      users: Utilisateurs
-      courses: Cours
-  users:
-    index:
-      users: Utilisateurs
-      new_user: Nouvel utilisateur
-      name: Nom
-      email: Email
-      role: Rôle
-      actions: Actes

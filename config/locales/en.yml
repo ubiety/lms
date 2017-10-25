@@ -1,25 +1,5 @@
 ---
 en:
-  layouts:
-    application:
-      settings: Settings
-      logout: Log Out
-  pages:
-    dashboard:
-      welcome: Welcome to LMS
-  shared:
-    sidebar_nav:
-      dashboard: Dashboard
-      users: Users
-      courses: Courses
-  users:
-    index:
-      users: Users
-      new_user: New User
-      name: Name
-      email: Email
-      role: Role
-      actions: Actions
   helpers:
     placeholder:
       q:

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lms 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2017-10-25 16:44-0500\n"
-"PO-Revision-Date: 2017-10-25 23:44+0200\n"
+"POT-Creation-Date: 2017-10-25 16:50-0500\n"
+"PO-Revision-Date: 2017-10-25 23:50+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -22,16 +22,16 @@ msgstr ""
 msgid "Menu"
 msgstr "Menú"
 
-#: ../../../tmp/translation/haml-gettext-00000001.rb:2
+#: ../../../tmp/translation/haml-gettext-00000001.rb:2 ../../breadcrumbs.rb:2
 msgid "Dashboard"
 msgstr "Tablero"
 
 #: ../../../tmp/translation/haml-gettext-00000002.rb:2
-#: ../../../tmp/translation/haml-gettext-00000018.rb:2
+#: ../../../tmp/translation/haml-gettext-00000018.rb:2 ../../breadcrumbs.rb:6
 msgid "Users"
 msgstr "Usuarios"
 
-#: ../../../tmp/translation/haml-gettext-00000003.rb:2
+#: ../../../tmp/translation/haml-gettext-00000003.rb:2 ../../breadcrumbs.rb:21
 msgid "Courses"
 msgstr "Cursos"
 
@@ -65,7 +65,7 @@ msgid "\"Edit #{user.full_name}\""
 msgstr ""
 
 #: ../../../tmp/translation/haml-gettext-00000011.rb:2
-#: ../../../tmp/translation/haml-gettext-00000019.rb:2
+#: ../../../tmp/translation/haml-gettext-00000019.rb:2 ../../breadcrumbs.rb:11
 msgid "New User"
 msgstr "Nuevo usuario"
 

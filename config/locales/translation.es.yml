@@ -272,23 +272,3 @@ es:
     granted_badge: 
     granted_points: 
     removed_badge: 
-  layouts:
-    application:
-      settings: Ajustes
-      logout: Finalizar la sesión
-  pages:
-    dashboard:
-      welcome: Bienvenido a LMS
-  shared:
-    sidebar_nav:
-      dashboard: Tablero
-      users: Usuarios
-      courses: Cursos
-  users:
-    index:
-      users: Usuarios
-      new_user: Nuevo usuario
-      name: Nombre
-      email: Correo electrónico
-      role: Papel
-      actions: Acciones
