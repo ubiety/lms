@@ -3,7 +3,7 @@
   .card-header
     .row
       .col-md-2
-        %h4 Users
+        %h4= _('Users')
       .col-md-8
         = search_form_for @query, class: 'form-inline' do |f|
           .input-group.mx-auto
@@ -15,7 +15,7 @@
           = link_to new_user_path, class: 'btn btn-primary float-right',
                     data: { toggle: 'modal', target: '#user-new-modal' } do
             = icon 'user'
-            New User
+            = _('New User')
   .card-body
     .row
       .col
@@ -23,10 +23,10 @@
           %thead
             %tr
               %th
-              %th Name
-              %th Email
-              %th Role
-              %th.text-center Actions
+              %th= _('Name')
+              %th= _('Email')
+              %th= _('Role')
+              %th.text-center= _('Actions')
           %tbody
             - @users.each do |user|
               = render 'users/user_row', user: user

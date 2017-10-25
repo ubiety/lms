@@ -1,7 +1,7 @@
 = form_for @user do |f|
   .card
     .card-header
-      %h3 Edit User
+      %h3= _('Edit User')
     .card-body
       = render 'users/form', f: f
     .card-footer

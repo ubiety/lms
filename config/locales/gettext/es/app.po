@@ -1,0 +1,114 @@
+# Spanish translations for lms package.
+# Copyright (C) 2017 lms
+# This file is distributed under the same license as the lms package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lms 1.0\n"
+"Report-Msgid-Bugs-To: contact@translation.io\n"
+"POT-Creation-Date: 2017-10-25 16:44-0500\n"
+"PO-Revision-Date: 2017-10-25 23:44+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+
+#: ../../../tmp/translation/haml-gettext-00000000.rb:2
+msgid "Menu"
+msgstr "Menú"
+
+#: ../../../tmp/translation/haml-gettext-00000001.rb:2
+msgid "Dashboard"
+msgstr "Tablero"
+
+#: ../../../tmp/translation/haml-gettext-00000002.rb:2
+#: ../../../tmp/translation/haml-gettext-00000018.rb:2
+msgid "Users"
+msgstr "Usuarios"
+
+#: ../../../tmp/translation/haml-gettext-00000003.rb:2
+msgid "Courses"
+msgstr "Cursos"
+
+#: ../../../tmp/translation/haml-gettext-00000004.rb:2
+msgid "Settings"
+msgstr "Ajustes"
+
+#: ../../../tmp/translation/haml-gettext-00000005.rb:2
+msgid "Log Out"
+msgstr "Finalizar la sesión"
+
+#: ../../../tmp/translation/haml-gettext-00000006.rb:2
+msgid "Create User"
+msgstr "Crear usuario"
+
+#: ../../../tmp/translation/haml-gettext-00000007.rb:2
+msgid "Edit User"
+msgstr "Editar usuario"
+
+#: ../../../tmp/translation/haml-gettext-00000008.rb:2
+#: ../../../tmp/translation/haml-gettext-00000024.rb:2
+msgid "Edit"
+msgstr "Editar"
+
+#: ../../../tmp/translation/haml-gettext-00000009.rb:2
+msgid "Delete"
+msgstr "Borrar"
+
+#: ../../../tmp/translation/haml-gettext-00000010.rb:2
+msgid "\"Edit #{user.full_name}\""
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000011.rb:2
+#: ../../../tmp/translation/haml-gettext-00000019.rb:2
+msgid "New User"
+msgstr "Nuevo usuario"
+
+#: ../../../tmp/translation/haml-gettext-00000012.rb:2
+msgid "First name"
+msgstr "Nombre de pila"
+
+#: ../../../tmp/translation/haml-gettext-00000013.rb:2
+msgid "Middle name"
+msgstr "Segundo nombre"
+
+#: ../../../tmp/translation/haml-gettext-00000014.rb:2
+msgid "Last name"
+msgstr "Apellido"
+
+#: ../../../tmp/translation/haml-gettext-00000015.rb:2
+msgid "E-mail address"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000016.rb:2
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../../../tmp/translation/haml-gettext-00000017.rb:2
+msgid "Password confirmation"
+msgstr "Confirmación De Contraseña"
+
+#: ../../../tmp/translation/haml-gettext-00000020.rb:2
+msgid "Name"
+msgstr "Nombre"
+
+#: ../../../tmp/translation/haml-gettext-00000021.rb:2
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: ../../../tmp/translation/haml-gettext-00000022.rb:2
+msgid "Role"
+msgstr "Papel"
+
+#: ../../../tmp/translation/haml-gettext-00000023.rb:2
+msgid "Actions"
+msgstr "Acciones"
+
+#: ../../../tmp/translation/haml-gettext-00000025.rb:2
+msgid "Course Description"
+msgstr "Descripción del curso"

@@ -1,14 +1,13 @@
 .card
-  .card-header
-    Menu
+  .card-header= _('Menu')
   .card-body
     %nav.nav.nav-pills.flex-column
       = active_link_to root_path, class: 'nav-link', active: :exclusive do
         = icon 'dashboard'
-        = t '.dashboard'
+        = _('Dashboard')
       = active_link_to users_path, class: 'nav-link' do
         = icon 'users'
-        = t '.users'
+        = _('Users')
       = active_link_to courses_path, class: 'nav-link' do
         = icon 'university'
-        = t '.courses'
+        = _('Courses')
