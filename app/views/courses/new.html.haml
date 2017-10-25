@@ -1,7 +1,7 @@
 = form_for @course do |f|
   .card
     .card-header
-      %h4 New Course
+      %h4= _('New Course')
     .card-body
       = render 'courses/form', f: f, i: @instructors
     .card-footer

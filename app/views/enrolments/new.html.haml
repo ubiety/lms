@@ -2,7 +2,7 @@
   .card
     .card-header
       %h3
-        Enroll Student in
+        = _('Enroll Student in')
         = @course.name
     .card-body
       = render 'enrolments/form', f: f, students: @students
