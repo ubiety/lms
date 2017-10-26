@@ -1,6 +1,6 @@
 # Settings controller
 class SettingsController < ApplicationController
-  before_action :get_setting, only: %w(edit update)
+  before_action :find_setting, only: %w(edit update)
 
   def index
     @settings = Setting.get_all
@@ -19,7 +19,7 @@ class SettingsController < ApplicationController
 
   private
 
-  def get_setting
+  def find_setting
     id = params[:id]
     @setting = Setting.find_by(var: id) || Setting.new(var: id)
   end

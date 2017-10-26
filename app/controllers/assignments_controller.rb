@@ -28,8 +28,8 @@ class AssignmentsController < ApplicationController
   end
 
   def update
-    authorize @assignment
     @assignment.assign_attributes(assignment_params)
+    authorize @assignment
     if @assignment.save!
       redirect_to [@course, @assignment],
                   flash: { success: 'Assignment updated' }
