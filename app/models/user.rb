@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :courses, through: :enrolments
   has_many :taught_courses, class_name: 'Course', foreign_key: :instructor_id
 
+  has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
+  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'receiver_id'
+  has_many :personal_messages, dependent: :destroy
+
   authenticates_with_sorcery!
 
   enum role: %w[student instructor admin]
