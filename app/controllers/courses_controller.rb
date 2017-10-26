@@ -42,7 +42,13 @@ class CoursesController < ApplicationController
     authorize @course
   end
 
-  def destroy; end
+  def destroy
+    if @course.destroy
+      redirect_to courses_path
+    else
+      redirect_to course_path(@course)
+    end
+  end
 
   private
 

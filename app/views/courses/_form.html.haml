@@ -7,7 +7,6 @@
             %li
               = icon('exclamation-circle', class: 'fa-li')
               = message
-
 .row
   .col
     .form-group
@@ -20,9 +19,9 @@
     .form-group
       %label
         = _('Start Time')
-        = f.time_select :start_time, {}, class: 'custom-select'
+        = f.time_select :start_time, { minute_step: 30 }, class: 'custom-select'
   .col
     .form-group
       %label
         = _('End Time')
-        = f.time_select :end_time, {}, class: 'custom-select'
+        = f.time_select :end_time, { minute_step: 30 }, class: 'custom-select'
