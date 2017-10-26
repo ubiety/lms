@@ -22,7 +22,8 @@ class ApplicationController < ActionController::Base
   end
 
   def load_conversations
-    @conversations = Conversation.participating(current_user)
-                       .order('updated_at DESC') if current_user
+    if current_user
+      @conversations = Conversation.participating(current_user).order('updated_at DESC')
+    end
   end
 end

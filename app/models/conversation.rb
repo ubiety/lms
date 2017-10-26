@@ -7,9 +7,9 @@ class Conversation < ApplicationRecord
 
   has_many :personal_messages, -> { order(created_at: :asc) }, dependent: :destroy
 
-  scope :participating, lambda(user) do
+  scope :participating, lambda { |user|
     where('(conversations.author_id = ? OR conversations.receiver_id = ?)', user.id, user.id)
-  end
+  }
 
   def with(current_user)
     author == current_user ? receiver : author
