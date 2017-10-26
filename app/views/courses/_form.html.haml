@@ -17,6 +17,10 @@
 .row
   .col
     .form-group
+      = bootstrap_md_editor f, :description
+.row
+  .col
+    .form-group
       %label
         = _('Start Time')
         = f.time_select :start_time, { minute_step: 30 }, class: 'custom-select'

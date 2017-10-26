@@ -22,7 +22,7 @@
               - if c.instructor
                 = user_avatar_tag c.instructor, size: '50x50', class: 'rounded-circle'
                 = c.instructor.full_name
-            %td= c.start_time.strftime("%H:%M %Z")
+            %td= c.start_time.strftime("%H:%M %Z") if c.start_time
             %td.d-flex.justify-content-center
               - if policy(Enrolment).new?
                 = link_to new_course_enrolment_path(c), class: 'btn btn-sm btn-outline-success mr-2',
