@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
-  before_action :require_login, :set_locale, :set_paper_trail_whodunnit
+  before_action :require_login, :set_locale, :set_paper_trail_whodunnit, :load_conversations
 
   responders :flash
 
@@ -19,5 +19,9 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def load_conversations
+    @conversations = Conversation.participating(current_user).order('updated_at DESC')
   end
 end
