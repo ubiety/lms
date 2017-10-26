@@ -4,16 +4,16 @@
     - if policy(Course).new?
       = link_to new_course_path, class: 'btn btn-primary float-right' do
         = icon 'university'
-        New Course
-    %h3 Courses
+        = _('New Course')
+    %h3= _('Courses')
   .card-body
     %table.table-striped.table
       %thead
         %tr
-          %th.w-50 Name
-          %th.w-25 Instructor
-          %th Start Time
-          %th.text-center Actions
+          %th.w-50= _('Name')
+          %th.w-25= _('Instructor')
+          %th= _('Start Time')
+          %th.text-center= _('Actions')
       %tbody
         - @courses.each do |c|
           %tr
@@ -26,17 +26,17 @@
             %td.d-flex
               - if policy(Enrolment).new?
                 = link_to new_course_enrolment_path(c), class: 'btn btn-sm btn-outline-success mr-2',
-                          data: { toggle: 'tooltip', placement: 'top', container: 'body' }, title: 'Enroll' do
+                          data: { toggle: 'tooltip', placement: 'top', container: 'body' }, title: _('Enroll') do
                   = icon 'user-plus'
-                  %span.sr-only Enroll
+                  %span.sr-only= _('Enroll')
               - if policy(c).edit?
                 = link_to edit_course_path(c), class: 'btn btn-sm btn-outline-primary mr-2',
-                          data: { toggle: 'tooltip', placement: 'top' }, title: 'Edit' do
+                          data: { toggle: 'tooltip', placement: 'top' }, title: _('Edit') do
                   = icon 'edit'
-                  %span.sr-only Edit
+                  %span.sr-only= _('Edit')
               - if policy(c).delete?
                 = link_to course_path(c), class: 'btn btn-sm btn-outline-danger', method: :delete,
                           data: { confirm: "Delete course #{c.name}?", toggle: 'tooltip', placement: 'top' },
-                          title: 'Delete' do
+                          title: _('Delete') do
                   = icon 'trash'
-                  %span.sr-only Delete
+                  %span.sr-only= _('Delete')

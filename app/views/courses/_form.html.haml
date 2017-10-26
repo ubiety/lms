@@ -1,7 +1,7 @@
 .row
   .col
     .form-group
-      = f.text_field :name, placeholder: 'Name', class: 'form-control'
+      = f.text_field :name, placeholder: _('Name'), class: 'form-control'
   .col
     .form-group
       = f.select :instructor_id, (i.map { |u| [u.full_name, u.id] }), {}, class: 'custom-select'
@@ -9,10 +9,10 @@
   .col
     .form-group
       %label
-        Start Time
+        = _('Start Time')
         = f.time_select :start_time, {}, class: 'custom-select'
   .col
     .form-group
       %label
-        End Time
+        = _('End Time')
         = f.time_select :end_time, {}, class: 'custom-select'

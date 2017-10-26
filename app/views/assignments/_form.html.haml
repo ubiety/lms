@@ -1,14 +1,14 @@
 .row
   .col
     .form-group
-      = f.text_field :name, placeholder: 'Name', class: 'form-control'
+      = f.text_field :name, placeholder: _('Name'), class: 'form-control'
 .row
   .col
     = bootstrap_md_editor f, :description
 .row
   .col-md-3
     .form-group
-      %label Due date
+      %label= _('Due Date')
       = f.date_field :due_date, class: 'form-control'
   .col
     .form-group

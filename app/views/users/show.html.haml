@@ -5,7 +5,7 @@
       .card-header
         = link_to edit_user_path(@user), class: 'btn btn-primary float-right' do
           = icon 'edit'
-          Edit
+          = _('Edit')
         %h3= @user.full_name
       .card-body
         .row
@@ -26,4 +26,4 @@
         .card
           .card-header= link_to course.name, course_path(course), class: 'btn btn-link'
           .card-body
-            %p Course Description
+            %p= _('Course Description')

@@ -1,4 +1,4 @@
 .form-group
   %label
-    Student
+    = _('Student')
     = f.select :user_id, (students.map { |s| [s.full_name, s.id] }), {}, class: 'custom-select'

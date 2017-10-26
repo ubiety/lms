@@ -16,17 +16,17 @@
           = form_tag sessions_path do
             .card
               .card-header
-                %h3 Login
+                %h3= _('Login')
               .card-body
                 = flash_messages
                 .form-group
-                  = email_field_tag :email, nil, class: 'form-control', placeholder: 'E-mail'
+                  = email_field_tag :email, nil, class: 'form-control', placeholder: _('Email')
                 .form-group
-                  = password_field_tag :password, nil, class: 'form-control', placeholder: 'Password'
+                  = password_field_tag :password, nil, class: 'form-control', placeholder: _('Password')
                 .form-check
                   %label.form-check-label
                     = check_box_tag :remember_me, 1, false, class: 'form-check-input'
-                    Remember Me
+                    = _('Remember Me')
               .card-footer
                 = link_to 'Forgot Password', '#', class: 'align-self-center'
-                = submit_tag 'Login', class: 'btn btn-primary float-right'
+                = submit_tag _('Log In'), class: 'btn btn-primary float-right'

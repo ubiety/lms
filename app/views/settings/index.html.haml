@@ -2,13 +2,13 @@
   .col
     .card
       .card-header
-        %h4 Settings
+        %h4= _('Settings')
       .card-body
         %table.table.table-striped.table-responsive
           %thead
             %tr
-              %th Setting
-              %th Value
+              %th= _('Setting')
+              %th= _('Value')
               %th.w-25
           %tbody
             - @settings.each_key do |key|
@@ -18,4 +18,4 @@
                 %td.d-flex.justify-content-end
                   = link_to edit_setting_path(key), class: 'btn btn-outline-primary' do
                     = icon('edit')
-                    Edit
+                    = _('Edit')

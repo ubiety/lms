@@ -1,0 +1,254 @@
+# Spanish translations for lms package.
+# Copyright (C) 2017 lms
+# This file is distributed under the same license as the lms package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lms 1.0\n"
+"Report-Msgid-Bugs-To: contact@translation.io\n"
+"POT-Creation-Date: 2017-10-25 17:14-0500\n"
+"PO-Revision-Date: 2017-10-26 00:14+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+
+#: ../../../tmp/translation/haml-gettext-00000000.rb:2
+msgid "Welcome to LMS"
+msgstr "Bienvenido a LMS"
+
+#: ../../../tmp/translation/haml-gettext-00000001.rb:2
+#: ../../../tmp/translation/haml-gettext-00000015.rb:2
+msgid "Settings"
+msgstr "Ajustes"
+
+#: ../../../tmp/translation/haml-gettext-00000002.rb:2
+msgid "Setting"
+msgstr "Ajuste"
+
+#: ../../../tmp/translation/haml-gettext-00000003.rb:2
+msgid "Value"
+msgstr "valor"
+
+#: ../../../tmp/translation/haml-gettext-00000004.rb:2
+#: ../../../tmp/translation/haml-gettext-00000024.rb:2
+#: ../../../tmp/translation/haml-gettext-00000040.rb:2
+#: ../../../tmp/translation/haml-gettext-00000055.rb:2
+#: ../../../tmp/translation/haml-gettext-00000056.rb:2
+#: ../../../tmp/translation/haml-gettext-00000072.rb:2
+msgid "Edit"
+msgstr "Editar"
+
+#: ../../../tmp/translation/haml-gettext-00000005.rb:2
+msgid "Menu"
+msgstr "Menú"
+
+#: ../../../tmp/translation/haml-gettext-00000006.rb:2 ../../breadcrumbs.rb:2
+msgid "Dashboard"
+msgstr "Tablero"
+
+#: ../../../tmp/translation/haml-gettext-00000007.rb:2
+#: ../../../tmp/translation/haml-gettext-00000034.rb:2 ../../breadcrumbs.rb:6
+msgid "Users"
+msgstr "Usuarios"
+
+#: ../../../tmp/translation/haml-gettext-00000008.rb:2
+#: ../../../tmp/translation/haml-gettext-00000048.rb:2 ../../breadcrumbs.rb:21
+msgid "Courses"
+msgstr "Cursos"
+
+#: ../../../tmp/translation/haml-gettext-00000009.rb:2
+msgid "&laquo; First"
+msgstr "&laquo; Primera"
+
+#: ../../../tmp/translation/haml-gettext-00000010.rb:2
+msgid "&lsaquo; Prev"
+msgstr "&lsaquo; Anterior"
+
+#: ../../../tmp/translation/haml-gettext-00000011.rb:2
+msgid "Last &raquo;"
+msgstr "Última &raquo;"
+
+#: ../../../tmp/translation/haml-gettext-00000012.rb:2
+msgid "Next &rsaquo;"
+msgstr "Siguiente &rsaquo;"
+
+#: ../../../tmp/translation/haml-gettext-00000013.rb:2
+msgid "Enroll Student in"
+msgstr "Inscribir estudiante en"
+
+#: ../../../tmp/translation/haml-gettext-00000014.rb:2
+msgid "Student"
+msgstr "estudiante"
+
+#: ../../../tmp/translation/haml-gettext-00000016.rb:2
+msgid "Log Out"
+msgstr "Finalizar la sesión"
+
+#: ../../../tmp/translation/haml-gettext-00000017.rb:2
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: ../../../tmp/translation/haml-gettext-00000018.rb:2
+#: ../../../tmp/translation/haml-gettext-00000037.rb:2
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: ../../../tmp/translation/haml-gettext-00000019.rb:2
+#: ../../../tmp/translation/haml-gettext-00000032.rb:2
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../../../tmp/translation/haml-gettext-00000020.rb:2
+msgid "Remember Me"
+msgstr "Recuérdame"
+
+#: ../../../tmp/translation/haml-gettext-00000021.rb:2
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+#: ../../../tmp/translation/haml-gettext-00000022.rb:2
+msgid "Create User"
+msgstr "Crear usuario"
+
+#: ../../../tmp/translation/haml-gettext-00000023.rb:2
+msgid "Edit User"
+msgstr "Editar usuario"
+
+#: ../../../tmp/translation/haml-gettext-00000025.rb:2
+#: ../../../tmp/translation/haml-gettext-00000057.rb:2
+#: ../../../tmp/translation/haml-gettext-00000058.rb:2
+#: ../../../tmp/translation/haml-gettext-00000073.rb:2
+msgid "Delete"
+msgstr "Borrar"
+
+#: ../../../tmp/translation/haml-gettext-00000026.rb:2
+msgid "\"Edit #{user.full_name}\""
+msgstr "\"Editar #{user.full_name}\""
+
+#: ../../../tmp/translation/haml-gettext-00000027.rb:2
+#: ../../../tmp/translation/haml-gettext-00000035.rb:2 ../../breadcrumbs.rb:11
+msgid "New User"
+msgstr "Nuevo usuario"
+
+#: ../../../tmp/translation/haml-gettext-00000028.rb:2
+msgid "First name"
+msgstr "Nombre de pila"
+
+#: ../../../tmp/translation/haml-gettext-00000029.rb:2
+msgid "Middle name"
+msgstr "Segundo nombre"
+
+#: ../../../tmp/translation/haml-gettext-00000030.rb:2
+msgid "Last name"
+msgstr "Apellido"
+
+#: ../../../tmp/translation/haml-gettext-00000031.rb:2
+msgid "E-mail address"
+msgstr "Dirección de correo electrónico"
+
+#: ../../../tmp/translation/haml-gettext-00000033.rb:2
+msgid "Password confirmation"
+msgstr "Confirmación De Contraseña"
+
+#: ../../../tmp/translation/haml-gettext-00000036.rb:2
+#: ../../../tmp/translation/haml-gettext-00000044.rb:2
+#: ../../../tmp/translation/haml-gettext-00000049.rb:2
+#: ../../../tmp/translation/haml-gettext-00000067.rb:2
+#: ../../../tmp/translation/haml-gettext-00000076.rb:2
+msgid "Name"
+msgstr "Nombre"
+
+#: ../../../tmp/translation/haml-gettext-00000038.rb:2
+msgid "Role"
+msgstr "Papel"
+
+#: ../../../tmp/translation/haml-gettext-00000039.rb:2
+#: ../../../tmp/translation/haml-gettext-00000052.rb:2
+#: ../../../tmp/translation/haml-gettext-00000070.rb:2
+msgid "Actions"
+msgstr "Acciones"
+
+#: ../../../tmp/translation/haml-gettext-00000041.rb:2
+msgid "Course Description"
+msgstr "Descripción del curso"
+
+#: ../../../tmp/translation/haml-gettext-00000042.rb:2
+#: ../../../tmp/translation/haml-gettext-00000047.rb:2
+msgid "New Course"
+msgstr "Nuevo curso"
+
+#: ../../../tmp/translation/haml-gettext-00000043.rb:2
+msgid "Edit Course"
+msgstr "Editar curso"
+
+#: ../../../tmp/translation/haml-gettext-00000045.rb:2
+#: ../../../tmp/translation/haml-gettext-00000051.rb:2
+msgid "Start Time"
+msgstr "Hora de inicio"
+
+#: ../../../tmp/translation/haml-gettext-00000046.rb:2
+msgid "End Time"
+msgstr "Hora de finalización"
+
+#: ../../../tmp/translation/haml-gettext-00000050.rb:2
+msgid "Instructor"
+msgstr "Instructor"
+
+#: ../../../tmp/translation/haml-gettext-00000053.rb:2
+#: ../../../tmp/translation/haml-gettext-00000054.rb:2
+#: ../../../tmp/translation/haml-gettext-00000060.rb:2
+msgid "Enroll"
+msgstr "Inscribirse"
+
+#: ../../../tmp/translation/haml-gettext-00000059.rb:2
+msgid "Instructor:"
+msgstr "Instructor:"
+
+#: ../../../tmp/translation/haml-gettext-00000061.rb:2
+msgid "Remove"
+msgstr "Quitar"
+
+#: ../../../tmp/translation/haml-gettext-00000062.rb:2
+msgid "E-Mail:"
+msgstr "Email:"
+
+#: ../../../tmp/translation/haml-gettext-00000063.rb:2
+msgid "Message"
+msgstr "Mensaje"
+
+#: ../../../tmp/translation/haml-gettext-00000064.rb:2
+#: ../../../tmp/translation/haml-gettext-00000074.rb:2
+msgid "New Assignment"
+msgstr "Nueva tarea"
+
+#: ../../../tmp/translation/haml-gettext-00000065.rb:2
+msgid "Assignments"
+msgstr "asignaciones"
+
+#: ../../../tmp/translation/haml-gettext-00000066.rb:2
+msgid "Date"
+msgstr "Fecha"
+
+#: ../../../tmp/translation/haml-gettext-00000068.rb:2
+#: ../../../tmp/translation/haml-gettext-00000077.rb:2
+msgid "Due Date"
+msgstr "Fecha de vencimiento"
+
+#: ../../../tmp/translation/haml-gettext-00000069.rb:2
+msgid "Submissions"
+msgstr "Presentaciones"
+
+#: ../../../tmp/translation/haml-gettext-00000071.rb:2
+msgid "Overdue"
+msgstr "Atrasado"
+
+#: ../../../tmp/translation/haml-gettext-00000075.rb:2
+#: ../../../tmp/translation/haml-gettext-00000078.rb:2
+msgid "Edit Assignment"
+msgstr "Editar tarea"

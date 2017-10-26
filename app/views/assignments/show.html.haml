@@ -6,7 +6,7 @@
         - if policy(@assignment).edit?
           = link_to edit_course_assignment_path(@course, @assignment), class: 'btn btn-primary float-right' do
             = icon('edit')
-            %span.sr-only Edit Assignment
+            %span.sr-only= _('Edit Assignment')
         %h3= @assignment.name
       .card-body
         = render_description @assignment.description

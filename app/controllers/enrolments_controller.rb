@@ -14,7 +14,7 @@ class EnrolmentsController < ApplicationController
     if @enrolment.save!
       redirect_to @course, flash: { success: 'Enrolled student' }
     else
-      @students = User.where role: User.roles[:student]
+      @students = User.unenrolled(@course)
       flash.now[:error] = 'Error enrolling student'
       render :new
     end
