@@ -1,3 +1,13 @@
+- if @course.errors.any?
+  .row
+    .col
+      .alert.alert-danger{ role: 'alert'}
+        %ul.fa-ul
+          - @course.errors.full_messages.each do |message|
+            %li
+              = icon('exclamation-circle', class: 'fa-li')
+              = message
+
 .row
   .col
     .form-group

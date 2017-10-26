@@ -20,7 +20,7 @@ class CoursesController < ApplicationController
   def update
     authorize @course
     @course.assign_attributes(course_params)
-    if @course.save!
+    if @course.save
       redirect_to course_path(@course), flash: { success: 'Course updated' }
     else
       render :edit
@@ -30,9 +30,10 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     authorize @course
-    if @course.save!
+    if @course.save
       redirect_to course_path(@course), flash: { success: 'Course created' }
     else
+      find_instructors
       render :new
     end
   end
