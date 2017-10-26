@@ -14,19 +14,20 @@
             = _('Edit')
         %h3= @course.name
       .card-body
-        %p.card-text Course Description
+        %p.card-text
+          = render_description @course.description
 
 .row.mt-2
   .col
     .card-columns
       .card
-        .card-header
+        .card-header.instructor-header-color.text-light
           = user_avatar_tag @course.instructor, size: '50x50', class: 'rounded-circle'
           = @course.instructor.full_name
-        .card-body
+        .card-body.instructor-body-color.text-light
           %h5.font-italic= _('Instructor')
           = @course.instructor.email
-        .card-footer
+        .card-footer.instructor-header-color
           %span.btn.btn-info
             = icon('comment-o')
             %span.sr-only= _('Message')
