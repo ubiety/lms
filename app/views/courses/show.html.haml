@@ -26,7 +26,9 @@
           = @course.instructor.full_name
         .card-body.instructor-body-color.text-light
           %h5.font-italic= _('Instructor')
-          = @course.instructor.email
+          %span
+            = _('Email:')
+            = @course.instructor.email
         .card-footer.instructor-header-color
           %span.btn.btn-info
             = icon('comment-o')
@@ -43,7 +45,7 @@
             = s.full_name
           .card-body
             %span
-              = _('E-Mail:')
+              = _('Email:')
               = s.email
           .card-footer
             %span.btn.btn-info
