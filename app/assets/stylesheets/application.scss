@@ -12,6 +12,8 @@
  *
  */
 
+$enable-gradients: true;
+
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
@@ -25,9 +27,8 @@ $color-four: #8388BE;
 $color-five: #5557A4;
 
 .background {
-  background-image: url(asset-path('background'));
   background-size: cover;
-  background-attachment: fixed;
+  background: url(asset-path('background')) fixed;
 }
 
 html, body {

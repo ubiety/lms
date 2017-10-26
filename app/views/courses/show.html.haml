@@ -57,7 +57,7 @@
           %tbody
             - @course.assignments.each do |a|
               %tr
-                %td= time_tag a.created_at
+                %td= time_tag a.created_at.strftime("%B %d, %Y")
                 %td= link_to a.name, [@course, a]
                 %td{ class: due_date_style(a.due_date) }
                   - if a.due_date < Date.today
