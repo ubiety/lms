@@ -3,5 +3,5 @@
     %h5= _('Conversations')
   .card-body
     %ul
-      - @conversations.each do |conversation|
+      - @chats.each do |conversation|
         %li= conversation.with(current_user).name
