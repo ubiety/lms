@@ -5,11 +5,11 @@
       .col-md-2
         %h4= _('Users')
       .col-md-8
-        = search_form_for @query, class: 'form-inline' do |f|
+        = search_form_for @query, class: 'form-inline' do |form|
           .input-group.mx-auto
-            = f.search_field :full_name_cont, class: 'form-control', placeholder: true
+            = form.search_field :full_name_cont, class: 'form-control', placeholder: true
             %span.input-group-btn
-              = f.submit class: 'btn btn-success'
+              = form.submit class: 'btn btn-success'
       .col-md-2
         - if policy(User).new?
           = link_to new_user_path, class: 'btn btn-primary float-right',

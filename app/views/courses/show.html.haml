@@ -70,24 +70,24 @@
               %th= _('Submissions')
               %th.text-center= _('Actions')
           %tbody
-            - @course.assignments.each do |a|
+            - @course.assignments.each do |assignment|
               %tr
-                %td= time_tag a.created_at.strftime("%B %d, %Y")
-                %td= link_to a.name, [@course, a]
-                %td{ class: due_date_style(a.due_date) }
-                  - if a.due_date < Date.today
+                %td= time_tag assignment.created_at.strftime('%B %d, %Y')
+                %td= link_to assignment.name, course_assignment_path(@course, assignment)
+                %td{ class: due_date_style(assignment.due_date) }
+                  - if assignment.due_date < Date.today
                     = _('Overdue')
                   - else
-                    = distance_of_time_in_words(Date.today, a.due_date)
+                    = distance_of_time_in_words(Date.today, assignment.due_date)
                 %td
                 %td.d-flex.justify-content-end
-                  - if policy(a).edit?
-                    = link_to edit_course_assignment_path(@course, a),
+                  - if policy(assignment).edit?
+                    = link_to edit_course_assignment_path(@course, assignment),
                               class: 'btn btn-sm btn-outline-primary mr-2' do
                       = icon('edit')
                       %span.sr-only= _('Edit')
-                  - if policy(a).destroy?
-                    = link_to course_assignment_path(@course, a), class: 'btn btn-sm btn-outline-danger',
-                              method: :delete, data: { confirm: "Delete #{a.name}?" } do
+                  - if policy(assignment).destroy?
+                    = link_to course_assignment_path(@course, assignment), class: 'btn btn-sm btn-outline-danger',
+                              method: :delete, data: { confirm: "Delete #{assignment.name}?" } do
                       = icon('trash')
                       %span.sr-only= _('Delete')

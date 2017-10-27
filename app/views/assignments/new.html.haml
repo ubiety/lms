@@ -1,10 +1,10 @@
 .row
   .col
-    = form_for [@course, @assignment] do |f|
+    = form_for course_assignment_path(@course, @assignment) do |f|
       .card
         .card-header
           %h4= _('New Assignment')
         .card-body
-          = render 'assignments/form', f: f
+          = render 'assignments/form', form: f
         .card-footer
           = f.submit class: 'float-right btn btn-primary'

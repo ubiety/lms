@@ -27,7 +27,7 @@
                   = link_to settings_path, class: 'dropdown-item' do
                     = icon('cog')
                     = _('Settings')
-                .dropdown-divider
+                  .dropdown-divider
                 = link_to logout_path, class: 'dropdown-item' do
                   = icon('power-off')
                   = _('Log Out')
@@ -42,7 +42,7 @@
               = render 'shared/sidebar_nav'
           .row.mt-2
             .col
-              = render 'conversations/conversations'
+              = render 'conversations/conversations', chats: @chats
         .col-md-10
           .row
             .col

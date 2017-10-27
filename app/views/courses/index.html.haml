@@ -15,28 +15,28 @@
           %th= _('Start Time')
           %th.text-center= _('Actions')
       %tbody
-        - @courses.each do |c|
+        - @courses.each do |course|
           %tr
-            %td= link_to c.name, course_path(c), class: 'btn btn-link'
+            %td= link_to course.name, course_path(course), class: 'btn btn-link'
             %td
-              - if c.instructor
-                = user_avatar_tag c.instructor, size: '50x50', class: 'rounded-circle'
-                = c.instructor.full_name
-            %td= c.start_time.strftime("%H:%M %Z") if c.start_time
+              - if course.instructor
+                = user_avatar_tag course.instructor, size: '50x50', class: 'rounded-circle'
+                = course.instructor.full_name
+            %td= course.start_time.strftime('%H:%M %Z') if c.start_time
             %td.d-flex.justify-content-center
               - if policy(Enrolment).new?
-                = link_to new_course_enrolment_path(c), class: 'btn btn-sm btn-outline-success mr-2',
+                = link_to new_course_enrolment_path(course), class: 'btn btn-sm btn-outline-success mr-2',
                           data: { toggle: 'tooltip', placement: 'top', container: 'body' }, title: _('Enroll') do
                   = icon 'user-plus'
                   %span.sr-only= _('Enroll')
-              - if policy(c).edit?
-                = link_to edit_course_path(c), class: 'btn btn-sm btn-outline-primary mr-2',
+              - if policy(course).edit?
+                = link_to edit_course_path(course), class: 'btn btn-sm btn-outline-primary mr-2',
                           data: { toggle: 'tooltip', placement: 'top' }, title: _('Edit') do
                   = icon 'edit'
                   %span.sr-only= _('Edit')
-              - if policy(c).delete?
-                = link_to course_path(c), class: 'btn btn-sm btn-outline-danger', method: :delete,
-                          data: { confirm: "Delete course #{c.name}?", toggle: 'tooltip', placement: 'top' },
+              - if policy(course).delete?
+                = link_to course_path(course), class: 'btn btn-sm btn-outline-danger', method: :delete,
+                          data: { confirm: "Delete course #{course.name}?", toggle: 'tooltip', placement: 'top' },
                           title: _('Delete') do
                   = icon 'trash'
                   %span.sr-only= _('Delete')

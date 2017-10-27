@@ -1,17 +1,17 @@
 .row
   .col
     .form-group
-      = f.text_field :name, placeholder: _('Name'), class: 'form-control'
+      = form.text_field :name, placeholder: _('Name'), class: 'form-control'
 .row
   .col
-    = bootstrap_md_editor f, :description
+    = bootstrap_md_editor form, :description
 .row
   .col-md-3
     .form-group
       %label= _('Due Date')
-      = f.date_field :due_date, class: 'form-control'
+      = form.date_field :due_date, class: 'form-control'
   .col
     .form-group
       %label.custom-file
-        = f.file_field :document, class: 'custom-file-input'
+        = form.file_field :document, class: 'custom-file-input'
         %span.custom-file-control

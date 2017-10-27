@@ -11,7 +11,7 @@ class EnrolmentsController < ApplicationController
   def create
     @enrolment = @course.enrolments.new(enrolment_params)
     authorize @enrolment
-    if @enrolment.save!
+    if @enrolment.save
       redirect_to @course, flash: { success: 'Enrolled student' }
     else
       @students = User.unenrolled(@course)
@@ -27,6 +27,6 @@ class EnrolmentsController < ApplicationController
   end
 
   def enrolment_params
-    params.require(:enrolment).permit(:user_id)
+    params.require(:enrolment).permit(user_id: [])
   end
 end

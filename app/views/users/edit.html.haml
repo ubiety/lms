@@ -1,9 +1,9 @@
-= form_for @user do |f|
+= form_for @user do |form|
   .card
     .card-header
       %h3= _('Edit User')
     .card-body
-      = render 'users/form', f: f
+      = render 'users/form', form: form
     .card-footer
       = link_to 'Cancel', user_path(@user), class: 'btn btn-link'
-      = f.submit class: 'btn btn-primary float-right'
+      = form.submit class: 'btn btn-primary float-right'
