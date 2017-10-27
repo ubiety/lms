@@ -40,14 +40,12 @@ class User < ApplicationRecord
   scope :instructors, -> { where.has { |user| user.role == roles[:instructor] } }
 
   def self.unenrolled(course)
-    enrol_table = Arel::Table.new(:enrolments)
-    user_table = Arel::Table.new(:users)
-    course_id = enrol_table[:course_id]
-
-    joins(user_table.join(enrol_table, Arel::Nodes::FullOuterJoin)
-            .on(user_table[:id].eq(enrol_table[:user_id])).join_sources)
-      .where(course_id.eq(nil).or(course_id.not_eq(course.id)))
-      .where(user_table[:role].eq(roles[:student]))
+    User.select(Arel.star).where(
+      User[:role].eq(roles[:student]).and(Enrolment[:course_id].not_eq(course.id)
+                                            .or(Enrolment[:course_id].nil?))
+        .joins(User.arel_table.join(Enrolment.arel_table, Arel::Nodes::OuterJoin)
+                 .on(Enrolment[:user_id]).eq(User[:id]).join_sources)
+    )
   end
 
   def full_name
