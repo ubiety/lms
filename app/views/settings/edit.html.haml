@@ -6,8 +6,8 @@
       = form_for(@setting, url: setting_path(@setting.var), method: :patch) do |f|
         .card-body
           .form-group
-            %label
-              = @setting.var
-              = f.text_area :value, rows: 10, class: 'form-control'
+          %label
+            = @setting.var.titleize
+            = f.text_area :value, value: Setting[@setting.var], class: 'form-control'
         .card-footer
           = f.submit class: 'btn btn-success float-right'
