@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026024644) do
+ActiveRecord::Schema.define(version: 20171026142913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20171026024644) do
     t.index ["sash_id"], name: "index_badges_sashes_on_sash_id"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
+    t.index ["author_id"], name: "index_conversations_on_author_id"
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -45,6 +55,7 @@ ActiveRecord::Schema.define(version: 20171026024644) do
     t.string "slug"
     t.time "start_time"
     t.time "end_time"
+    t.text "description"
     t.index ["instructor_id", "start_time"], name: "index_courses_on_instructor_id_and_start_time", unique: true
     t.index ["instructor_id"], name: "index_courses_on_instructor_id"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
@@ -110,6 +121,16 @@ ActiveRecord::Schema.define(version: 20171026024644) do
     t.index ["sash_id"], name: "index_merit_scores_on_sash_id"
   end
 
+  create_table "personal_messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_personal_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_personal_messages_on_user_id"
+  end
+
   create_table "sashes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -165,4 +186,6 @@ ActiveRecord::Schema.define(version: 20171026024644) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "personal_messages", "conversations"
+  add_foreign_key "personal_messages", "users"
 end

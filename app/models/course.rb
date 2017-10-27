@@ -11,7 +11,8 @@ class Course < ApplicationRecord
   has_many :assignments
 
   validates :name, presence: true
-  validates :instructor_id, uniqueness: { scope: :start_time, message: 'can only teach one class at a time' }
+  validates :instructor_id, uniqueness: { scope: :start_time,
+                                          message: 'can only teach one class at a time' }
 
   friendly_id :name, use: :slugged
 end

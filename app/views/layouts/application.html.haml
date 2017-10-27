@@ -37,7 +37,12 @@
             = flash_messages
       .row.mt-3
         .col-md-2
-          = render 'shared/sidebar_nav'
+          .row
+            .col
+              = render 'shared/sidebar_nav'
+          .row.mt-2
+            .col
+              = render 'conversations/conversations'
         .col-md-10
           .row
             .col

@@ -1,2 +1,2 @@
 %li.page-item{ class: ('disabled' if current_page.last?) }
-  = link_to _("Last &raquo;"), url, remote: remote, class: 'page-link'
+  = link_to _('Last &raquo;').html_safe, url, remote: remote, class: 'page-link'
