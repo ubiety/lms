@@ -7,7 +7,7 @@ class SettingsController < ApplicationController
   end
 
   def update
-    value = params[:settings][:value]
+    value = params['setting']['value']
     if @setting.value != value
       @setting.value = value
       @setting.save
