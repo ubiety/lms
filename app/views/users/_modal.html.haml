@@ -3,13 +3,13 @@
              id: "user-#{id}-modal" }
   .modal-dialog{ role: 'document' }
     .modal-content
-      = form_with model: user, id: "user-#{id}-form" do |f|
+      = form_with model: user, id: "user-#{id}-form" do |form|
         .modal-header
           %h4{ id: "user-#{id}-label" }
             = user.full_name ? _("Edit #{user.full_name}") : _('New User')
           %button.close{ data: { dismiss: 'modal' }, aria: { label: 'Close' } }
             %span{ aria: { hidden: 'true' } } &times;
         .modal-body
-          = render 'users/form', f: f
+          = render 'users/form', form: form, user: user
         .modal-footer
-          = f.submit class: 'btn btn-primary float-right'
+          = form.submit class: 'btn btn-primary float-right'

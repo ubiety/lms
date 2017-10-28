@@ -1,22 +1,24 @@
+- if user.errors.any?
+  = render 'shared/errors', model: user
 .form-group
-  = f.text_field :first_name, placeholder: _('First name'), class: 'form-control'
+  = form.text_field :first_name, placeholder: _('First name'), class: 'form-control'
 .form-row
   .col.form-group
-    = f.text_field :middle_name, placeholder: _('Middle name'), class: 'form-control'
+    = form.text_field :middle_name, placeholder: _('Middle name'), class: 'form-control'
   .col.form-group
-    = f.text_field :last_name, placeholder: _('Last name'), class: 'form-control'
+    = form.text_field :last_name, placeholder: _('Last name'), class: 'form-control'
 .form-group
-  = f.email_field :email, placeholder: _('E-mail address'), class: 'form-control'
+  = form.email_field :email, placeholder: _('E-mail address'), class: 'form-control'
 .form-row
   .col.form-group
-    = f.password_field :password, placeholder: _('Password'), class: 'form-control'
+    = form.password_field :password, placeholder: _('Password'), class: 'form-control'
   .col.form-group
-    = f.password_field :password_confirmation, class: 'form-control',
+    = form.password_field :password_confirmation, class: 'form-control',
                        placeholder: _('Password confirmation')
 .form-row
   .col.form-group
-    = f.select :role, User.roles.keys.map { |k| [k.titleize, k] }, {}, class: 'custom-select'
+    = form.select :role, User.roles.keys.map { |key| [key.titleize, key] }, {}, class: 'custom-select'
   .col.form-group
     %label.custom-file
-      = f.file_field :avatar, class: 'custom-file-input'
+      = form.file_field :avatar, class: 'custom-file-input'
       %span.custom-file-control

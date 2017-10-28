@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     authorize @user
-    flash[:success] = 'User created successfully' if @user.save!
+    flash[:success] = 'User created successfully' if @user.save
     respond_with @user
   end
 
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def update
     authorize @user
     @user.assign_attributes(user_params)
-    flash[:success] = 'User updated successfully' if @user.save!
+    flash[:success] = 'User updated successfully' if @user.save
     respond_with @user
   end
 
