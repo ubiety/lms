@@ -25,8 +25,10 @@
             %td= course.start_time.strftime('%H:%M %Z') if c.start_time
             %td.d-flex.justify-content-center
               - if policy(Enrolment).new?
-                = link_to new_course_enrolment_path(course), class: 'btn btn-sm btn-outline-success mr-2',
-                          data: { toggle: 'tooltip', placement: 'top', container: 'body' }, title: _('Enroll') do
+                = link_to new_course_enrolment_path(course),
+                          class: 'btn btn-sm btn-outline-success mr-2',
+                          data: { toggle: 'tooltip', placement: 'top', container: 'body' },
+                          title: _('Enroll') do
                   = icon 'user-plus'
                   %span.sr-only= _('Enroll')
               - if policy(course).edit?
@@ -35,8 +37,8 @@
                   = icon 'edit'
                   %span.sr-only= _('Edit')
               - if policy(course).delete?
-                = link_to course_path(course), class: 'btn btn-sm btn-outline-danger', method: :delete,
-                          data: { confirm: "Delete course #{course.name}?", toggle: 'tooltip', placement: 'top' },
-                          title: _('Delete') do
+                = link_to course_path(course), class: 'btn btn-sm btn-outline-danger',
+                          method: :delete, data: { confirm: "Delete course #{course.name}?",
+                          toggle: 'tooltip', placement: 'top' }, title: _('Delete') do
                   = icon 'trash'
                   %span.sr-only= _('Delete')

@@ -3,6 +3,6 @@
     .card-header
       %h4= _('New Course')
     .card-body
-      = render 'courses/form', form: form, instructors: @instructors
+      = render 'courses/form', form: form, instructors: @instructors, course: @course
     .card-footer
       = form.submit class: 'btn btn-primary float-right'

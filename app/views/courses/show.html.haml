@@ -38,7 +38,8 @@
         .card
           .card-header
             - if policy(Enrolment).destroy?
-              = link_to course_enrolment_path(@course), class: 'btn btn-sm btn-outline-danger float-right', method: :delete do
+              = link_to course_enrolment_path(@course),
+                        class: 'btn btn-sm btn-outline-danger float-right', method: :delete do
                 = icon 'user-times'
                 %span.sr-only= _('Remove')
             = user_avatar_tag s, size: '50x50', class: 'rounded-circle'
@@ -87,7 +88,8 @@
                       = icon('edit')
                       %span.sr-only= _('Edit')
                   - if policy(assignment).destroy?
-                    = link_to course_assignment_path(@course, assignment), class: 'btn btn-sm btn-outline-danger',
-                              method: :delete, data: { confirm: "Delete #{assignment.name}?" } do
+                    = link_to course_assignment_path(@course, assignment),
+                              class: 'btn btn-sm btn-outline-danger', method: :delete,
+                              data: { confirm: "Delete #{assignment.name}?" } do
                       = icon('trash')
                       %span.sr-only= _('Delete')
