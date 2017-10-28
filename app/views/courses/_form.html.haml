@@ -1,12 +1,13 @@
-- if @course.errors.any?
-  = render 'shared/errors', model: @course
+- if course.errors.any?
+  = render 'shared/errors', model: course
 .row
   .col
     .form-group
       = form.text_field :name, placeholder: _('Name'), class: 'form-control'
   .col
     .form-group
-      = form.select :instructor_id, (instructors.map { |user| [user.full_name, user.id] }), {}, class: 'custom-select'
+      = form.select :instructor_id, (instructors.map { |user| [user.full_name, user.id] }),
+                    {}, class: 'custom-select'
 .row
   .col
     .form-group

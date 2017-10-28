@@ -1,6 +1,6 @@
 # Settings controller
 class SettingsController < ApplicationController
-  before_action :find_setting, only: %w(edit update)
+  before_action :find_setting, only: %w[edit update]
 
   def index
     @settings = Setting.get_all

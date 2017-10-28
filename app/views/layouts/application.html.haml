@@ -1,7 +1,7 @@
 !!! 5
-%html{ lang: "#{I18n.locale}" }
+%html{ lang: I18n.locale }
   %head
-    %title= "#{Setting.brand} - #{current_user.role.titleize}"
+    %title #{Setting.brand} - #{current_user.role.titleize}
     %meta{ charset: 'UTF-8' }
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', data: { turbolinks_track: 'reload' }
@@ -46,15 +46,15 @@
         .col-md-10
           .row
             .col
-              - breadcrumbs.tap do |b|
-                - if b.any?
+              - breadcrumbs.tap do |crumb|
+                - if crumb.any?
                   %ol.breadcrumb
-                    - b.each do |l|
-                      %li{ class: "breadcrumb-item #{'active' if l.current?}" }
-                        - if !l.current?
-                          = link_to l.text, l.url
+                    - crumb.each do |link|
+                      %li{ class: "breadcrumb-item #{'active' if link.current?}" }
+                        - if !link.current?
+                          = link_to link.text, link.url
                         - else
-                          = l.text
+                          = link.text
           .row
             .col
               = yield

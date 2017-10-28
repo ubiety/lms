@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   responders :flash
 
-  def default_url_options
+  def self.default_url_options
     { locale: I18n.locale }
   end
 

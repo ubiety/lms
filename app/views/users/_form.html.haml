@@ -17,7 +17,8 @@
                        placeholder: _('Password confirmation')
 .form-row
   .col.form-group
-    = form.select :role, User.roles.keys.map { |key| [key.titleize, key] }, {}, class: 'custom-select'
+    = form.select :role, User.roles.keys.map { |key| [key.titleize, key] }, {},
+                  class: 'custom-select'
   .col.form-group
     %label.custom-file
       = form.file_field :avatar, class: 'custom-file-input'

@@ -12,13 +12,13 @@ class SessionsController < ApplicationController
     if (@user = login(params[:email], params[:password], params[:remember_me]))
       redirect_back_or_to root_path, success: "Welcome #{@user.full_name}"
     else
-      flash.now[:error] = 'Login failed'
+      flash.now[:error] = _('Login failed')
       render :new
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, success: 'Logged out successfully'
+    redirect_to root_path, success: _('Logged out successfully')
   end
 end
