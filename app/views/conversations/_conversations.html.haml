@@ -1,0 +1,7 @@
+.card
+  .card-header
+    %h5= _('Conversations')
+  .card-body
+    %ul
+      - chats.each do |conversation|
+        %li= conversation.with(current_user).name

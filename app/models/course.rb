@@ -10,8 +10,9 @@ class Course < ApplicationRecord
   belongs_to :instructor, class_name: 'User', foreign_key: :instructor_id
   has_many :assignments
 
-  friendly_id :name, use: :slugged
+  validates :name, presence: true
+  validates :instructor_id, uniqueness: { scope: :start_time,
+                                          message: 'can only teach one class at a time' }
 
-  serialize :start_time, ::Tod::TimeOfDay
-  serialize :end_time, ::Tod::TimeOfDay
+  friendly_id :name, use: :slugged
 end

@@ -11,6 +11,7 @@
 #   attribute, if set it's appended like 'level_#{level_name}')
 
 module Merit
+  # Rank rules class
   class RankRules
     include Merit::RankRulesMethods
 

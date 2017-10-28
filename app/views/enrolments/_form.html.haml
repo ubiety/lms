@@ -1,4 +1,7 @@
-.form-group
-  %label
-    Student
-    = f.select :user_id, (students.map { |s| [s.full_name, s.id] }), {}, class: 'custom-select'
+- if enrolment.errors.any?
+  = render 'shared/errors', model: enrolment
+= form.collection_check_boxes :user_id, students, :id, :full_name do |student|
+  .form-check
+    %label.form-check-label
+      = student.check_box class: 'form-check-input'
+      = student.text

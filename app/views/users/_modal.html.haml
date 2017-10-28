@@ -1,0 +1,15 @@
+- id = user.id ? user.id : 'new'
+.modal.fade{ role: 'dialog', aria: { labelledby: "user-#{id}-label", hidden: 'true' },
+             id: "user-#{id}-modal" }
+  .modal-dialog{ role: 'document' }
+    .modal-content
+      = form_with model: user, id: "user-#{id}-form" do |form|
+        .modal-header
+          %h4{ id: "user-#{id}-label" }
+            = user.full_name ? _("Edit #{user.full_name}") : _('New User')
+          %button.close{ data: { dismiss: 'modal' }, aria: { label: 'Close' } }
+            %span{ aria: { hidden: 'true' } } &times;
+        .modal-body
+          = render 'users/form', form: form, user: user
+        .modal-footer
+          = form.submit class: 'btn btn-primary float-right'

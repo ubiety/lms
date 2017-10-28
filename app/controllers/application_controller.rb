@@ -3,9 +3,13 @@
 class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
-  before_action :require_login
-  before_action :set_paper_trail_whodunnit
-  layout :layout_for_role
+  before_action :require_login, :set_locale, :set_paper_trail_whodunnit, :load_conversations
+
+  responders :flash
+
+  def self.default_url_options
+    { locale: I18n.locale }
+  end
 
   def not_authenticated
     redirect_to login_path
@@ -13,15 +17,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def layout_for_role
-    if current_user.admin?
-      'admin'
-    elsif current_user.instructor?
-      'instructor'
-    elsif current_user.student?
-      'student'
-    else
-      'application'
-    end
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def load_conversations
+    @chats = Conversation.participating(current_user).order('updated_at DESC') if current_user
   end
 end

@@ -2,27 +2,56 @@
 .row
   .col
     .card
-      .card-header
-        %span.float-right
-          Instructor:
-          = user_avatar @course.instructor, size: '50x50', class: 'rounded-circle'
-          = @course.instructor.full_name
+      .card-header.align-middle
+        - if policy(Enrolment).new?
+          = link_to new_course_enrolment_path(@course),
+                    class: 'btn btn-outline-success float-right mr-2' do
+            = icon('user-plus')
+            = _('Enroll')
+        - if policy(@course).edit?
+          = link_to edit_course_path(@course), class: 'btn btn-outline-primary float-right mr-2' do
+            = icon('edit')
+            = _('Edit')
         %h3= @course.name
       .card-body
-        %p.card-text Course Description
+        %p.card-text
+          = render_description @course.description
 
 .row.mt-2
   .col
     .card-columns
+      .card
+        .card-header.instructor-header-color.text-light
+          = user_avatar_tag @course.instructor, size: '50x50', class: 'rounded-circle'
+          = @course.instructor.full_name
+        .card-body.instructor-body-color.text-light
+          %h5.font-italic= _('Instructor')
+          %span
+            = _('Email:')
+            = @course.instructor.email
+        .card-footer.instructor-header-color
+          %span.btn.btn-info
+            = icon('comment-o')
+            %span.sr-only= _('Message')
+
       - @course.students.each do |s|
         .card
           .card-header
-            = user_avatar s, size: '50x50', class: 'rounded-circle'
+            - if policy(Enrolment).destroy?
+              = link_to course_enrolment_path(@course),
+                        class: 'btn btn-sm btn-outline-danger float-right', method: :delete do
+                = icon 'user-times'
+                %span.sr-only= _('Remove')
+            = user_avatar_tag s, size: '50x50', class: 'rounded-circle'
             = s.full_name
           .card-body
             %span
-              E-Mail:
+              = _('Email:')
               = s.email
+          .card-footer
+            %span.btn.btn-info
+              = icon 'comment-o'
+              %span.sr-only= _('Message')
 .row.mb-2
   .col
     .card
@@ -30,33 +59,37 @@
         - if policy(Assignment).new?
           = link_to new_course_assignment_path(@course), class: 'btn btn-success float-right' do
             = icon('file-o')
-            New Assignment
-        %h5 Assignments
+            = _('New Assignment')
+        %h5= _('Assignments')
       .card-body
         %table.table.table-striped
           %thead
             %tr
-              %th Date
-              %th Name
-              %th Due Date
-              %th Submissions
-              %th.text-center Actions
+              %th= _('Date')
+              %th= _('Name')
+              %th= _('Due Date')
+              %th= _('Submissions')
+              %th.text-center= _('Actions')
           %tbody
-            - @course.assignments.each do |a|
+            - @course.assignments.each do |assignment|
               %tr
-                %td= time_tag a.created_at
-                %td= link_to a.name, [@course, a]
-                %td{ class: due_date_style(a.due_date) }
-                  = distance_of_time_in_words(Date.today, a.due_date)
+                %td= time_tag assignment.created_at.strftime('%B %d, %Y')
+                %td= link_to assignment.name, course_assignment_path(@course, assignment)
+                %td{ class: due_date_style(assignment.due_date) }
+                  - if assignment.due_date < Date.today
+                    = _('Overdue')
+                  - else
+                    = distance_of_time_in_words(Date.today, assignment.due_date)
                 %td
                 %td.d-flex.justify-content-end
-                  - if policy(a).edit?
-                    = link_to edit_course_assignment_path(@course, a),
-                              class: 'btn btn-outline-success mr-2' do
+                  - if policy(assignment).edit?
+                    = link_to edit_course_assignment_path(@course, assignment),
+                              class: 'btn btn-sm btn-outline-primary mr-2' do
                       = icon('edit')
-                      Edit
-                  - if policy(a).destroy?
-                    = link_to course_assignment_path(@course, a), class: 'btn btn-outline-danger',
-                              method: :delete, data: { confirm: "Delete #{a.name}?" } do
+                      %span.sr-only= _('Edit')
+                  - if policy(assignment).destroy?
+                    = link_to course_assignment_path(@course, assignment),
+                              class: 'btn btn-sm btn-outline-danger', method: :delete,
+                              data: { confirm: "Delete #{assignment.name}?" } do
                       = icon('trash')
-                      Delete
+                      %span.sr-only= _('Delete')

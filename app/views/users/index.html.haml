@@ -3,45 +3,35 @@
   .card-header
     .row
       .col-md-2
-        %h4 Users
+        %h4= _('Users')
       .col-md-8
-        = search_form_for @q, class: 'form-inline' do |f|
+        = search_form_for @query, class: 'form-inline' do |form|
           .input-group.mx-auto
-            = f.search_field :full_name_cont, class: 'form-control', placeholder: true
+            = form.search_field :full_name_cont, class: 'form-control', placeholder: true
             %span.input-group-btn
-              = f.submit class: 'btn btn-success'
+              = form.submit class: 'btn btn-success'
       .col-md-2
-        = link_to new_user_path, class: 'btn btn-primary float-right' do
-          = icon 'user'
-          New User
+        - if policy(User).new?
+          = link_to new_user_path, class: 'btn btn-primary float-right',
+                    data: { toggle: 'modal', target: '#user-new-modal' } do
+            = icon 'user'
+            = _('New User')
   .card-body
     .row
       .col
-      %table.table.table-striped
-        %thead
-          %tr
-            %th
-            %th Name
-            %th Email
-            %th Role
-            %th.text-center Actions
-        %tbody
-          - @users.each do |u|
+        %table.table.table-striped.table-responsive-md#user-table
+          %thead
             %tr
-              %td= user_avatar u, size: '50x50'
-              %td= link_to u.full_name, user_path(u), class: 'btn btn-link'
-              %td= u.email
-              %td= u.role.capitalize
-              %td.d-flex.justify-content-end
-                - if policy(u).edit?
-                  = link_to edit_user_path(u), class: 'btn btn-outline-primary mr-2' do
-                    = icon('edit')
-                    Edit
-                - if policy(u).destroy?
-                  = link_to user_path(u), class: 'btn btn-outline-danger', method: 'delete',
-                            data: { confirm: "Delete #{u.full_name}?" } do
-                    = icon('trash')
-                    Delete
+              %th
+              %th= _('Name')
+              %th= _('Email')
+              %th= _('Role')
+              %th.text-center= _('Actions')
+          %tbody
+            - @users.each do |user|
+              = render 'users/user_row', user: user
     .row
       .col.justify-contents-center
         = paginate @users
+
+= render 'users/modal', user: User.new

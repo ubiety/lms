@@ -1,0 +1,12 @@
+# config/app.yml for rails-settings-cached
+defaults: &defaults
+  brand: "LMS"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

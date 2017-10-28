@@ -28,7 +28,7 @@ class UserPolicy < ApplicationPolicy
     user.admin?
   end
 
-  # Scope
+  # User policy scope
   class Scope < Scope
     def resolve
       if user.admin?

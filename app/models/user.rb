@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :courses, through: :enrolments
   has_many :taught_courses, class_name: 'Course', foreign_key: :instructor_id
 
+  has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
+  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'receiver_id'
+  has_many :personal_messages, dependent: :destroy
+
   authenticates_with_sorcery!
 
   enum role: %w[student instructor admin]
@@ -32,6 +36,19 @@ class User < ApplicationRecord
   paginates_per 15
 
   ransack_alias :full_name, :first_name_or_last_name
+
+  scope :instructors, -> { where.has { |user| user.role == roles[:instructor] } }
+
+  def self.unenrolled(course)
+    enrol_table = Arel::Table.new(:enrolments)
+    user_table = Arel::Table.new(:users)
+    course_id = enrol_table[:course_id]
+
+    joins(user_table.join(enrol_table, Arel::Nodes::FullOuterJoin)
+            .on(user_table[:id].eq(enrol_table[:user_id])).join_sources)
+      .where(course_id.eq(nil).or(course_id.not_eq(course.id)))
+      .where(user_table[:role].eq(roles[:student]))
+  end
 
   def full_name
     if last_name.present?

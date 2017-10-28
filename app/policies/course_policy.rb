@@ -5,7 +5,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin?
+    user.admin? && (User.instructors.count > 0)
   end
 
   def create?
@@ -35,9 +35,12 @@ class CoursePolicy < ApplicationPolicy
   # Policy scope
   class Scope < Scope
     def resolve
-      if user.admin?
+      case user.role
+      when 'admin'
         scope.all
-      elsif user.instructor? || user.student?
+      when 'instructor'
+        scope.where('instructor_id = :user_id', user_id: user.id)
+      when 'student'
         scope.joins(:enrolments).where('user_id = :user_id', user_id: user.id)
       else
         scope

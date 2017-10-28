@@ -4,9 +4,10 @@
     .card
       .card-header
         - if policy(@assignment).edit?
-          = link_to [@course, @assignment], class: 'btn btn-success float-right' do
+          = link_to edit_course_assignment_path(@course, @assignment),
+                    class: 'btn btn-primary float-right' do
             = icon('edit')
-            Edit Assignment
+            %span.sr-only= _('Edit Assignment')
         %h3= @assignment.name
       .card-body
         = render_description @assignment.description

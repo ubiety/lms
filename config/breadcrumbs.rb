@@ -1,10 +1,15 @@
 crumb :root do
-  link 'Dashboard', root_path
+  link _('Dashboard'), root_path
 end
 
 crumb :users do
-  link 'Users', users_path
+  link _('Users'), users_path
   parent :root
+end
+
+crumb :new_user do
+  link _('New User'), new_user_path
+  parent :users
 end
 
 crumb :user do |u|
@@ -13,7 +18,7 @@ crumb :user do |u|
 end
 
 crumb :courses do
-  link 'Courses', courses_path
+  link _('Courses'), courses_path
   parent :root
 end
 

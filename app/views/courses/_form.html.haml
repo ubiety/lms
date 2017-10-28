@@ -1,18 +1,25 @@
+- if course.errors.any?
+  = render 'shared/errors', model: course
 .row
   .col
     .form-group
-      = f.text_field :name, placeholder: 'Name', class: 'form-control'
+      = form.text_field :name, placeholder: _('Name'), class: 'form-control'
   .col
     .form-group
-      = f.select :instructor_id, (i.map { |u| [u.full_name, u.id] }), {}, class: 'custom-select'
+      = form.select :instructor_id, (instructors.map { |user| [user.full_name, user.id] }),
+                    {}, class: 'custom-select'
+.row
+  .col
+    .form-group
+      = bootstrap_md_editor form, :description
 .row
   .col
     .form-group
       %label
-        Start Time
-        = f.time_select :start_time, {}, class: 'custom-select'
+        = _('Start Time')
+        = form.time_select :start_time, { minute_step: 30 }, class: 'custom-select'
   .col
     .form-group
       %label
-        End Time
-        = f.time_select :end_time, {}, class: 'custom-select'
+        = _('End Time')
+        = form.time_select :end_time, { minute_step: 30 }, class: 'custom-select'

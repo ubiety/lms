@@ -1,0 +1,17 @@
+%tr{ id: "user-#{user.id}" }
+  %td= user_avatar_tag user, size: '50x50'
+  %td= link_to user.full_name, user_path(user), class: 'btn btn-link'
+  %td= user.email
+  %td= user.role.capitalize
+  %td.d-flex.justify-content-end
+    - if policy(user).edit?
+      = link_to edit_user_path(user), class: 'btn btn-sm btn-outline-primary mr-2',
+                data: { toggle: 'modal', target: "#user-#{user.id}-modal" } do
+        = icon('edit')
+        %span.sr-only= _('Edit')
+    - if policy(user).destroy?
+      = link_to user_path(user), class: 'btn btn-sm btn-outline-danger', method: 'delete',
+                data: { confirm: "Delete #{user.full_name}?" } do
+        = icon('trash')
+        %span.sr-only= _('Delete')
+= render 'users/modal', user: user

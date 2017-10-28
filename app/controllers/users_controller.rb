@@ -1,6 +1,7 @@
 # Users controller
 class UsersController < ApplicationController
   before_action :find_user, except: %w[index new create]
+  respond_to :html, :js
 
   def index
     @query = User.ransack(params[:q])
@@ -18,13 +19,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     authorize @user
-    if @user.save!
-      redirect_to @user, flash: { success: 'User signed up successfully' }
-    else
-      render :new
-    end
+    flash[:success] = _('User created successfully') if @user.save
+    respond_with @user
   end
 
   def edit
@@ -34,17 +32,14 @@ class UsersController < ApplicationController
   def update
     authorize @user
     @user.assign_attributes(user_params)
-    if @user.save!
-      redirect_to @user, flash: { success: 'User saved' }
-    else
-      render :edit
-    end
+    flash[:success] = _('User updated successfully') if @user.save
+    respond_with @user
   end
 
   def destroy
     authorize @user
     if @user.destroy!
-      redirect_to users_path, flash: { success: 'User deleted' }
+      redirect_to users_path, flash: { success: _('User deleted') }
     else
       redirect_to @user
     end
@@ -57,8 +52,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :role, :first_name,
-                                 :middle_name, :last_name, :password,
-                                 :password_confirmation, :avatar)
+    params.require(:user).permit(:email, :name, :role, :first_name, :middle_name, :last_name,
+                                 :password, :password_confirmation, :avatar)
   end
 end
