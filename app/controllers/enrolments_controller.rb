@@ -4,7 +4,6 @@ class EnrolmentsController < ApplicationController
 
   def new
     @enrolment = @course.enrolments.new
-    # @students = User.unenrolled(@course)
     authorize @enrolment
   end
 
@@ -12,10 +11,9 @@ class EnrolmentsController < ApplicationController
     @enrolment = @course.enrolments.new(enrolment_params)
     authorize @enrolment
     if @enrolment.save
-      redirect_to @course, flash: { success: 'Enrolled student' }
+      redirect_to @course, flash: { success: _('Enrolled student') }
     else
-      # @students = User.unenrolled(@course)
-      flash.now[:error] = 'Error enrolling student'
+      flash.now[:error] = _('Error enrolling student')
       render :new
     end
   end
