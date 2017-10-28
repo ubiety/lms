@@ -12,10 +12,6 @@ class UserPolicy < ApplicationPolicy
     new?
   end
 
-  def show?
-    true
-  end
-
   def edit?
     true
   end

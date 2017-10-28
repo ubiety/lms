@@ -8,10 +8,6 @@ class AssignmentPolicy < ApplicationPolicy
     new?
   end
 
-  def show?
-    true
-  end
-
   def edit?
     user.admin? || user.instructor?
   end

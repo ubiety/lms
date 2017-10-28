@@ -12,10 +12,6 @@ class CoursePolicy < ApplicationPolicy
     new?
   end
 
-  def show?
-    true
-  end
-
   def delete?
     user.admin?
   end
