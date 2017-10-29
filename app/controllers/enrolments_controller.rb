@@ -8,14 +8,11 @@ class EnrolmentsController < ApplicationController
   end
 
   def create
-    @enrolment = @course.enrolments.new(enrolment_params)
-    authorize @enrolment
-    if @enrolment.save
-      redirect_to @course, flash: { success: _('Enrolled student') }
-    else
-      flash.now[:error] = _('Error enrolling student')
-      render :new
-    end
+    user_ids = params[:enrolment][:user_id].reject!(&:empty?)
+
+    @enrolment = user_ids.map { |user| @course.enrolments.create(enrolment_params(user)) }
+
+    redirect_to @course
   end
 
   private
@@ -28,7 +25,7 @@ class EnrolmentsController < ApplicationController
     @students = User.unenrolled(@course)
   end
 
-  def enrolment_params
-    params.require(:enrolment).permit(user_id: [])
+  def enrolment_params(user)
+    params.require(:enrolment).permit(:user_id).merge(user_id: user)
   end
 end
