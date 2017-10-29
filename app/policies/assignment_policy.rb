@@ -12,6 +12,10 @@ class AssignmentPolicy < ApplicationPolicy
     user.admin? || user.instructor?
   end
 
+  def show?
+    true
+  end
+
   def update?
     edit?
   end
