@@ -8,10 +8,7 @@ class EnrolmentsController < ApplicationController
   end
 
   def create
-    user_ids = params[:enrolment][:user_id].reject!(&:empty?)
-
-    @enrolment = user_ids.map { |user| @course.enrolments.create(enrolment_params(user)) }
-
+    @enrolment = enrolment_params[:student_ids].map { |e| @course.enrolments.create!(user_id: e)  }
     redirect_to @course
   end
 
@@ -25,7 +22,7 @@ class EnrolmentsController < ApplicationController
     @students = User.unenrolled(@course)
   end
 
-  def enrolment_params(user)
-    params.require(:enrolment).permit(:user_id).merge(user_id: user)
+  def enrolment_params
+    params.require(:enrolment).permit(student_ids: [])
   end
 end

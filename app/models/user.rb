@@ -40,8 +40,8 @@ class User < ApplicationRecord
   scope :instructors, -> { where.has { |user| user.role == roles[:instructor] } }
 
   def self.unenrolled(course)
-    find_by_sql(['SELECT * FROM users LEFT OUTER JOIN enrolments ON enrolments.user_id = users.id
-                 WHERE enrolments.course_id != ? AND users.role = ?', course.id,
+    find_by_sql(['SELECT users.* FROM users LEFT OUTER JOIN enrolments ON enrolments.user_id = users.id
+                 WHERE enrolments.course_id != ? OR enrolments.course_id IS null AND users.role = ?', course.id,
                  User.roles[:student]])
   end
 
