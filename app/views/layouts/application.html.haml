@@ -6,6 +6,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', data: { turbolinks_track: 'reload' }
     = javascript_include_tag 'application', data: { turbolinks_track: 'reload' }
+    = javascript_pack_tag 'application'
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
     %meta{ name: 'description', content: 'Learning Management System' }
   %body.background
@@ -42,7 +43,7 @@
               = render 'shared/sidebar_nav'
           .row.mt-2
             .col
-              = render 'conversations/conversations', chats: @chats
+              = react_component 'Chat'
         .col-md-10
           .row
             .col

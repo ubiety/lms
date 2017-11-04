@@ -79,3 +79,6 @@ fabric.properties
 \.haml-lint_todo\.yml
 
 \.idea/codeStyleSettings\.xml
+/public/packs
+/public/packs-test
+/node_modules
