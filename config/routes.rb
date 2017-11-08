@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   }, as: :avatar
 
   resources :settings
+  resources :conversations, defaults: { format: :json }
 
   resources :users, concerns: :paginatable do
     resources :assignments, only: %w[show]
