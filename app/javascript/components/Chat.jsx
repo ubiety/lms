@@ -22,6 +22,10 @@ class Chat extends React.Component {
     this.fetchChats()
   }
 
+  componentWillUnmount () {
+
+  }
+
   render () {
     return (
       <div className="card">

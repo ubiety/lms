@@ -19,6 +19,7 @@ gem 'dragonfly'
 gem 'font-awesome-sass'
 gem 'friendly_id'
 gem 'grape'
+gem 'graphql'
 gem 'green_monkey'
 gem 'gretel'
 gem 'haml'
@@ -75,3 +76,5 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
+
+gem 'graphiql-rails', group: :development
