@@ -1,39 +1,19 @@
-import React from 'react'
-import axios from 'axios'
-import ChatList from './ChatList'
+import React, { Component } from 'react'
+import { ApolloProvider } from 'react-apollo'
+import ChatClient from './chat-client'
+import ChatListWithData from './chat-list'
 
-class Chat extends React.Component {
-  constructor () {
-    super();
-    this.state = {
-      chats: []
-    }
-  }
-
-  fetchChats () {
-    axios.get('/conversations').then(response => {
-      this.setState({ chats: response.data })
-    }).catch(error => {
-      console.error(error)
-    })
-  }
-
-  componentDidMount () {
-    this.fetchChats()
-  }
-
-  componentWillUnmount () {
-
-  }
-
-  render () {
+class Chat extends Component {
+  render() {
     return (
-      <div className="card">
-        <div className="card-header">Chat</div>
-        <div className="card-body">
-          <ChatList chats={this.state.chats} />
+      <ApolloProvider client={ChatClient}>
+        <div className="card">
+          <div className="card-header">Chat</div>
+          <div className="card-body">
+            <ChatListWithData />
+          </div>
         </div>
-      </div>
+      </ApolloProvider>
     )
   }
 }
