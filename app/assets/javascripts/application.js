@@ -18,4 +18,7 @@
 //= require bootstrap-sprockets
 //= require data-confirm-modal
 //= require bootstrap_md_editor
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .

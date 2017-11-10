@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   dragonfly_accessor :avatar
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, email_format: true
   validates :first_name, presence: true
   validates :role, presence: true
   validates :password, on: :create, presence: true
@@ -40,14 +40,9 @@ class User < ApplicationRecord
   scope :instructors, -> { where.has { |user| user.role == roles[:instructor] } }
 
   def self.unenrolled(course)
-    enrol_table = Arel::Table.new(:enrolments)
-    user_table = Arel::Table.new(:users)
-    course_id = enrol_table[:course_id]
-
-    joins(user_table.join(enrol_table, Arel::Nodes::FullOuterJoin)
-            .on(user_table[:id].eq(enrol_table[:user_id])).join_sources)
-      .where(course_id.eq(nil).or(course_id.not_eq(course.id)))
-      .where(user_table[:role].eq(roles[:student]))
+    find_by_sql(['SELECT * FROM users LEFT OUTER JOIN enrolments ON enrolments.user_id = users.id
+                 WHERE enrolments.course_id != ? AND users.role = ?', course.id,
+                 User.roles[:student]])
   end
 
   def full_name

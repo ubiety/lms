@@ -7,7 +7,7 @@
         = _('New Course')
     %h3= _('Courses')
   .card-body
-    %table.table-striped.table
+    %table.table-striped.table.table-responsive-md
       %thead
         %tr
           %th.w-50= _('Name')
@@ -22,7 +22,7 @@
               - if course.instructor
                 = user_avatar_tag course.instructor, size: '50x50', class: 'rounded-circle'
                 = course.instructor.full_name
-            %td= course.start_time.strftime('%H:%M %Z') if c.start_time
+            %td= course.start_time.strftime('%H:%M %Z') if course.start_time
             %td.d-flex.justify-content-center
               - if policy(Enrolment).new?
                 = link_to new_course_enrolment_path(course),
