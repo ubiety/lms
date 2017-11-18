@@ -28,7 +28,7 @@ $color-five: #5557A4;
 
 .background {
   background-size: cover;
-  background: url(asset-path('background')) fixed;
+  background: url(asset-path('background')) no-repeat center center fixed;
 }
 
 html, body {
@@ -57,4 +57,8 @@ html, body {
 
 .instructor-body-color {
   background-color: $color-four;
+}
+
+.faded-background {
+  background-color: rgba(245, 245, 245, 0.6) !important;
 }

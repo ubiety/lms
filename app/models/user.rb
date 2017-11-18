@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   dragonfly_accessor :avatar
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, email_format: true
   validates :first_name, presence: true
   validates :role, presence: true
   validates :password, on: :create, presence: true
