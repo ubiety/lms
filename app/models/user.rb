@@ -45,6 +45,10 @@ class User < ApplicationRecord
                  User.roles[:student]])
   end
 
+  def should_generate_friendly_id?
+    first_name_changed? || last_name_changed?
+  end
+
   def full_name
     if last_name.present?
       "#{first_name} #{last_name}"

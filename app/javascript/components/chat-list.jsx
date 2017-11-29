@@ -16,7 +16,7 @@ const ChatList = ({ data: { loading, error, conversation } }) => {
       <li><i className="fa fa-comment-o fa-li"></i>{ chat.receiver.full_name }</li>
     )}
   </ul>
-}
+};
 
 const ChatListWithData = graphql(gql`query {
   conversation {
@@ -24,6 +24,6 @@ const ChatListWithData = graphql(gql`query {
       full_name
     }
   }
-}`)(ChatList)
+}`)(ChatList);
 
 export default ChatListWithData
