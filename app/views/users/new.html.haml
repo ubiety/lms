@@ -6,6 +6,6 @@
         .card-header
           %h3= _('Create User')
         .card-body
-          = render 'users/form', form: form
+          = render 'users/form', form: form, user: @user
         .card-footer
           = form.submit class: 'btn btn-primary float-right'
