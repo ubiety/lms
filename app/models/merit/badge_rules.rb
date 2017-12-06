@@ -27,8 +27,9 @@ module Merit
       # Find badge by badge_id, badge_id takes presidence over badge
       # grant_on 'users#create', badge_id: 7, badge: 'just-registered', to: :itself
 
-      grant_on 'users#create', badge_id: 0, badge: 'new-student', to: :itself do |user|
-        user.student?
+      grant_on 'users#create', badge_id: 0, badge: 'new-student', to: :itself,
+                               temporary: true do |user|
+        user.student? && (user.created_at - Date.today) < 10.days
       end
 
       # If it has 10 comments, grant commenter-10 badge

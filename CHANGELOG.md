@@ -1,16 +1,16 @@
 # Change Log
 
-## [0.0.5](https://github.com/coder2000/lms/tree/0.0.5) (2017-09-09)
-[Full Changelog](https://github.com/coder2000/lms/compare/0.0.1...0.0.5)
+## [Unreleased](https://github.com/coder2000/lms/tree/HEAD)
+
+[Full Changelog](https://github.com/coder2000/lms/compare/0.0.5...HEAD)
 
 **Merged pull requests:**
 
-- Add badges [\#6](https://github.com/coder2000/lms/pull/6) ([coder2000](https://github.com/coder2000))
-- Add testing [\#5](https://github.com/coder2000/lms/pull/5) ([coder2000](https://github.com/coder2000))
-- Fix config [\#4](https://github.com/coder2000/lms/pull/4) ([coder2000](https://github.com/coder2000))
-- 0.0.4 [\#3](https://github.com/coder2000/lms/pull/3) ([coder2000](https://github.com/coder2000))
-- 0.0.3 [\#2](https://github.com/coder2000/lms/pull/2) ([coder2000](https://github.com/coder2000))
-- 0.0.2 [\#1](https://github.com/coder2000/lms/pull/1) ([coder2000](https://github.com/coder2000))
+- Merge master into develop [\#2](https://github.com/coder2000/lms/pull/2) ([coder2000](https://github.com/coder2000))
+- Merge gem updates [\#1](https://github.com/coder2000/lms/pull/1) ([coder2000](https://github.com/coder2000))
+
+## [0.0.5](https://github.com/coder2000/lms/tree/0.0.5) (2017-09-09)
+[Full Changelog](https://github.com/coder2000/lms/compare/0.0.1...0.0.5)
 
 ## [0.0.1](https://github.com/coder2000/lms/tree/0.0.1) (2017-09-02)
 

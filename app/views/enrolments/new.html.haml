@@ -1,10 +1,10 @@
-= form_for course_enrolment_path(@course, @enrolment) do |form|
+= form_for [@course, @enrolment] do |form|
   .card
     .card-header
       %h3
-        = _('Enroll Student in')
+        = _('Enroll student in')
         = @course.name
     .card-body
       = render 'enrolments/form', form: form, students: @students, enrolment: @enrolment
     .card-footer
-      = f.submit _('Enroll Student(s)'), class: 'btn btn-primary float-right'
+      = form.submit _('Enroll Student(s)'), class: 'btn btn-primary float-right'

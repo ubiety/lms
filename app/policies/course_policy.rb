@@ -4,16 +4,16 @@ class CoursePolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def new?
     user.admin? && (User.instructors.count > 0)
   end
 
   def create?
     new?
-  end
-
-  def show?
-    true
   end
 
   def delete?
