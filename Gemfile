@@ -16,9 +16,9 @@ gem 'bootstrap_md_editor', github: 'coder2000/bootstrap_md_editor', branch: 'mas
 gem 'coffee-rails', '~> 4.2'
 gem 'data-confirm-modal'
 gem 'dragonfly'
+gem 'envkey'
 gem 'font-awesome-sass'
 gem 'friendly_id'
-gem 'grape'
 gem 'graphql'
 gem 'green_monkey'
 gem 'gretel'
@@ -42,7 +42,7 @@ gem 'representable'
 gem 'responders'
 gem 'routing-filter'
 gem 'sass-rails', '~> 5.0'
-gem 'sorcery'
+gem 'sorcery', '~> 0.11.0'
 gem 'tod'
 gem 'translation'
 gem 'turbolinks', '~> 5'
@@ -64,17 +64,18 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
+  gem 'sqlite3'
+  gem 'tzinfo-data'
 end
 
 group :development do
   gem 'better_errors'
   gem 'brakeman', require: false
   gem 'capybara'
+  gem 'graphiql-rails'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'meta_request'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
-gem 'graphiql-rails', group: :development

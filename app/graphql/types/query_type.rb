@@ -9,6 +9,12 @@ Types::QueryType = GraphQL::ObjectType.define do
     resolve ->(obj, args, ctx) { User.find(args[:id]) }
   end
 
+  field :users do
+    type Types::UserType
+    argument :page, !types.Int
+    resolve ->(obj, args, ctx) { User.all.page(args[:page]) }
+  end
+
   field :conversation do
     type types[Types::ConversationType]
     resolve ->(obj, args, ctx) { Conversation.participating(ctx[:current_user]) }
