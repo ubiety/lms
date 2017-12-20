@@ -198,7 +198,7 @@ GEM
       virtus (>= 1.0.0)
     graphiql-rails (1.4.7)
       rails
-    graphql (1.7.5)
+    graphql (1.7.7)
     green_monkey (0.3.0)
       chronic_duration
       haml (>= 3.1.0)
