@@ -45,7 +45,7 @@ class User < ApplicationRecord
                  User.roles[:student]])
   end
 
-  def should_generate_friendly_id?
+  def should_generate_new_friendly_id?
     first_name_changed? || last_name_changed?
   end
 
