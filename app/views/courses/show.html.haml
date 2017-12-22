@@ -76,7 +76,7 @@
                 %td= time_tag assignment.created_at.strftime('%B %d, %Y')
                 %td= link_to assignment.name, course_assignment_path(@course, assignment)
                 %td{ class: due_date_style(assignment.due_date) }
-                  - if assignment.due_date < Date.today
+                  - if assignment.overdue
                     = _('Overdue')
                   - else
                     = distance_of_time_in_words(Date.today, assignment.due_date)

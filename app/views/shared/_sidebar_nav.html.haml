@@ -3,11 +3,12 @@
   .card-body
     %nav.nav.nav-pills.flex-column
       = active_link_to root_path, class: 'nav-link', active: :exclusive do
-        = icon 'dashboard'
+        %i.fas.fa-tachometer-alt
         %span.d-md-none.d-lg-inline= _('Dashboard')
-      = active_link_to users_path, class: 'nav-link' do
-        = icon 'users'
-        %span.d-md-none.d-lg-inline= _('Users')
+      - if policy(User).index?
+        = active_link_to users_path, class: 'nav-link' do
+          %i.fas.fa-users
+          %span.d-md-none.d-lg-inline= _('Users')
       = active_link_to courses_path, class: 'nav-link' do
-        = icon 'university'
+        %i.fas.fa-university
         %span.d-md-none.d-lg-inline= _('Courses')

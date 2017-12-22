@@ -5,4 +5,8 @@ class Assignment < ApplicationRecord
   belongs_to :course
 
   dragonfly_accessor :document
+
+  def overdue
+    due_date < Date.today
+  end
 end

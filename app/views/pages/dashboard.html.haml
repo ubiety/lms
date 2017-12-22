@@ -1,3 +1,20 @@
-.card.faded-background
-  .card-body
-    %p= _('Welcome to LMS')
+.row
+  .col
+    .card.faded-background
+      .card-body
+        %p= _('Welcome to LMS')
+
+.row.mt-2
+  .col-md-3
+    .card
+      .card-header
+        %h4 Assignments
+      .card-body
+        %ul.fa-ul
+          - current_user.assignments.each do |assignment|
+            %li{ class: due_date_style(assignment.due_date) }
+              %span.fa-li
+                %i.far.fa-clipboard
+              = link_to course_assignment_path(assignment.course, assignment),
+                        class: due_date_style(assignment.due_date) do
+                #{assignment.course.name} - #{assignment.name}
