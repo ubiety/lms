@@ -38,7 +38,7 @@
         .card
           .card-header
             - if policy(Enrolment).destroy?
-              = link_to course_enrolment_path(@course),
+              = link_to course_enrolment_path(@course, Enrolment.enrolment(@course, s)),
                         class: 'btn btn-sm btn-outline-danger float-right', method: :delete do
                 = icon 'user-times'
                 %span.sr-only= _('Remove')

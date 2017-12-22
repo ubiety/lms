@@ -1,6 +1,7 @@
 # Enrolment controller
 class EnrolmentsController < ApplicationController
-  before_action :find_course, :find_unenrolled_students
+  before_action :find_course
+  before_action :find_unenrolled_students, except: :destroy
 
   def new
     @enrolment = @course.enrolments.new
@@ -8,7 +9,15 @@ class EnrolmentsController < ApplicationController
   end
 
   def create
-    @enrolment = enrolment_params[:student_ids].map { |e| @course.enrolments.create!(user_id: e)  }
+    @enrolment = enrolment_params[:student_ids].map { |e| @course.enrolments.create!(user_id: e) }
+    redirect_to @course
+  end
+
+  def destroy
+    @enrolment = Enrolment.find(params[:id])
+    authorize @enrolment
+    @enrolment.destroy
+
     redirect_to @course
   end
 
