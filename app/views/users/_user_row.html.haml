@@ -7,11 +7,11 @@
     - if policy(user).edit?
       = link_to edit_user_path(user), class: 'btn btn-sm btn-outline-primary mr-2',
                 data: { toggle: 'modal', target: "#user-#{user.id}-modal" } do
-        = icon('edit')
+        %i.fas.fa-edit
         %span.sr-only= _('Edit')
     - if policy(user).destroy?
       = link_to user_path(user), class: 'btn btn-sm btn-outline-danger', method: 'delete',
                 data: { confirm: "Delete #{user.full_name}?" } do
-        = icon('trash')
+        %i.fas.fa-edit
         %span.sr-only= _('Delete')
 = render 'users/modal', user: user

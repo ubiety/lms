@@ -6,7 +6,13 @@ class Assignment < ApplicationRecord
 
   dragonfly_accessor :document
 
-  def overdue
-    due_date < Date.today
+  def overdue?
+    due_date < Time.now
+  end
+
+  def due_between(start_time, end_time)
+    diff = due_date - Time.now
+
+    diff < start_time || diff > end_time
   end
 end

@@ -1,2 +1,4 @@
 %li.page-item{ class: ('disabled' if current_page.first?) }
-  = link_to _('&laquo; First').html_safe, url, remote: remote, class: 'page-link'
+  = link_to url, remote: remote, class: 'page-link' do
+    %i.fas.fa-angle-double-left
+    = _('First').html_safe

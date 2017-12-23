@@ -4,7 +4,7 @@
     .card
       .card-header
         = link_to edit_user_path(@user), class: 'btn btn-primary float-right' do
-          = icon 'edit'
+          %i.fas.fa-edit
           = _('Edit')
         %h3= @user.full_name
       .card-body

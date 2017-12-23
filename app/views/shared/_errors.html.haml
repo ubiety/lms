@@ -4,5 +4,6 @@
       %ul.fa-ul
         - model.errors.full_messages.each do |message|
           %li
-            = icon('exclamation-circle', class: 'fa-li')
+            %span.fa-li
+              %i.fas.fa-exclamation-circle
             = message
