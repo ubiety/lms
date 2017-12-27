@@ -75,7 +75,7 @@
               %tr
                 %td= time_tag assignment.created_at.strftime('%B %d, %Y')
                 %td= link_to assignment.name, course_assignment_path(@course, assignment)
-                %td{ class: due_date_style(assignment.due_date) }
+                %td{ class: due_date_style(assignment) }
                   - if assignment.overdue?
                     = _('Overdue')
                   - else

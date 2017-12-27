@@ -12,9 +12,9 @@
       .card-body
         %ul.fa-ul
           - current_user.assignments.each do |assignment|
-            %li{ class: due_date_style(assignment.due_date) }
+            %li{ class: due_date_style(assignment) }
               %span.fa-li
                 %i.far.fa-clipboard
               = link_to course_assignment_path(assignment.course, assignment),
-                        class: due_date_style(assignment.due_date) do
+                        class: due_date_style(assignment) do
                 #{assignment.course.name} - #{assignment.name}
