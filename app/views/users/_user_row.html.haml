@@ -12,6 +12,6 @@
     - if policy(user).destroy?
       = link_to user_path(user), class: 'btn btn-sm btn-outline-danger', method: 'delete',
                 data: { confirm: "Delete #{user.full_name}?" } do
-        %i.fas.fa-edit
+        %i.fas.fa-trash
         %span.sr-only= _('Delete')
 = render 'users/modal', user: user
