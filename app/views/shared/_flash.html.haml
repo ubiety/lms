@@ -1,4 +1,5 @@
-%div{ role: 'alert', class: classes }
-  %button.close{ data: { dismiss: 'alert' } }
-    %i.far.fa-window-close
-  = message
+- flash.each do |type, message|
+  %div.alert.alert-dismissable.fade.show{ role: 'alert', class: class_for(type) }
+    %button.close{ data: { dismiss: 'alert' } }
+      %i.far.fa-window-close
+    = message
