@@ -1,0 +1,22 @@
+%nav.navbar.navbar-dark.navbar-expand-md{ class: "#{current_user.role}-navbar-color" }
+  = link_to root_path, class: 'navbar-brand' do
+    = Setting.brand
+  %button.navbar-toggler{ type: 'button', data: { toggle: 'collapse', target: '#nav-menu' },
+                          aria: { controls: 'nav-menu', expanded: 'false', label: 'Toggle navigation' } }
+    %span.navbar-toggler-icon
+  .collapse.navbar-collapse#nav-menu
+    %ul.navbar-nav.ml-auto
+      %li.nav-item.dropdown
+        = link_to '#', id: 'user-menu', class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' },
+                       aria: { haspopup: 'true', expanded: 'false' } do
+          = user_avatar_tag current_user, size: '25x25', class: 'rounded-circle'
+          = current_user.first_name
+        .dropdown-menu.dropdown-menu-right{ aria: { labelledby: 'user-menu' } }
+          - if current_user.admin?
+            = link_to settings_path, class: 'dropdown-item' do
+              %i.fas.fa-cog
+              = _('Settings')
+            .dropdown-divider
+          = link_to logout_path, class: 'dropdown-item' do
+            %i.fas.fa-sign-out-alt
+            = _('Log Out')
