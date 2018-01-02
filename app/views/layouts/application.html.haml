@@ -24,13 +24,13 @@
           .row.mt-2
             .col
               = react_component 'Chat'
-        .col-md-10
-          .row
-            .col
-              - breadcrumbs.tap do |crumb|
-                - if crumb.any?
+        - breadcrumbs.tap do |crumbs|
+          - if crumbs.any?
+            .col-md-10
+              .row
+                .col
                   %ol.breadcrumb
-                    - crumb.each do |link|
+                    - crumbs.each do |link|
                       %li{ class: "breadcrumb-item #{'active' if link.current?}" }
                         - if !link.current?
                           = link_to link.text, link.url
