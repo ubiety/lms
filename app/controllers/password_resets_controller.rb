@@ -24,8 +24,10 @@ class PasswordResetsController < ApplicationController
       return
     end
 
-    update_password params[:user][:password],
-                    params[:user][:password_confirmation]
+    user = params[:user]
+
+    update_password user[:password],
+                    user[:password_confirmation]
   end
 
   private

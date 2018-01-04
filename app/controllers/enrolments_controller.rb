@@ -9,7 +9,7 @@ class EnrolmentsController < ApplicationController
   end
 
   def create
-    @enrolment = enrolment_params[:student_ids].map { |e| @course.enrolments.create!(user_id: e) }
+    @enrolment = enrolment_params[:student_ids].map { |student| @course.enrolments.create!(user_id: student) }
     redirect_to @course
   end
 

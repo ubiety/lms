@@ -10,8 +10,8 @@
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
     %meta{ name: 'description', content: 'Learning Management System' }
   %body.background
-    .container-fluid.h-100
-      = render 'shared/header'
+    = render 'shared/header'
+    .container-fluid
       - unless flash.empty?
         .row.mt-3
           .col
@@ -21,12 +21,9 @@
           .row
             .col
               = render 'shared/sidebar_nav'
-          .row.mt-2
-            .col
-              = react_component 'Chat'
-        - breadcrumbs.tap do |crumbs|
-          - if crumbs.any?
-            .col-md-10
+        .col-md-10
+          - breadcrumbs.tap do |crumbs|
+            - if crumbs.any?
               .row
                 .col
                   %ol.breadcrumb

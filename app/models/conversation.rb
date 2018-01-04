@@ -12,6 +12,6 @@ class Conversation < ApplicationRecord
   }
 
   def with(current_user)
-    author == current_user ? receiver : author
+    author.id == current_user.id ? receiver : author
   end
 end

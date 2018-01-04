@@ -12,7 +12,6 @@ class Assignment < ApplicationRecord
 
   def due_between(start_time, end_time)
     diff = due_date - Time.now
-
-    diff < start_time || diff > end_time
+    diff.between?(start_time, end_time)
   end
 end
