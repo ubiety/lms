@@ -3,6 +3,9 @@
   .col
     .card
       .card-header
+        %span.float-right
+          Due:
+          %span{ class: due_date_style(@assignment) }= @assignment.due_date.strftime("%b %d, %Y")
         - if policy(@assignment).edit?
           = link_to edit_course_assignment_path(@course, @assignment),
                     class: 'btn btn-primary float-right' do
