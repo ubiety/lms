@@ -10,4 +10,9 @@ class UserMailer < ApplicationMailer
     @url = edit_password_reset_url(@user.reset_password_token, host: 'http://localtest.me:5000')
     mail(to: @user.email, subject: 'LMS Password Reset')
   end
+
+  def new_account_email(user)
+    @user = User.find user.id
+    mail(to: @user.email, subject: 'Welcome to LMS')
+  end
 end
