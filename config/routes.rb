@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   if Rails.env.development?
-    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+    mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
   end
 
-  post "/graphql", to: "graphql#execute"
+  post '/graphql', to: 'graphql#execute'
   filter :locale
 
   concern :paginatable do
@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   resources :users, concerns: :paginatable do
     resources :assignments, only: %w[show]
+    member do
+      get :activate
+    end
   end
 
   resources :courses do

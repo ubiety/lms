@@ -3,7 +3,7 @@
   .card-header
     - if policy(Course).new?
       = link_to new_course_path, class: 'btn btn-primary float-right' do
-        = icon 'university'
+        %i.fas.fa-university
         = _('New Course')
     %h3= _('Courses')
   .card-body
@@ -29,16 +29,16 @@
                           class: 'btn btn-sm btn-outline-success mr-2',
                           data: { toggle: 'tooltip', placement: 'top', container: 'body' },
                           title: _('Enroll') do
-                  = icon 'user-plus'
+                  %i.fas.fa-user-plus
                   %span.sr-only= _('Enroll')
               - if policy(course).edit?
                 = link_to edit_course_path(course), class: 'btn btn-sm btn-outline-primary mr-2',
                           data: { toggle: 'tooltip', placement: 'top' }, title: _('Edit') do
-                  = icon 'edit'
+                  %i.fas.fa-edit
                   %span.sr-only= _('Edit')
               - if policy(course).delete?
                 = link_to course_path(course), class: 'btn btn-sm btn-outline-danger',
                           method: :delete, data: { confirm: "Delete course #{course.name}?",
                           toggle: 'tooltip', placement: 'top' }, title: _('Delete') do
-                  = icon 'trash'
+                  %i.fas.fa-trash
                   %span.sr-only= _('Delete')

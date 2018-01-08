@@ -2,7 +2,7 @@
 #
 # +grant_on+ accepts:
 # * Nothing (always grants)
-# * A block which evaluates to boolean (recieves the object as parameter)
+# * A block which evaluates to boolean (receives the object as parameter)
 # * A block with a hash composed of methods to run on the target object with
 #   expected values (+votes: 5+ for instance).
 #
@@ -24,13 +24,8 @@ module Merit
     def initialize
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
-      # Find badge by badge_id, badge_id takes presidence over badge
+      # Find badge by badge_id, badge_id takes precedence over badge
       # grant_on 'users#create', badge_id: 7, badge: 'just-registered', to: :itself
-
-      grant_on 'users#create', badge_id: 0, badge: 'new-student', to: :itself,
-                               temporary: true do |user|
-        user.student? && (user.created_at - Date.today) < 10.days
-      end
 
       # If it has 10 comments, grant commenter-10 badge
       # grant_on 'comments#create', badge: 'commenter', level: 10 do |comment|

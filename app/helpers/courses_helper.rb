@@ -1,15 +1,12 @@
 # Course helper methods
 module CoursesHelper
-  def due_date_style(due_date)
-    diff = due_date - Time.now
-    week = 7.days
-
-    if diff > week
-      'text-success'
-    elsif diff < week && diff > 2.days
+  def due_date_style(assignment)
+    if assignment.overdue?
+      'text-danger'
+    elsif assignment.due_between(7.days, 2.days)
       'text-warning'
     else
-      'text-danger'
+      'text-success'
     end
   end
 end

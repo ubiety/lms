@@ -18,7 +18,7 @@
               .card-header
                 %h3= _('Login')
               .card-body
-                = flash_messages
+                = render 'shared/flash'
                 .form-group
                   = email_field_tag :email, nil, class: 'form-control', placeholder: _('Email')
                 .form-group
@@ -29,5 +29,18 @@
                     = check_box_tag :remember_me, 1, false, class: 'form-check-input'
                     = _('Remember Me')
               .card-footer
-                = link_to 'Forgot Password', '#', class: 'align-self-center'
+                = link_to 'Forgot Password', '#', class: 'align-self-center',
+                          data: { toggle: 'modal', target: '#forgot-password-modal' }
                 = submit_tag _('Log In'), class: 'btn btn-primary float-right'
+
+    .modal.fade#forgot-password-modal{ role: 'dialog', aria: { hidden: 'true', labelledby: 'forgot-password-label' } }
+      .modal-dialog{ role: 'document' }
+        .modal-content
+          = form_tag password_resets_path do
+            .modal-header
+              %h3#forgot-password-label Forgot Password
+            .modal-body
+              .form-group
+                = email_field_tag :email, nil, class: 'form-control', placeholder: _('Email')
+            .modal-footer
+              = submit_tag _('Send Email'), class: 'btn btn-primary float-right'

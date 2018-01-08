@@ -35,13 +35,15 @@ class CoursePolicy < ApplicationPolicy
   # Policy scope
   class Scope < Scope
     def resolve
+      id = user.id
+
       case user.role
       when 'admin'
         scope.all
       when 'instructor'
-        scope.where('instructor_id = :user_id', user_id: user.id)
+        scope.where('instructor_id = ?', id)
       when 'student'
-        scope.joins(:enrolments).where('user_id = :user_id', user_id: user.id)
+        scope.joins(:enrolments).where('user_id = ?', id)
       else
         scope
       end

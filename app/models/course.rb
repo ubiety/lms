@@ -4,7 +4,7 @@ class Course < ApplicationRecord
 
   has_paper_trail
 
-  has_many :enrolments
+  has_many :enrolments, dependent: :destroy
   has_many :students, through: :enrolments, source: :user
   belongs_to :instructor, class_name: 'User', foreign_key: :instructor_id
   has_many :assignments

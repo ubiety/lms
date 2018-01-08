@@ -20,5 +20,8 @@
 //= require bootstrap_md_editor
 //= require react
 //= require react_ujs
-//= require components
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function() {
+    FontAwesome.dom.i2svg();
+});

@@ -6,11 +6,11 @@
         - if policy(Enrolment).new?
           = link_to new_course_enrolment_path(@course),
                     class: 'btn btn-outline-success float-right mr-2' do
-            = icon('user-plus')
+            %i.fas.fa-user-plus
             = _('Enroll')
         - if policy(@course).edit?
           = link_to edit_course_path(@course), class: 'btn btn-outline-primary float-right mr-2' do
-            = icon('edit')
+            %i.fas.fa-edit
             = _('Edit')
         %h3= @course.name
       .card-body
@@ -31,16 +31,16 @@
             = @course.instructor.email
         .card-footer.instructor-header-color
           %span.btn.btn-info
-            = icon('comment-o')
+            %i.far.fa-comment
             %span.sr-only= _('Message')
 
       - @course.students.each do |s|
         .card
           .card-header
             - if policy(Enrolment).destroy?
-              = link_to course_enrolment_path(@course),
+              = link_to course_enrolment_path(@course, Enrolment.enrolment(@course, s)),
                         class: 'btn btn-sm btn-outline-danger float-right', method: :delete do
-                = icon 'user-times'
+                %i.fas.fa-user-times
                 %span.sr-only= _('Remove')
             = user_avatar_tag s, size: '50x50', class: 'rounded-circle'
             = s.full_name
@@ -50,7 +50,7 @@
               = s.email
           .card-footer
             %span.btn.btn-info
-              = icon 'comment-o'
+              %i.far.fa-comment
               %span.sr-only= _('Message')
 .row.mb-2
   .col
@@ -58,7 +58,7 @@
       .card-header
         - if policy(Assignment).new?
           = link_to new_course_assignment_path(@course), class: 'btn btn-success float-right' do
-            = icon('file-o')
+            %i.far.fa-file
             = _('New Assignment')
         %h5= _('Assignments')
       .card-body
@@ -75,8 +75,8 @@
               %tr
                 %td= time_tag assignment.created_at.strftime('%B %d, %Y')
                 %td= link_to assignment.name, course_assignment_path(@course, assignment)
-                %td{ class: due_date_style(assignment.due_date) }
-                  - if assignment.due_date < Date.today
+                %td{ class: due_date_style(assignment) }
+                  - if assignment.overdue?
                     = _('Overdue')
                   - else
                     = distance_of_time_in_words(Date.today, assignment.due_date)
@@ -85,11 +85,11 @@
                   - if policy(assignment).edit?
                     = link_to edit_course_assignment_path(@course, assignment),
                               class: 'btn btn-sm btn-outline-primary mr-2' do
-                      = icon('edit')
+                      %i.fas.fa-edit
                       %span.sr-only= _('Edit')
                   - if policy(assignment).destroy?
                     = link_to course_assignment_path(@course, assignment),
                               class: 'btn btn-sm btn-outline-danger', method: :delete,
                               data: { confirm: "Delete #{assignment.name}?" } do
-                      = icon('trash')
+                      %i.fas.fa-trash
                       %span.sr-only= _('Delete')

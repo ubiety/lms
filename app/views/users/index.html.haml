@@ -14,7 +14,7 @@
         - if policy(User).new?
           = link_to new_user_path, class: 'btn btn-primary float-right',
                     data: { toggle: 'modal', target: '#user-new-modal' } do
-            = icon 'user'
+            %i.fas.fa-user
             = _('New User')
   .card-body
     .row
