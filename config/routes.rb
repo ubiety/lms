@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   resources :users, concerns: :paginatable do
     resources :assignments, only: %w[show]
+    member do
+      get :activate
+    end
   end
 
   resources :courses do

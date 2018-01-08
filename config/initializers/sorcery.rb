@@ -2,7 +2,7 @@
 # The default is nothing which will include only core features (password encryption, login/logout).
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging, :external
-Rails.application.config.sorcery.submodules = %i[remember_me reset_password]
+Rails.application.config.sorcery.submodules = %i[remember_me reset_password user_activation]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -17,7 +17,7 @@ Rails.application.config.sorcery.configure do |config|
   # the URL he wanted to reach, and send him there after login, using 'redirect_back_or_to'.
   # Default: `true`
   #
-  # config.save_return_to_url =
+  config.save_return_to_url = true
 
   # Set domain option for cookies; Useful for remember_me submodule.
   # Default: `nil`
@@ -286,7 +286,7 @@ Rails.application.config.sorcery.configure do |config|
     # your mailer class. Required.
     # Default: `nil`
     #
-    # user.user_activation_mailer =
+    user.user_activation_mailer = UserMailer
 
     # when true sorcery will not automatically
     # email activation details and allow you to
@@ -304,7 +304,7 @@ Rails.application.config.sorcery.configure do |config|
     # activation needed email method on your mailer class.
     # Default: `:activation_needed_email`
     #
-    # user.activation_needed_email_method_name =
+    user.activation_needed_email_method_name = :new_account_email
 
     # activation success email method on your mailer class.
     # Default: `:activation_success_email`
@@ -352,12 +352,12 @@ Rails.application.config.sorcery.configure do |config|
     # how many seconds before the reset request expires. nil for never expires.
     # Default: `nil`
     #
-    # user.reset_password_expiration_period =
+    user.reset_password_expiration_period = 1 * 3600
 
     # hammering protection, how long in seconds to wait before allowing another email to be sent.
     # Default: `5 * 60`
     #
-    # user.reset_password_time_between_emails =
+    user.reset_password_time_between_emails = 5 * 60
 
     # -- brute_force_protection --
     # Failed logins attribute name.

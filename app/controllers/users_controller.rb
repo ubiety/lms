@@ -1,6 +1,7 @@
 # Users controller
 class UsersController < ApplicationController
-  before_action :find_user, except: %w[index new create]
+  before_action :find_user, except: %w[index new create activate]
+  skip_before_action :require_login, only: %w[activate]
   respond_to :html, :js
 
   def index
@@ -42,6 +43,15 @@ class UsersController < ApplicationController
       redirect_to users_path, flash: { success: _('User deleted') }
     else
       redirect_to @user
+    end
+  end
+
+  def activate
+    if (@user = User.find_by_activation_token(params[:id]))
+      @user.activate!
+      redirect_to login_path, notice: _('Account activated successfully')
+    else
+      not_authenticated
     end
   end
 

@@ -12,7 +12,13 @@ class UserMailer < ApplicationMailer
   end
 
   def new_account_email(user)
-    @user = User.find user.id
+    @user = user
+    @url = activate_user_url(@user.activation_token, host: 'http://localtest.me:5000')
     mail(to: @user.email, subject: 'Welcome to LMS')
+  end
+
+  def activation_success_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Account activated')
   end
 end
